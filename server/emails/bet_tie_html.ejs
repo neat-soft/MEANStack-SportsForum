@@ -1,0 +1,13 @@
+<h1>Yolo ended in a tie</h1>
+<h3>Your Yolo was resolved in a tie at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

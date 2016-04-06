@@ -1,0 +1,79 @@
+<div class="analytics">
+  <h3>Analytics</h3> <hr/>
+  <div class="row">
+
+    <div class="col-md-2">
+      <div class="btn-group">
+        <button type="button" id="date-range-dropdown" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span id="date-range-label">Date range: Week</span> <span class="caret"></span></button>
+        <ul class="dropdown-menu pull-right" role="menu">
+          <li><a id="date-range-week" class="date-range" href="#">Week</a></li>
+          <li><a id="date-range-month" class="date-range" href="#">Month</a></li>
+          <li><a id="date-range-year" class="date-range" href="#">Year</a></li>
+          <li class="divider"></li>
+          <li><a id="date-range-all" class="date-range" href="#">All Time</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <table class="table table-bordered table-hover">
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th><span title="Increase compared to the previous period">Increase</span></th>
+        </tr>
+        <tr id="metric-row-loads" class="metric-row info">
+          <td>Conversation Loads:</td>
+          <td id="count-conv-load">-</td>
+          <td id="trend-conv-load">-</td>
+        </tr>
+        <tr id="metric-row-comments" class="metric-row">
+          <td>Comments:</td>
+          <td id="count-comments">-</td>
+          <td id="trend-comments">-</td>
+        </tr>
+        <tr id="metric-row-conversations" class="metric-row">
+          <td>Conversations:</td>
+          <td id="count-conversations">-</td>
+          <td id="trend-conversations">-</td>
+        </tr>
+        <tr id="metric-row-profiles" class="metric-row">
+          <td>New Users:</td>
+          <td id="count-profiles">-</td>
+          <td id="trend-profiles">-</td>
+        </tr>
+        <tr id="metric-row-verified" class="metric-row">
+          <td>Verified Email Users:</td>
+          <td id="count-verified">-</td>
+          <td id="trend-verified">-</td>
+        </tr>
+        <tr id="metric-row-subscriptions" class="metric-row">
+          <td>New Subscribers:</td>
+          <td id="count-subscriptions">-</td>
+          <td id="trend-subscriptions">-</td>
+        </tr>
+        <tr id="metric-row-notifications" class="metric-row">
+          <td>Notifications Sent:</td>
+          <td id="count-notifications">-</td>
+          <td id="trend-notifications">-</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div id="trend-loading" class="col-md-12 loading">
+      <div class="loading_section">
+        <h4>Loading...</h4>
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+      </div>
+      <div id="trend-chart"></div>
+      <div id="trend-legend"></div>
+    </div>
+  </div>
+
+  <div id="plot-tooltip">
+    <div id="plot-tooltip-count"></div>
+    <div id="plot-tooltip-date"></div>
+  </div>
+
+</div>
+

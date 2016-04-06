@@ -1,0 +1,13 @@
+<h1>Congratulations! You have won a Yolo!</h1>
+<h3>You have won {{=win_points}} points in a Yolo at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

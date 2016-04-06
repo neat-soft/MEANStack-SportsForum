@@ -1,0 +1,6 @@
+New reply
+{{= (comment.author || comment.guest).name }} replied {{= comment.type == 'BET' ? 'with a Yolo ' : ''}}to your comment at {{= url }}
+
+{{= text }}
+{{ include subscription_footer_text }}
+{{ include burnzonefooter_text }}

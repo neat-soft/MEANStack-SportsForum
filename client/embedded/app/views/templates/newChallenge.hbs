@@ -1,0 +1,39 @@
+<span class="newChallenge_text_challenge pull-left">{{translate "start_challenging"}}</span>
+
+<div class="newChallenge_textarea_container clearfix">
+
+  <div class="opposing_comment_container control-group clear">
+    <div contenteditable="true" class="opposing_comment xtextarea" {{!-- placeholder="{{translate "enter_your_pv"}}" --}}></div>
+  </div>
+
+  <div class="submit_controls clearfix">
+    {{#if loggedIn}}
+        <button class="btn pull-right submit">
+          <span class="submit_text">{{translate "submit"}}</span>
+          <span class="submit_icon">
+            <i class="icon-spinner icon-spin"></i>
+          </span>
+        </button>
+        <button class="btn pull-right cancel">{{translate "cancel"}}</button>
+    {{else}}
+      <button class="login_to_comment btn-embed pull-right">{{translate "submit"}}</button>
+      <button class="btn pull-right cancel">{{translate "cancel"}}</button>
+    {{/if}}
+  </div>
+
+  <small class="format_note hidden-phone pull-left">
+    <a href="https://burnzone.desk.com/customer/portal/articles/1144157-how-do-i-format-my-comment-" title="{{translate "format_text"}}" target="_blank">{{translate "format_text"}}</a>
+  </small>
+
+  <div class="pull-right">
+    <small class="challenge_cost_note">
+    </small>
+
+    <div class="challenge_cost_help">
+      <i class="icon-question-sign hidden-phone" rel="tooltip" title="{{translate "challenge_cost_help"}}" data-placement="left"></i>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+</div>

@@ -1,0 +1,94 @@
+{{#partial "admin_content"}}
+
+{{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<h3>Forum configuration</h3><hr/>
+
+<form class="form-horizontal" action="{{adminSectionUrl "/admin/forum"}}" method="post" role="form">
+  <div class="form-group">
+    <label class="control-label col-md-2" for="enabled">Enabled</label>
+    <div class="col-md-3">
+      <input type="checkbox" id="enabled" name="forum.enabled" {{checked site.forum.enabled}} value="1" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="inputUrl">Url</label>
+    <div class="col-md-5">
+      <input id="inputUrl" type="text" value="{{site.forum.url}}" name="forum.url" class="form-control" placeholder="Url of the embedding page here" />
+    </div>
+    <div class="col-md-5">
+      <a class="whats_this" rel="tooltip" title="The url of the page where you are hosting the BurnZone forum. This is needed in order to compute external links for the forum topics and their comments and it's used in emails and sharing links." data-placement="right">[?]</a>
+    </div>
+  </div>
+  <small>After installing one of our <a href="{{adminSectionUrl "/admin/install"}}">plugins</a>, edit the page on your site at this url and add the following in order to activate the forum: <pre>{{{string '<div class="conversait_area" data-conversait-app-type="forum"></div>'}}}</pre></small>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="inputTags">Categories</label>
+    <div class="col-md-5">
+      <input type='hidden' id='inputTags' name='forum.tags' />
+    </div>
+    <div class="col-md-5">
+      <a class="whats_this" rel="tooltip" title="You can configure multiple categories here, one per line. Users will be able to select maximum 3 of these categories for their forum topics. Categories names must not be blank and must not contain the following characters: .:#" data-placement="right">[?]</a>
+    </div>
+  </div>
+  <div class='tags_view'>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="inputShowArticles">Show new articles in forums</label>
+    <div class="col-md-1">
+      <input type="checkbox" id="inputShowArticles" name="forum.show_articles" {{checked site.forum.show_articles}} value="1" />
+    </div>
+    <div class="col-md-9">
+      <a class="whats_this" rel="tooltip" title="If checked, show your NEW site articles as forum topics. Users can then see the comments directly in the forum area. This setting has no effect on old articles." data-placement="right">[?]</a>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="inputModCreate">Only mods can create threads</label>
+    <div class="col-md-1">
+      <input type="checkbox" id="inputModCreate" name="forum.mod_create" {{checked site.forum.mod_create}} value="1" />
+    </div>
+    <div class="col-md-9">
+      <a class="whats_this" rel="tooltip" title="If checked, only moderators can create new forum topics. Users can comment on topics created by moderators." data-placement="right">[?]</a>
+    </div>
+  </div>
+  {{#if hasPremium}}
+  <div class="form-group">
+    <label class="control-label col-md-2" for="inputAutoPrivate">All threads private by default</label>
+    <div class="col-md-1">
+      <input type="checkbox" id="inputAutoPrivate" name="forum.auto_private" {{checked site.forum.auto_private}} value="1" />
+    </div>
+    <div class="col-md-9">
+      <a class="whats_this" rel="tooltip" title="If checked, all new forum threads are private by default unless the thread creator specifies otherwise." data-placement="right">[?]</a>
+    </div>
+  </div>
+  {{/if}}
+  <div class="form-group">
+    <label class="control-label col-md-2" for="inputDefSort">Default topic sort method</label>
+    <div class="col-md-5">
+      <select name="forum.defsort" id="inputDefSort" class="form-control">
+        <option value="activityRatingDesc"{{selected site.forum.defsort "activityRatingDesc"}}>Activity (last 24h)</option>
+        <option value="timeCreatedDesc"{{selected site.forum.defsort "timeCreatedDesc"}}>Newest</option>
+        <option value="timeCreatedAsc"{{selected site.forum.defsort "timeCreatedAsc"}}>Oldest</option>
+        <option value="latestActivityDesc"{{selected site.forum.defsort "latestActivityDesc"}}>Latest activity</option>
+        <option value="activitiesDesc"{{selected site.forum.defsort "activitiesDesc"}}>Number of comments</option>
+      </select>
+    </div>
+    <div class="col-md-5">
+      <a class="whats_this" rel="tooltip" title="Default ordering of the forum topics on your site." data-placement="right">[?]</a>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  Burnzone.site = {{{json site}}}
+  Burnzone.onstart = 'loadSiteSettingsApp';
+</script>
+{{/partial}}
+{{> marketing/admin}}

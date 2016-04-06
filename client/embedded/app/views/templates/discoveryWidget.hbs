@@ -1,0 +1,36 @@
+<div class="row-fluid">
+  {{#if max_topics_count}}
+  <div class="topics">
+    <div class="header clearfix">
+      <a class="text" href="{{forum_url}}" target='_blank'>
+        <span class="text">{{translate "top_forum_threads"}}</span>
+      </a>
+      <a class="cfgstyle link" href="{{forum_url}}" target='_blank'><span class="no_contexts">{{no_threads}}</span></a>
+      {{#if yolos_in_threads}}
+      <a class='pull-right cfgstyle link yolos' title="{{translate 'bets_thread_info'}}" href="{{yolos_url}}" target='_blank'><i class='icon-money'></i> {{translate 'bets_thread_title'}}</a>
+      {{/if}}
+    </div>
+    <div class="topics_view" />
+  </div>
+  {{/if}}
+  {{#if max_articles_count}}
+  <div class="articles">
+    <div class="header clearfix">
+      <a class="text" href="{{forum_url}}" target='_blank'>
+        <span class="text">{{translate "top_articles"}}</span>
+      </a>
+      <a class="cfgstyle link" href="{{forum_url}}" target='_blank'><span class="no_contexts">{{no_articles}}</span></a>
+      {{#if yolos_in_articles}}
+      <a class='pull-right cfgstyle link yolos' title="{{translate 'bets_thread_info'}}" href="{{yolos_url}}" target='_blank'><i class='icon-money'></i> {{translate 'bets_thread_title'}}</a>
+      {{/if}}
+    </div>
+    <div class="articles_view" />
+  </div>
+  {{/if}}
+</div>
+{{#if show_start_thread}}
+  <a href="{{forum_url}}" target='_blank' class="btn btn-embed">{{translate "start_conversation"}}</a>
+{{/if}}
+{{#if yolos_separate}}
+  <a class='pull-right cfgstyle link yolos' href="{{yolos_url}}" target='_blank'><i class='icon-money'></i> {{translate 'bets_thread_title'}}</a>
+{{/if}}

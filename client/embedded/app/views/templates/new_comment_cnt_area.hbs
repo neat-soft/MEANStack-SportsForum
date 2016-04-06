@@ -1,0 +1,212 @@
+{{#ifeq mode 'comment'}}
+  <div contenteditable="true" class="xtextarea input_comment" {{!-- placeholder="{{#if options.question}}{{translate "write_answer"}}{{else}}{{translate "write_comment"}}{{/if}}" --}}></div>
+{{else}}
+  <span class="bet_description">{{translate 'bet_describe'}}
+    <a title="{{translate "title_bet_description"}}" rel="tooltip" data-placement="right">[?]</a>:
+  </span>
+  <div contenteditable="true" class="xtextarea input_comment" {{!-- placeholder="{{#if options.question}}{{translate "write_answer"}}{{else}}{{translate "write_comment"}}{{/if}}" --}}></div>
+  <div class="span12">
+    <span class="bet-type-info span2">{{translate 'bet_type'}}
+      <a title="{{translate "title_bet_type"}}" rel="tooltip" data-placement="right">[?]</a>:
+    </span>
+    <select class='bet-type'>
+      <option value='targeted_open'>{{translate 'bet_type_targeted_open'}}</option>
+      <option value='targeted_closed'>{{translate 'bet_type_targeted_closed'}}</option>
+      <option value='open'>{{translate 'bet_type_open'}}</option>
+    </select>
+  </div>
+  <div class="users span12">
+    <span class='bet_users span2'>{{translate 'bet_target'}}
+      <a title="{{translate "title_bet_users"}}" rel="tooltip" data-placement="right">[?]</a>:
+    </span>
+    <input class='bet-target'>
+  </div>
+  <!-- {{translate 'bet_points_per_targeted'}} -->
+  <!-- <input class='bet-points-targeted' value='{{app.options.minBetPtsTargeted}}'/> -->
+  <div class="bet-ending-date span12">
+    <span class="span2">{{translate 'bet_end_date'}}
+      <a title="{{translate "title_bet_end_date"}}" rel="tooltip" data-placement="right">[?]</a>:
+    </span>
+    <input class='bet-end-date'/>
+  </div>
+  <div class="bet-starting-forf-date span12">
+    <label class="span2">
+      <input type='checkbox' class='bet-want-forf-date' title='{{translate "title_bet_start_forf_date"}}' />
+      <span>{{translate 'bet_start_forf_date'}}
+        <a title="{{translate "title_bet_start_forf_date"}}" rel="tooltip" data-placement="right">[?]</a>:
+      </span>
+    </label>
+    <input class='bet-start-forf-date'/>
+  </div>
+  <div class="bet-points span12">
+    <span class="span2">{{translate 'bet_points_offered'}}
+      <a title="{{translate "title_bet_points_offered"}}" rel="tooltip" data-placement="right">[?]</a>:
+    </span>
+    <input class='bet-points-offered' value="{{app.options.minBetPts}}"/>
+    <div class="bet-ratio-content">
+      <label>
+        <span>{{translate 'bet_odds_label'}}
+          <a title="{{translate "title_bet_odds_label"}}" rel="tooltip" data-placement="right">[?]</a>:
+        </span>
+        <input type='checkbox' class='bet-odds' />
+      </label>
+      <div class='bet-ratio'>
+        <span>{{translate 'bet_point_ratio_joined'}}</span>
+        <select class='bet-ratio-joined'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <span>{{translate 'bet_point_ratio_accepted'}}</span>
+        <select class='bet-ratio-accepted'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class='bet-points-user span12'>
+    <label>
+      <span class="span2">{{translate 'bet_pts_max_user'}}
+        <a title="{{translate "title_bet_pts_max_user"}}" rel="tooltip" data-placement="right">[?]</a>:
+      </span>
+      <input type='textbox' class='bet-pts-max-user'/>
+    </label>
+  </div>
+  <div class="pull-left clear">
+    <div class="bet-explain msg-warning display_none">
+    </div>
+  </div>
+  <div class="bet-points-info span12">
+    <span class="span2">{{translate 'bet_summary'}}
+      <a title="{{translate "title_bet_summary"}}" rel="tooltip" data-placement="right">[?]</a>:
+    </span>
+    <div class='bet-points-risked-content inherit-border-color'>
+      {{translate 'bet_points_risked'}} <span class='bet-points-risked'></span>
+    </div>
+    <div class='bet-points-win-content inherit-border-color'>
+      {{translate 'bet_points_win'}} <span class='bet-points-win'></span>
+    </div>
+  </div>
+{{/ifeq}}
+
+<div class="submit_controls">
+    {{#ifnot loggedIn}}
+      <button class="login_to_comment btn-embed pull-right">
+        <span class="submit_text">{{translate "submit"}}</span>
+        <button class="cancel pull-right">{{translate "cancel"}}</button>
+      </button>
+    {{else}}
+      <div class="submit_dropdown_group btn-group pull-right">
+        <button class="cancel">{{translate "cancel"}}</button>
+        <button class="submit btn link cfgstyle">
+          <span class="submit_text">{{translate "submit"}}</span>
+          <span class="submit_icon">
+            {{!-- <i class="icon-spinner icon-spin"></i> --}}
+          </span>
+        </button>
+        <button data-toggle="dropdown" class="submit_options_button btn btn-embed dropdown-toggle">
+          <span class="icon-chevron-down"></span>
+        </button>
+        <ul class="submit_options dropdown-menu">
+          {{#if betting_enabled}}
+            <li class="bet">
+              <div>
+                <label class="pull-left">
+                  <input type="checkbox" class="want-bet"{{#ifeq mode 'bet'}} checked="checked"{{/ifeq}}>
+                  {{translate "want-bet"}}
+                </label>
+              </div>
+            </li>
+          {{/if}}
+          {{#ifand appIsForum hasPrivatePermission}}
+          <li class="private_li">
+            <div>
+              <label class="mark_as_private pull-left">
+                <input type="checkbox" class="mark_private_checkbox" {{checked autoPrivate}}>
+                {{translate "forum_mark_private"}}
+              </label>
+            </div>
+          </li>
+          {{/ifand}}
+          <li class="promote_li pull-left">
+            <div>
+              <label>
+                <input type="checkbox" class="promote_checkbox">
+                {{translate "promote_points"}}
+              </label>
+              <input type="text" class="promote_points_number" maxLength="3">
+              <label>{{translate "points"}}</label>
+            </div>
+            <small class="promote_points_needed"></small>
+          </li>
+        </ul>
+      </div>
+      <div class="submit_group pull-right">
+        {{#if betting_enabled}}
+          <div class="submit_bet pull-left">
+            <div title="{{translate "submit_bet_title"}}">
+              <label>
+                <input type="checkbox" class="want-bet"{{#ifeq mode 'bet'}} checked="checked"{{/ifeq}}>
+                {{translate "want-bet"}}
+              </label>
+            </div>
+          </div>
+        {{/if}}
+        {{#ifand appIsForum hasPrivatePermission}}
+        <div class="mark_as_private pull-left">
+          <div>
+            <label title="{{translate "forum_private_title"}}">
+              <input type="checkbox" class="mark_private_checkbox" {{checked autoPrivate}}>
+              {{translate "forum_mark_private"}}
+            </label>
+          </div>
+        </div>
+        {{/ifand}}
+        <div class="promote_comment pull-left">
+          <div>
+            <label>
+              <input type="checkbox" class="promote_checkbox">
+              {{translate "promote_points"}}
+            </label>
+            <input type="text" class="promote_points_number" maxLength="3">
+            <label>{{translate "points"}}</label>
+          </div>
+          <small class="promote_points_needed"></small>
+        </div>
+        <button class="submit btn link cfgstyle">
+          <span class="submit_text">{{translate "submit"}}</span>
+          <span class="submit_icon">
+            {{!-- <i class="icon-spinner icon-spin"></i> --}}
+          </span>
+        </button>
+        <button class="cancel pull-right">{{translate "cancel"}}</button>
+      </div>
+    {{/ifnot}}
+
+    <small class="format_note hidden-phone pull-left">
+      {{!-- <i class="icon-align-right"></i> --}}
+      <a href="https://burnzone.desk.com/customer/portal/articles/1144157-how-do-i-format-my-comment-" title="{{translate "format_text"}}" target="_blank">{{translate "format_text"}}</a>
+    </small>
+  <div class="clearfix"></div>
+</div>
+
+<div class="fakeFBLogin_view"></div>
+
+{{#if options.allowQuestion}}
+  <small class="question_note pull-right">
+    <label title="{{translate "title_is_question"}}" class="is_question_label">
+      <input type="checkbox" class="is_question" />
+      {{translate "is_question"}}
+    </label>
+    <label class="points_offered_note" title="{{translate 'title_points_offered'}}">
+      {{translate "points_offered_note"}}
+      <span rel="tooltip" title="{{translate "title_points_offered"}}" data-placement="left">[?]</span>
+    </label>
+  </small>
+{{/if}}

@@ -1,0 +1,19 @@
+<td class="notification_type">
+  <i class="{{icon}}"></i>
+</td>
+
+<td class="notification_author_image">
+  <div class="author_image_container"></div>
+</td>
+
+<td class="notification_text">
+  <span class="notif-text"></span>
+  {{#if localLink}}
+  {{else}}
+    <i class="icon-external-link"></i>
+  {{/if}}
+</td>
+
+<td class="notification_sitename">
+  {{model.attributes.siteName}}
+</td>

@@ -1,0 +1,28 @@
+<div class='option'>
+  {{#if blank}}
+    {{translate 'no_context_filter'}}
+  {{else}}
+    {{#each parents}}
+      <div class="tag_image_container pull-left">
+        {{#if this.imageUrl}}
+          <img src='{{this.imageUrl}}' class='tag_parent_image' />
+        {{/if}}
+      </div>
+    {{/each}}
+    <div class="tag_image_container pull-left">
+      {{#if imageUrl}}
+        <img src='{{imageUrl}}' class='tag_image' />
+      {{/if}}
+    </div>
+    <div class='tag_content'>
+      <div class='{{#if subtags}}tag_group{{else}}tag_item{{/if}}'>
+        <span class='tag_item_label'>{{displayName}}</span>
+      </div>
+      <div class='tag_desc'>
+        <span>
+          {{description}}
+        </span>
+      </div>
+    </div>
+  {{/if}}
+</div>

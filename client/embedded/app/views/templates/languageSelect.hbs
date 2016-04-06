@@ -1,0 +1,16 @@
+  <span class="dropdown">
+
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="current_language">
+        <i class="bfh-flag-{{current_language.id}}" style="display: inline-block;"></i>
+      </span>
+    </a>
+
+    <ul class="dropdown-menu CHECK-HEIGHT">
+      {{#each languages}}
+        <li class="drop-language-name" data-language-id="{{id}}"><a href="#"><i class="bfh-flag-{{id}}" style="display: inline-block;"></i>{{name}}</a></li>
+      {{/each}}
+    </ul>
+
+  </span>
+

@@ -1,0 +1,27 @@
+markdown()
+  hr
+    width 10px
+  for i in 1 2 3 4 5 6
+    h{i}
+      font-size 15px
+  blockquote
+    font-size 14px
+    font-style italic
+    margin 0.25em 0
+    padding 0.25em 20px
+    position relative
+    border none
+    p
+      font-size inherit
+  blockquote:before
+    display block
+    content "\201C"
+    font-size 80px
+    position absolute
+    left -10px
+    top -10px
+    color inhibited
+  img
+    max-height 2000px
+    width auto
+    height auto

@@ -1,0 +1,47 @@
+{{#if model.attributes.deleted}}
+<div class="comment_wrapper">
+
+  <div class="left_box pull-left">
+
+    <div class="author_image_container">
+    </div>
+
+  </div>
+
+  <div class="top_note_bar">
+    <small class="time"></small>
+
+  </div>
+  <div class="deleted_info">
+    <em>
+      {{translate "comment_deleted"}}
+    </em>
+  </div>
+
+</div>
+
+{{else}}
+
+<div class="comment_wrapper">
+
+  <div class="top_note_bar">
+
+    <small class="time"></small>
+
+    <a target='_blank' class="btn-link comment_action_group goto_comment" title="{{translate "title_goto_comment"}}" href="{{commentLink}}"> &mdash; {{translate "goto_comment"}} <i class="icon-chevron-right"></i></a>
+
+  </div>
+
+  <div class="text"></div>
+
+  </div>
+
+</div>
+
+{{#if app.asModerator}}
+  <div>
+    <button class="delete btn btn-danger">{{translate "delete"}}</button>
+  </div>
+{{/if}}
+
+{{/if}}

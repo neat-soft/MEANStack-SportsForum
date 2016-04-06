@@ -1,0 +1,16 @@
+<div class="row-fluid">
+  <div class="span12 error_row">
+    <h3 class=>{{translate "error_loading"}}</h3>
+    {{#if error_message}}
+      <h2 class="alert">{{translate "error"}}: {{translate error_message}}</h2>
+    {{/if}}
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <a href="http://theburn-zone.com/" target="_blank" title="{{translate "title_logo"}}">
+      <img src="{{resource "/img/bz_logo.png"}}" class="logo pull-right"/>
+    </a>
+  </div>
+</div>

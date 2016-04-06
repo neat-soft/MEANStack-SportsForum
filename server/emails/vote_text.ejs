@@ -1,0 +1,9 @@
+{{ if (up) { }}
+  Someone voted you in a challenge at {{= url }} 
+  {{ } else { }}
+  Someone retracted the vote on your comment in a challenge at {{= url }}
+{{ } }}
+{{= challenge.challenger.text }}
+Votes: {{= no_votes }}
+{{ include subscription_footer_text }}
+{{ include burnzonefooter_text }}

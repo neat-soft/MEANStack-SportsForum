@@ -1,0 +1,109 @@
+{{#partial "admin_content"}}
+
+{{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+  <form class="form-horizontal" action="{{adminSectionUrl "/admin/appearance"}}" method="post" role="form">
+    <h3>Appearance settings</h3> <hr/>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="custom_name">Custom site name</label>
+      <div class='col-md-3'>
+        <input type="text" class="form-control" name="display_name" id="custom_name" value="{{site.display_name}}" />
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="The name of the site as you want it to be displayed in BurnZone widgets." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="custom_logo">Custom logo URL</label>
+      <div class='col-md-3'>
+        <input type="text" class="form-control" name="logo" id="custom_logo" value="{{site.logo}}" />
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="URL of a custom logo to be displayed in BurnZone widgets." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="theme">Theme</label>
+      <div class='col-md-3'>
+        <select name="theme" class="form-control">
+          <option value="auto"{{#ifeq site.theme "auto"}} selected{{/ifeq}}>Auto</option>
+          <option value="light"{{#ifeq site.theme "light"}} selected{{/ifeq}}>Light</option>
+          <option value="dark"{{#ifeq site.theme "dark"}} selected{{/ifeq}}>Dark</option>
+        </select>
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="We provide 2 themes that adapt to your site's colors. We can automatically select the best one for your site, but you can force a specific theme here." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="color_question">Question highlight color</label>
+      <div class='col-md-3'>
+        <input type="text" class="form-control" name="color.question" id="color_question" value="{{site.color.question}}" />
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="Color of the comment banner when users are writing a question. Leave empty for default." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <!-- <div class='form-group'>
+      <label class="control-label col-md-2" for="color_challenge">Challenge badge color</label>
+      <div class='col-md-3'>
+        <input type="text" class="form-control" name="color.challenge" id="color_challenge" value="{{site.color.challenge}}" />
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="Color of the challenge badge. Leave empty for default." data-placement="right">[?]</a>
+      </div>
+    </div> -->
+
+    <div id="avatar_template" class='avatar-control form-group display_none'>
+      <div class="control-label avatar-container col-md-2">
+        <img src=""></img>
+      </div>
+      <div class='col-md-6'>
+        <input type="text" placeholder='avatar url' class='form-control input-sm' name="avatar" value="">
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-danger btn-sm del-avatar"><i class="fa fa-trash-o"></i></button> <span class="label label-danger">Not saved</span>
+      </div>
+    </div>
+
+    <div id="avatar_add" class="form-group">
+      <label class="control-label col-md-2">User default avatars</label>
+      <div class="col-md-10">
+        <button class="btn btn-success add-avatar btn-xs" count="{{avatars.length}}">Add new avatar</button>
+        <a class="whats_this" rel="tooltip" title="You can add custom avatars (one URL per line) to be randomly assigned to users without avatars. Make sure the image format is well supported by browsers (JPG, PNG, GIF) and that the size of the images is not too large." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div id="avatar_list" class="">
+      {{#each_with_id avatars}}
+        <div class='avatar-control form-group'>
+          <div class="control-label avatar-container col-md-2">
+            <img src="http://www.gravatar.com/avatar/d75476089c2518c0fb474b4331785f3f?d={{elem.encoded}}"></img>
+          </div>
+          <div class='col-md-6'>
+            <input type="text" placeholder='avatar url' class='form-control input-sm' name="avatar_{{id}}" value="{{elem.raw}}">
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-danger btn-sm del-avatar"><i class="fa fa-trash-o"></i></button>
+          </div>
+        </div>
+      {{/each_with_id}}
+    </div>
+
+    <div class='form-group'>
+      <div class="col-md-2"></div>
+      <div class='col-md-3'>
+        <button type='submit' class='btn btn-success'>Save</button>
+      </div>
+    </div>
+  </form>
+
+
+{{/partial}}
+{{> marketing/admin}}

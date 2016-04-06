@@ -1,0 +1,14 @@
+<h1>You gave the best answer!</h1>
+<h3>Your answer for a question at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle}}</a> was the best</h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<strong>Points</strong>: {{= no_likes }}
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

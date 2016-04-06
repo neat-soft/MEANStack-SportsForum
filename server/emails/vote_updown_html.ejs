@@ -1,0 +1,31 @@
+<h1>Your votes in a challenge have changed</h1>
+<h3>
+    {{ if job.voteChanges.up <= 0 && job.voteChanges.down != 0 { }}
+        {{ likedown = voteChanges.down > 0 }}
+        {{ if (likedown) { }}
+            Someone down-voted you in a challenge at
+        {{ } else { }}
+            Someone retracted the down-vote on your comment in a challenge
+        {{ } }}
+    {{ } else { }}
+        {{ likeup = voteChanges.up > 0 }}
+        {{ if (likeup) { }}
+            Someone voted you in a challenge
+        {{ } else { }}
+            Someone retracted the vote on your comment in a challenge
+        {{ } }}
+    {{ } }} 
+    at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a>
+</h3>
+<p>
+    {{ if(challenge.challenger.ptext) { }}
+        {{- challenge.challenger.ptext }}
+    {{ } else { }}
+        {{= challenge.challenger.text }}
+    {{ } }}
+</p>
+<strong>Votes</strong>: Up {{= no_votes }}, Down {{= no_votes_down }}
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

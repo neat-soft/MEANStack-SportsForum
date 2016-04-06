@@ -1,0 +1,90 @@
+<header>
+  <nav class="navbar navbar-fixed-top">
+
+    {{#ifnot admin}}
+      <div class="container">
+    {{/ifnot}}
+    <!-- container should be only on the home page -->
+      <div class="navbar-header">
+        <a href="/index">
+          <img src="{{resource "/img/m/logo.png"}}" alt="BurnZone Commenting System Logo" title="BurnZone Logo" class="logo_img pull-left"/>
+        </a>
+        <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+
+      {{#ifnot popup}}
+        <nav class="header_nav navbar-collapse nav-main-collapse collapse">
+          {{#ifnot embed}}
+            <ul>
+              <li><a href="/forums-demo">Try it Now!</a></li>
+              <li><a href="/demo">Demo</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="http://blog.theburn-zone.com">Blog</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="http://help.theburn-zone.com/">Help</a></li>
+          {{/ifnot}}
+
+          {{#ifeq user.site "burnzone"}}
+            </ul>
+            <div class="btn-group user_dropdown">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {{user.email}} <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/admin"{{#if new_window}} target="_blank"{{/if}}><i class="fa fa-cogs"></i> Admin</a></li>
+                <li><a href="/profile"{{#if new_window}} target="_blank"{{/if}}><i class="fa fa-user"></i> My Profile</a></li>
+                <li class="divider"></li>
+                <li><a rel="logout" href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+              </ul>
+            </div>
+          {{else}}
+              <li><a href="/pricing">Pricing</a></li>
+              <li><a class="btn get_bz" href="/signup">Get BurnZone</a></li>
+              <li class="dropdown menu-signin">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-user"></i> Sign In
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <div class="signin-menu-content">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="signin-form">
+                            <span class="signin-menu-sub-title">SIGN IN</span>
+                            <form method="post" rel="login" action="/auth/signin{{query "popup" "redirect" "embed" "site" "async" "demo"}}">
+                              <div class="form-group">
+                                <label for="email" class="control-label">E-mail:</label>
+                                <input type="text" class="form-control" name="email" {{post "email" "text"}} value="{{messages.auth_email.[0]}}" />
+                              </div>
+                              <div class="form-group">
+                                <label for="password" class="control-label">Password:</label>
+                                <input type="password" class="form-control" name="passwd" />
+                              </div>
+                              <button type="submit" class="btn btn-success">Sign in</button>
+                            </form>
+                            <span class="sign-up-info">
+                              <a href="/auth/reset{{query "demo"}}">Forgot password?</a>
+                              <p>Don't have an account yet?
+                                <a href="/signup{{query "popup" "redirect" "demo"}}"> Sign up</a>
+                              </p>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          {{/ifeq}}
+        </nav>
+      {{/ifnot}}
+
+    {{#ifnot admin}}
+      </div>
+    {{/ifnot}}
+  </navbar>
+</header>

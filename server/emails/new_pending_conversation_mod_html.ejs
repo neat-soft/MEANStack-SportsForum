@@ -1,0 +1,15 @@
+<h1>New Pending conversation</h1>
+<h3>{{= (conv.author || conv.guest).name }} wrote a new forum topic, waiting for approval</h3>
+<p>
+    {{ if(conv.ptext) { }}
+        {{- conv.ptext }}
+    {{ } else { }}
+        {{= conv.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+    <br>
+    <% include mod_subscription_footer_html %>
+</p>
+                                            

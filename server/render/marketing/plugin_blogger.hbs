@@ -1,0 +1,24 @@
+{{#partial "admin_content"}}
+<div class="tab-pane active installation_instructions" id="tab2">
+
+  {{#if admin}}
+
+    <h3>Blogger installation</h3>
+
+    <form target="_blank" action="https://www.blogger.com/add-widget" method="post">
+      <input type="hidden" value="{{serverHost}}" name="infoUrl"/>
+      <input type="hidden" value="{{resource "/img/m/logo_beta.png"}}" name="logoUrl"/>
+      <input type="hidden" value="BurnZone Commenting Plugin" name="widget.title"/>
+      <textarea style="display:none;" name="widget.content">&lt;!-- Burnzone Commenting Plugin --&gt;</textarea>
+      <input type="hidden" value="{{{script}}}" name="widget.template" />
+      <input class="btn btn-medium btn-warning" type="submit" value="Add widget" name="go"/> to your Blogger site.
+    </form>
+  {{else}}
+    <h3>Installation instructions for Blogger</h3>
+    <p> <a href="/auth/signin?redirect=/admin/install/blogger">Get the Burnzone widget</a> for your Blogger site. </p>
+  {{/if}}
+
+</div>
+
+{{/partial}}
+{{> marketing/install}}

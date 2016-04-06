@@ -1,0 +1,571 @@
+.bet_view
+  > .single-item-wrapper
+    margin 0px 0px 15px 5px
+    .text
+      min-height 20px
+      p
+        margin 0px
+    .joining-ctrl
+      display inline-block
+    .signature
+    .accepting-ctrl
+    .forf-ctrl
+    .resolve-ctrl
+      display none
+    .bet-close
+    .bet-start-forf
+      display none
+    .options_bar
+      clear both
+      padding-top 5px
+      .bet-close.hidden-phone
+      .bet-start-forf.hidden-phone
+        padding 1px 3px
+        border separator
+        position relative
+        top -1px
+    .mobile_options_menu > .dropdown-menu
+      position fixed
+      right 7px
+      top auto
+      left auto
+      margin-top 7px
+    .resolve-ctrl
+    .forf-ctrl
+      margin-top 5px
+    .icon-ok
+      color green
+    .main_comment_view
+      margin 0px
+      .like_section_mobile
+      .like_section
+        border-right 3px solid lightGray
+        padding-right 4px
+      .left_box
+        width 30px
+        height 30px
+        padding-left 4px
+        .author_image_container
+          width 30px
+
+.bets_view
+  .in-reply-to
+    display none
+  .filtering_options
+    margin 10px 0 10px 5px
+    a
+      background transparent
+    .active
+      box-shadow 0px 0px 0px 3px inset
+    .btn-bet-filter
+      background none
+    ul .btn-filter
+      margin-right 0px
+
+.comments_view
+  .bet_view
+    &.BET_STATUS_RESOLVING_PTS.DELETED > .single-item-wrapper
+    &.BET_STATUS_RESOLVED_PTS.DELETED > .single-item-wrapper
+    &.BET_STATUS_RESOLVED.DELETED > .single-item-wrapper
+      background none
+
+.context_view .newComment_view.BET_TYPE_OPEN
+  .users
+    display none
+
+.USER_IS_MODERATOR .bet_view.BET_STATUS_FORF_CLOSED.BET_WIN_SIDE_UNDECIDED
+  > .single-item-wrapper
+    .resolve-ctrl
+      display inline-block
+
+.bet_view.USER_TARGETED_IN_BET
+  > .single-item-wrapper
+    .accepting-ctrl .bet-decline
+      display inline-block
+
+.bet_view.BET_STATUS_OPEN
+  &.AUTHOR
+    > .single-item-wrapper
+      .bet-close
+        display inline-block
+
+.bet_view.BET_STATUS_CLOSED
+  &.AUTHOR
+    > .single-item-wrapper
+      .bet-start-forf
+        display inline-block
+
+.USER_LOGGED_IN
+  .bet_view.USER_TARGETED_IN_BET.BET_STATUS_OPEN
+  .bet_view.BET_STATUS_OPEN.BET_TYPE_TARGETED_OPEN
+  .bet_view.BET_STATUS_OPEN.BET_TYPE_OPEN
+    > .single-item-wrapper
+      .joining-ctrl
+        display none
+      .accepting-ctrl
+        display inline-block
+
+.bet_view.BET_STATUS_OPEN.BET_TYPE_TARGETED_OPEN
+.bet_view.BET_STATUS_OPEN.BET_TYPE_OPEN
+  &.AUTHOR
+    > .single-item-wrapper
+      .accepting-ctrl
+      .joining-ctrl
+        display none
+
+.bet_view.USER_TARGETED_IN_BET.BET_STATUS_OPEN
+.bet_view.BET_STATUS_OPEN.BET_TYPE_TARGETED_OPEN
+.bet_view.BET_STATUS_OPEN.BET_TYPE_OPEN
+  &.USER_ACCEPTED_BET
+  &.USER_DECLINED_BET
+    > .single-item-wrapper
+      .accepting-ctrl
+        display none
+
+.bet_view.USER_JOINED_BET.BET_STATUS_OPEN
+  > .single-item-wrapper
+    .joining-ctrl
+    .accepting-ctrl
+      display none
+
+.bet_view.BET_STATUS_OPEN.BET_TYPE_OPEN
+  > .single-item-wrapper
+    .bet-decline
+      display none
+
+.bet_view.BET_STATUS_FORF
+  &.USER_ACCEPTED_BET
+  &.USER_JOINED_BET
+    > .single-item-wrapper
+      .forf-ctrl
+        display inline-block
+
+.bet_view.BET_STATUS_FORF.USER_FORFEITED_BET, .bet_view.BET_STATUS_FORF.USER_CLAIMED_BET
+  &.USER_ACCEPTED_BET
+  &.USER_JOINED_BET
+    > .single-item-wrapper
+      .forf-ctrl
+        display none
+
+.newcomment_textarea_container
+  .bet-type
+  .bet-type-info
+  .bet_description
+  .bet-ending-date
+  .bet-starting-forf-date
+  .bet_users
+  .bet-points
+  .bet-points-info
+  .users
+  .bet-points-user
+    display none
+  .bet-explain
+    margin-bottom 5px
+
+.newComment_view
+  .span12
+    margin-left 0px
+  &.BET_TYPE_TARGETED_OPEN
+  &.BET_TYPE_TARGETED_CLOSED
+  &.BET_TYPE_OPEN
+    .bet_description
+      float left
+      font-weight bold
+      margin-top 20px
+    select.bet-type
+      width 180px
+      border-color darkInhibited
+    .bet-target
+      border 1px solid darkInhibited
+      box-sizing border-box
+      width auto
+      min-width 180px
+      max-width 50%
+      .selectize-input
+        padding-bottom 0px
+    .bet-ending-date
+    .bet-starting-forf-date
+      input
+        width 100px
+        text-align center
+        border 1px solid darkInhibited
+      label
+        margin-bottom 0px
+    .bet-starting-forf-date
+      input.bet-want-forf-date
+        width auto
+        margin 0px
+    .bet-points
+    .bet-points-user
+      input
+        width 45px
+        text-align center
+        border 1px solid darkInhibited
+    .bet-points
+      .bet-ratio-content
+        margin-right 10px
+        margin-left 10px
+      input[type='checkbox']
+        width auto
+      .bet-ratio
+        display none
+        margin-left 5px
+        select
+          width 40px
+          padding-left 0px
+          margin-bottom 0px
+      .bet-odds
+        margin-top 0px
+    .bet-points
+    .bet-starting-forf-date
+      label
+        display inline
+    .bet-points-info
+      margin-bottom 10px
+      > span
+        line-height 24px
+      span:first-of-type
+        font-weight bold
+      .bet-points-risked-content
+      .bet-points-win-content
+        border-width 1px
+        border-style solid
+        padding 2px 4px
+    .bet-points-offered
+    .bet-end-date
+    .bet-start-forf-date
+    .bet-pts-max-user
+      height 26px
+      box-sizing border-box
+      border-radius 0px
+      vertical-align middle
+    .bet-start-forf-date
+      display none
+    .bet-type-info
+    .bet-ending-date span
+    .bet-starting-forf-date span
+    .bet_users
+    .bet-points span
+    .bet-points-user span
+      font-weight bold
+      display inline
+      line-height 24px
+    .bet-points
+    .bet-starting-forf-date
+    .bet_description
+    .submit_controls
+    .bet-points-info
+      clear both
+    .users
+    .bet-ending-date
+    select.bet-type
+    .bet-starting-forf-date
+    .bet-points
+    .bet-points-user label
+    .bet-points
+      margin-bottom 10px
+    .users
+    .bet-ending-date
+    .bet-starting-forf-date
+    .bet-target
+    select.bet-type
+    .bet_description
+    .bet-ratio-content
+    .bet-points-info
+    .bet-points-risked-content
+    .bet-points-win-content
+    .bet-points
+    .bet-points-user
+      display inline-block
+    .bet_description
+    .bet-type-info
+    .bet_users
+    .bet-ending-date
+    .bet-starting-forf-date
+    .bet-points
+    .bet-ratio-content
+    .bet-points-info
+      a
+        text-decoration none
+
+#comments .newComment_view
+  &.BET_TYPE_TARGETED_OPEN
+  &.BET_TYPE_TARGETED_CLOSED
+  &.BET_TYPE_OPEN
+    .xtextarea
+      padding-left 5px
+      border 1px solid lightGray
+      height 50px
+      margin-bottom 10px
+
+.challenge_view
+.question_view
+.answer_view
+.comment_view
+.bet_view
+  &.REPLYING
+    .submit_options .bet
+    .submit_group .submit_bet
+      display none
+
+input.bet-points-accepted
+  width 70px
+  text-align center
+  margin-right 5px
+
+.forf-ctrl button
+  padding 2px 6px
+
+.accepting-ctrl
+  margin-right 10px
+  div:first-of-type
+    display inline-block
+  .bet-accept
+  .bet-decline
+    padding 2px 6px
+    background none
+  .bet-decline
+    display none
+
+.btn-group.resolve-ctrl
+  > .dropdown-menu
+    position fixed
+    right auto
+    top auto
+    left auto
+    width auto
+    margin-top 3px
+    border-radius 0px
+    box-shadow none
+  .btn-default
+    border-top-left-radius 0px
+    border-bottom-left-radius 0px
+    padding 2px 6px
+
+.bet-declined-users
+  .userInBet_view.DECLINED
+    .user_name
+      text-decoration line-through
+    .user_image_container img
+      width 15px
+    .icon-ban-circle
+      display inline
+
+.newContext_view
+  .submit_group .submit_bet
+  .submit_options li.bet
+    display none
+
+.userInBet_view
+  &.ACCEPTED
+  &.DECLINED
+  &.PENDING
+    clear both
+    display inline-block
+    margin-right 10px
+    i
+      display none
+  .user_image_container img
+    width 20px
+    height auto
+
+.bet-pending-users .userInBet_view.PENDING .icon-question
+  display inline
+
+.bet-accepted-users .userInBet_view.ACCEPTED
+  font-size 14px
+
+.bet-joined-users
+  div:last-child
+    float left
+  .userInBet_view.ACCEPTED
+    margin-right 5px
+    .user_name
+    .user_image_container
+      display none
+    .user_name
+      float none
+
+.bet-author
+  margin-left 0px
+  .bet-tpts-joined
+  .bet-ratio-joined
+  .bet-ratio-accepted
+    font-weight bold
+
+.bet-tpts-av-content
+  display inline-block
+  margin-right 10px
+  .bet-tpts-av
+    font-weight bold
+
+.bet-users
+  margin-bottom 10px
+
+.bet-tpts-joined-content
+.bet-tpts-av-content
+  border-width 1px
+  border-style solid
+  padding 2px 4px
+  display inline-block
+
+.bet-tpts-joined-content
+  margin-bottom 10px
+
+.versus
+  text-align center
+  width 30px
+  margin-bottom 10px
+  margin-left auto
+  margin-right auto
+  .vs-text
+    color white
+    padding 5px
+    border-radius 50%
+    font-size 17px
+    line-height 19px
+    font-weight bold
+    margin 0px auto auto auto
+    width 20px
+    height 20px
+
+.bet-points-info
+  .bet-min-pts-accept-content
+  .bet-max-pts-accept-content
+  .bet-win-pts-accept-content
+    color gray
+    display inline-block
+    margin 5px 5px 0 0
+
+.bet-note
+  .bet-open
+  .bet-closed
+  .bet-forf
+  .bet-forf-mod
+  .bet-forf-closed
+  .bet-resolved
+  .bet-tie
+  .bet-undecided
+  .bet-rolledback
+    display none
+
+.userInBet_view
+  .won-points
+    color green
+  .lost-points
+    color red
+  .won-points
+  .lost-points
+    display none
+
+.bet_view
+  &.BET_STATUS_RESOLVING_PTS
+  &.BET_STATUS_RESOLVED_PTS
+  &.BET_STATUS_RESOLVED
+    > .single-item-wrapper
+      padding 0px 0px 5px 5px
+      .bet-tpts-av-content
+      .bet-tpts-joined-content
+        display none
+      .bet-pending-users
+      .bet-declined-users
+        display none
+      .bet-resolved
+        display inline-block
+      .bet-users
+        margin-bottom 0px
+
+  &.BET_STATUS_OPEN
+  &.BET_STATUS_CLOSED
+  &.BET_STATUS_FORF_CLOSED
+  &.BET_STATUS_FORF
+    > .single-item-wrapper
+      .bet-joined-users
+        display none
+
+  &.BET_WIN_SIDE_JOINED > .single-item-wrapper
+    .bet-joined-users
+      font-size 14px
+      margin-bottom 10px
+      .icon-ok
+        display inline
+    .bet-accepted-users
+      .userInBet_view.ACCEPTED
+        font-size 12px
+        .icon-ok
+          display none
+        .user_image_container img
+          width 15px
+
+  &.BET_WIN_SIDE_ACCEPTED > .single-item-wrapper
+    .bet-accepted-users
+      font-size 14px
+      .icon-ok
+        display inline
+    .bet-joined-users
+      font-size 12px
+      margin-bottom 10px
+      .icon-ok
+        display none
+
+  &.BET_WIN_SIDE_TIE > .single-item-wrapper
+    .bet-joined-users
+    .bet-accepted-users
+      .icon-ok
+        display none
+    .bet-joined-users
+      display none
+    .versus
+      padding-top 0px
+    .bet-tie
+      display inline-block
+    .bet-resolved
+      display none
+
+  &.BET_WIN_SIDE_ROLLEDBACK > .single-item-wrapper
+    .bet-users
+    .bet-author
+    .versus
+      display none
+    .bet-rolledback
+      display inline-block
+    .bet-resolved
+      display none
+
+  &.BET_STATUS_OPEN > .single-item-wrapper
+    .bet-open
+      display inline-block
+  &.BET_STATUS_CLOSED > .single-item-wrapper
+    .bet-closed
+      display inline-block
+  &.BET_STATUS_FORF > .single-item-wrapper
+    .bet-forf
+      display inline-block
+  &.BET_STATUS_FORF.BET_MOD_RESOLUTION > .single-item-wrapper
+    .bet-forf
+      display none
+    .bet-forf-mod
+      display inline-block
+  &.BET_STATUS_FORF_CLOSED > .single-item-wrapper
+    .bet-forf-closed
+      display inline-block
+  &.BET_WIN_SIDE_UNDECIDED > .single-item-wrapper
+    .bet-undecided
+      display inline-block
+
+.bet_view.BET_STATUS_RESOLVED_PTS
+  &.BET_WIN_SIDE_JOINED > .single-item-wrapper
+    .bet-joined-users .userInBet_view.ACCEPTED
+      .won-points
+        display inline
+    .bet-accepted-users .userInBet_view.ACCEPTED
+      .lost-points
+        display inline
+
+  &.BET_WIN_SIDE_ACCEPTED > .single-item-wrapper
+    .bet-joined-users .userInBet_view.ACCEPTED
+      .lost-points
+        display inline
+    .bet-accepted-users .userInBet_view.ACCEPTED
+      .won-points
+        display inline

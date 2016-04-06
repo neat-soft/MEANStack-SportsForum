@@ -1,0 +1,14 @@
+<h1>Challenge won!</h1>
+<h3>You won a challenge at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a></h3>
+<p>
+    {{ if(challenge.challenger.ptext) { }}
+        {{- challenge.challenger.ptext }}
+    {{ } else { }}
+        {{= challenge.challenger.text }}
+    {{ } }}
+</p>
+<strong>Point status</strong>: {{= nameWinner }} (You) Up {{= no_votesWinner }}, Down {{= no_votes_downWinner }} - Up {{= no_votesLoser }}, Down {{= no_votes_downLoser }} {{= nameLoser }}
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

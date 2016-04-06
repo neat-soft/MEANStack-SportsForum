@@ -1,0 +1,64 @@
+//Stylesheet for questions and answers
+
+.description_bar
+  margin 2px 0
+  p
+    margin 5px auto 0 auto
+
+.question_view
+  .main_question_view
+    position relative
+    a
+      text-decoration none
+  .view_challenge
+    display none
+
+.question_view.IN_CHALLENGE
+  .view_challenge
+    display inline-block
+
+.question_view.DELETED
+  > .single-item-wrapper
+    background none
+  .question_view_container
+    padding 5px
+
+.question_view_container
+  overflow hidden
+  padding 0 0 5px 5px
+  margin 0 0 15px 5px
+  border-radius 3px
+  hr
+    margin 4px 0
+  .options_bar
+    .reply-with-bet
+      display none
+
+.question_view_container.single-item-wrapper.PROMOTED
+  .promoted_note
+    display inline
+
+.comment_view
+.bet_view
+  > .questions_view
+  margin-left 0
+  .no_questions
+    line-height 20px
+
+.answer_view
+  .comment_view
+  .bet_view
+    margin-left 0
+  .answer_wrapper
+    overflow hidden
+    margin 0 0 15px 5px
+    position relative
+    .main_answer_view
+      a
+        text-decoration none
+    .answered
+      display inline-block
+
+.answer_view > .newComment_view
+.answer_view > .newChallenge_view
+  display none

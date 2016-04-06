@@ -1,0 +1,17 @@
+<h1>
+    Reminder to resolve your Yolo
+</h1>
+<h3>The resolution window has been opened for a Yolo at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<h3>By now, you should have gathered enough information that will help you to decide if you were right or wrong. Acknowledge loss if necessary.</h3>
+
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

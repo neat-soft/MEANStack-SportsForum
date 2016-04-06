@@ -1,0 +1,29 @@
+<h1>
+    You were 
+        {{= if (up) { }}
+             voted 
+        {{ } else { }} 
+            unvoted 
+        {{ } }} 
+    in a challenge
+</h1>
+<h3>
+    {{ if (up) { }}
+        Someone voted you
+    {{ } else { }}
+        Someone retracted the vote on your comment
+    {{ } }} 
+    in a challenge at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a>
+</h3>
+<p>
+    {{ if(challenge.challenger.ptext) { }}
+        {{- challenge.challenger.ptext }}
+    {{ } else { }}
+        {{= challenge.challenger.text }}
+    {{ } }}
+</p>
+<strong>Votes</strong>: {{= no_votes }}
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

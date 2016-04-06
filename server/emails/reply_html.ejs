@@ -1,0 +1,7 @@
+<h1>New reply</h1>
+<h3>{{= (comment.author || comment.guest).name }} replied {{= comment.type == 'BET' ? 'with a Yolo ' : ''}}to your comment at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a></h3>
+<p>{{= text }}</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

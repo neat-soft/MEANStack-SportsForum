@@ -1,0 +1,9 @@
+{{ if (up) { }}
+  Someone liked your comment at {{= url }}
+{{ } else { }}
+  Someone retracted the like for your comment at {{= url }}
+{{ } }}
+{{= text }}
+Likes: {{= no_likes }}
+{{ include subscription_footer_text }}
+{{ include burnzonefooter_text }}

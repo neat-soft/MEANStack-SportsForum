@@ -1,0 +1,67 @@
+<div class="conversation-header">
+  <div class="banner">
+    {{#if appIsForum}}
+      <button class="create_thread inherit-border-color pull-right">
+        <span>{{translate "forum_new_thread_large"}}</span>
+      </button>
+      <div class="newContext_view"></div>
+      <div class="context_filter_container" id="context_filter_container">
+        <select class="context_filter">
+        </select>
+      </div>
+      <div class="filtering_options">
+        <button class="btn btn-filter activity-rating">{{translate "filter_activity_rating"}}</button>
+        <span id="filter-date">
+          <i class="icon-calendar"></i>
+          <span></span>
+        </span>
+      </div>
+    {{else}}
+      <div class="no_comments pull-left">
+        <span data-rv-text="model.no_all_activities" class="comment_number"></span>
+        {{translate "comments"}}
+      </div>
+
+      <div class="banner_options">
+        <a href='#' class='show-funded-comments'>{{translate 'funded_comments'}}</a>
+        <div class="sortComments_view"></div>
+        <div class="share-container">
+          <div class="share">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {{translate "share"}}
+              <i class="icon-angle-down"></i>
+            </a>
+            <div class="dropdown-menu conversation-header-submenu">
+              <div class="dropdown-menu-container">
+                <a href="#" class="share-fb" title="{{translate "share_fb"}}"><i class="icon-facebook"></i></a>
+                <a href="#" class="share-tw" title="{{translate "share_tw"}}"><i class="icon-twitter"></i></a>
+                <a href="mailto:?subject={{translate "share_mail_subject"}}&amp;body={{translate "share_mail_body"}} {{emailLink}}" title="{{translate "share_mail"}}" class="share-mail"><i class="icon-envelope-alt"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subscription-container">
+          <div class="subscription">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+              {{translate "subscribe"}}
+              <i class="icon-angle-down"></i>
+            </a>
+            <div class="dropdown-menu conversation-header-submenu">
+              <div class="dropdown-menu-container">
+                <div class="convSubscription_view"></div>
+                <div class="contentSubscription_view"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+  <div>
+    <span class="view_separate_page">
+      <i class="icon-mobile-phone"></i>
+      <a target="_blank" class="pull-left" href="{{{app.integration.baseUrl}}}/intern?s={{model.attributes.name}}&a=FORUM">{{translate "view_separate_page"}}</a>
+    </span>
+  </div>
+</div>

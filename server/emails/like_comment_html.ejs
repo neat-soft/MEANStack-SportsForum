@@ -1,0 +1,21 @@
+<h1>
+    {{ if (up) { }}
+        Someone liked your comment
+    {{ } else { }}
+        Someone retracted the like for your comment
+    {{ } }}
+</h1>
+<h3>
+    {{ if (up) { }}
+        Someone liked your comment
+    {{ } else { }}
+        Someone retracted the like for your comment
+    {{ } }} 
+    at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a>
+</h3>
+<p>{{= text }}</p>
+<strong>Likes</strong>: {{= no_likes }}
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

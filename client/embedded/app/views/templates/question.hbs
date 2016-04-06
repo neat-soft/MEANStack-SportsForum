@@ -1,0 +1,49 @@
+{{#if deleted}}
+  <div class="question_view_container single-item-wrapper">
+    <div class="pull-left left_box">
+      <div class="author_image_container"></div>
+    </div>
+    {{> top_note_bar}}
+    <div class="deleted_info">
+      <em>{{translate "question_deleted"}}</em>
+    </div>
+    <div class="options_bar">
+      <span class="comment_action_group left"></span>
+    </div>
+  </div>
+  <div class="clearleft"></div>
+  <div class="answers_view"></div>
+{{else}}
+  <div class="question_view_container single-item-wrapper">
+    {{> mod_menu }}
+    <div class="tc description_bar">
+      <i class="icon-question-sign"></i>
+      <small>{{translate "question"}}</small>
+      {{> funded_note}}
+      {{> promoted_title}}
+      {{#if type_question}}
+        <small class="question_points_offered_note visible-phone"></small>
+      {{/if}}
+    </div>
+
+    <div class="main_question_view">
+
+      {{> left_box}}
+      {{> top_note_bar}}
+
+      <div class="text"></div>
+      <div class="signature"></div>
+
+      {{> options_bar}}
+      {{> promote_popup}}
+
+    </div>
+  </div>
+
+  {{> edit_comment}}
+  <div class="newComment_view"></div>
+  <div class="newChallenge_view"></div>
+  <div class="answers_view"></div>
+
+
+{{/if}}

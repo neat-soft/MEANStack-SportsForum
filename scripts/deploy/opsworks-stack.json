@@ -1,0 +1,6 @@
+{
+  "opsworks_nodejs": {
+    "version": "0.10.18",
+    "pkgrelease": "1"
+  }
+}

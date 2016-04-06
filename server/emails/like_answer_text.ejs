@@ -1,0 +1,9 @@
+{{ if (up) { }} 
+  Someone voted your answer at {{= url }} 
+  {{ } else { }} 
+  Someone retracted the vote for your answer at {{= url }}
+{{ } }}
+{{= text }}
+Likes: {{= no_likes }}
+{{ include subscription_footer_text }}
+{{ include burnzonefooter_text }}

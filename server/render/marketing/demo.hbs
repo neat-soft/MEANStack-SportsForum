@@ -1,0 +1,48 @@
+{{#partial "content"}}
+
+<div style="padding: 20px;">
+  <div class='row form-group'>
+    <div class='col-sm-12 alert alert-warning'>
+      BurnZone Commenting Platform is now active in DEMO mode; it is HIGHLY recommended that you create a BurnZone account.
+    </div>
+  </div>
+
+  <div class='row form-group'>
+    <div class="col-sm-3">
+    </div>
+    <div class='col-sm-6'>
+      <a class='create-account form-control btn btn-default btn-xs' href='/auth/signin?demo={{{ demo }}}'>Sign into your existing account</a>
+    </div>
+    <div class="col-sm-3">
+      <a class="whats_this" rel="tooltip" title="" data-placement="right">[?]</a>
+    </div>
+  </div>
+
+  <div class='row form-group'>
+    <div class="col-sm-3">
+    </div>
+    <div class='col-sm-6'>
+      <a class='signin-account form-control btn btn-default btn-xs' href='/signup?demo={{{ demo }}}'>Create BurnZone Account</a>
+    </div>
+    <div class="col-sm-3">
+      <a class="whats_this" rel="tooltip" title="" data-placement="right">[?]</a>
+    </div>
+  </div>
+
+  <div class='row form-group'>
+    <div class="col-sm-3">
+      <i class="import-comments-progress fa fa-spinner fa-spin pull-right display_none"></i>
+    </div>
+    <div class='col-sm-6'>
+      <button class='import-comments form-control btn btn-success btn-xs'>Import WordPress comments</button>
+    </div>
+    <div class="col-sm-3">
+      <a class="whats_this" rel="tooltip" title="Import your WordPress comments into BurnZone." data-placement="right">[?]</a>
+      <span class="import-comments-status"></span>
+    </div>
+  </div>
+</div>
+
+{{/partial}}
+{{> marketing/layout}}
+

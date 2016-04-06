@@ -1,0 +1,192 @@
+{{#partial "admin_content"}}
+
+<div class="tab-pane active" id="tab1">
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+
+  <ul class="nav nav-tabs hide-in-frame">
+    <li class="active"><a href="{{adminSectionUrl "/admin/settings"}}">General Settings</a></li>
+    <li><a href="/admin/settingsadv">Advanced Settings (BETA)</a></li>
+  </ul>
+
+  {{#if framed}}
+    <h3>General settings</h3> <hr/>
+  {{/if}}
+
+
+  <form class='form-horizontal' role="form" action="{{adminSectionUrl "/admin/settings"}}" method="post">
+    {{#ifnot hasPremium}}
+    <div class="form-group">
+      <div class='col-sm-2'></div>
+      <div class='col-sm-10'>
+        <a href="{{adminSectionUrl "/admin/premium"}}" class="btn btn-primary">Upgrade to BurnZone Premium!</a>
+      </div>
+      <br>
+      <br>
+    </div>
+    {{/ifnot}}
+
+    {{#ifnot framed}}
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputName">Name</label>
+      <div class='col-sm-6'>
+        <input type='text' disabled='true' id='inputName' placeholder='name' class='form-control' value="{{site.name}}"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="This is the name that you will have to use in your plugin settings page." data-placement="right">[?]</a>
+      </div>
+    </div>
+    {{/ifnot}}
+
+    {{#if framed}}
+
+      {{#ifnot has_imported}}
+        <div class="alert alert-warning alert-import-comments">
+          You should import your existing Wordpress comments.
+        </div>
+      {{/ifnot}}
+
+      {{#if demo_comment_count}}
+        <div class='form-group'>
+          <div class="col-sm-2">
+          </div>
+          <div class='col-sm-4'>
+            <button class='merge-demo form-control btn btn-danger btn-xs' data-demo='{{demo}}' data-site='{{site.name}}' >Merge with demo account</button>
+          </div>
+          <div class="col-sm-6">
+            <a class="whats_this" rel="tooltip" title="Merge this site with the demo account you used prior to registration. The merge is irreversible." data-placement="right">[?]</a>
+            <span class="merge-demo-status">{{demo_comment_count}} comments in your demo account</span>
+          </div>
+        </div>
+      {{/if}}
+
+      <div class='form-group'>
+        <div class="col-sm-2">
+          <i class="import-comments-progress fa fa-spinner fa-spin pull-right display_none"></i>
+        </div>
+        <div class='col-sm-4'>
+          <button class='import-comments form-control btn btn-success btn-xs'>Import WordPress comments</button>
+        </div>
+        <div class="col-sm-6">
+          <a class="whats_this" rel="tooltip" title="Import your WordPress comments into BurnZone." data-placement="right">[?]</a>
+          <span class="import-comments-status"></span>
+        </div>
+      </div>
+
+    {{/if}}
+
+    <div class='form-group hide-in-frame'>
+      <label class="control-label col-sm-2" for="inputTimezone">Timezone</label>
+      <div class='col-sm-3'>
+        <select id='inputTimezone' name='timezone' class='form-control'>
+          {{#each zones}}
+            <option value="{{name}}"{{#ifeq name ../site.tz_name}} selected{{/ifeq}}>{{name}} (GMT{{offset}})</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="The site's timezone. All dates and timestamps are considered to belong to this timezone." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputBaseUrl">Base urls</label>
+      <div class='col-sm-6'>
+        <textarea type="text" rows="5" id='inputBaseUrl' placeholder='base URL' class='form-control' name="baseurl" value="{{baseUrl}}">{{baseUrl}}</textarea>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="This is the base URL to the location of your articles. You can have multiple URLs, one per line." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputApprovalMode">Approval mode for new commenters</label>
+      <div class='col-sm-6'>
+        <select name="approvalfornew" class="form-control">
+          <option value="2"{{#ifeq site.approvalForNew 2}} selected{{/ifeq}}>Manually approve</option>
+          <option value="0"{{#ifeq site.approvalForNew 0}} selected{{/ifeq}}>Auto approve</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Choose how you want to deal with new commenters." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group hide-in-frame'>
+      <label class="control-label col-sm-2" for="inputFilterWords">Filter words</label>
+      <div class='col-sm-6'>
+        <textarea type="text" rows="5" id='inputFilterWords' placeholder='Filtered words' class='form-control' name="filterwords">{{filterWords}}</textarea>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Enter words (one per line) that you want to be filtered from commenting." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+<!--     <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputAutoApprove">Apply individual user moderation settings</label>
+      <div class='col-sm-10'>
+        <input type='checkbox' {{checked site.autoApprove}} id='inputAutoApprove' class='input-medium' name="autoapprove" value="1"/>
+        <a class="whats_this" rel="tooltip" title="Use this to override approval mode for all users. If checked, the settings for individual users will be applied. If unchecked, all comments will be held for approval, regardless of each user's auto-approve mode" data-placement="right">[?]</a>
+      </div>
+    </div>
+ -->
+    <div class='form-group hide-in-frame'>
+      <label class="control-label col-sm-2" for="inputAutoCheckSpam">Check comments for spam</label>
+      <div class='col-sm-10'>
+        <input type='checkbox' {{checked site.auto_check_spam}} id='inputAutoCheckSpam' class='input-medium' name="auto_check_spam" value="1"/>
+        <a class="whats_this" rel="tooltip" title="If checked, the comment is automatically checked for spam using Akismet." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group hide-in-frame'>
+      <label class="control-label col-sm-2" for="inputConvLead">Distinct conversation leaderboards</label>
+      <div class='col-sm-10'>
+        <input type='checkbox' {{checked site.use_conv_leaderboard}} id='inputConvLead' class='input-medium' name="conv_lead" value="1"/>
+        <a class="whats_this" rel="tooltip" title="If checked, each conversation shows it's own leaderboard instead of showing the site-wide leaderboard." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group hide-in-frame'>
+      <label class="control-label col-sm-2" for="inputVerifyLead">Verified leaderboard</label>
+      <div class='col-sm-10'>
+        <input type='checkbox' {{checked site.verified_leaderboard}} id='inputVerifyLead' class='input-medium' name="verify_lead" value="1"/>
+        <a class="whats_this" rel="tooltip" title="If checked, only verified users are allowed on the leaderboard." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group hide-in-frame'>
+      <label class="control-label col-sm-2" for="inputTrustedDownvotes">Trusted leaderboard downvotes</label>
+      <div class='col-sm-10'>
+        <input type='checkbox' {{checked site.trusted_downvotes}} id='inputTrustedDownvotes' class='input-medium' name="trusted_downvotes" value="1"/>
+        <a class="whats_this" rel="tooltip" title="If checked, only trusted users are allowed to downvote comments; untrusted users can only upvote comments." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="inputDefSort">Default comment sort method</label>
+      <div class="col-md-5">
+      <select name="defCommentSort" id="inputDefSort" class="form-control">
+        <option value="timeAsc"{{selected site.defCommentSort "timeAsc"}}>Oldest</option>
+        <option value="timeDesc"{{selected site.defCommentSort "timeDesc"}}>Newest</option>
+        <option value="likesDesc"{{selected site.defCommentSort "likesDesc"}}>By points</option>
+      </select>
+      </div>
+      <div class="col-md-5">
+        <a class="whats_this" rel="tooltip" title="Default ordering of comments" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <div class="col-sm-2"></div>
+      <div class='col-sm-10'>
+        <button type='submit' class='btn btn-success btn-save'><i class="fa fa-save"></i> Save</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+{{/partial}}
+{{> marketing/admin}}

@@ -1,0 +1,89 @@
+@import "variables"
+@import "burnzone-fonts"
+@import "content"
+@import "profiles"
+@import "comments"
+@import "challenges"
+@import "analytics"
+@import "competitions"
+@import "oembed"
+
+.clear
+  clear both
+
+.display_none
+  display none
+
+.sort_by
+  width: auto
+  max-width 220px
+  margin 5px
+
+.not_verified_marker
+  cursor help
+  display none
+  padding 2px 3px
+  font-weight normal
+  font-size 9px
+  background-color #BF6669
+
+#content
+  overflow hidden
+
+.NOT_VERIFIED .not_verified_marker
+  display inline-block
+
+.loading_screen
+  display none
+
+.LOADING
+  .loading_screen
+    display block
+    position absolute
+    background #ffffff
+    text-align center
+    display block
+    width 100%
+    height 99%
+    opacity 0.75
+    -moz-opacity 0.75 /* Netscape */
+    z-index 1
+    i
+      font-size 25px
+      height 25px
+      width 25px
+      margin auto
+      position absolute
+      top: 0; left: 0; bottom: 0; right: 0;
+
+.text-label
+  display inline-block
+  width 200px
+  
+#subscribe_comments
+  margin-bottom 3px
+
+.refresh
+  display block
+  width 100%
+  // margin-bottom 15px
+
+.yesorno
+  border-right 1px solid lightGray
+  padding-right 5px
+  margin-right 5px
+  .no
+    color red
+  .yes
+    color green
+  .btn-group
+    .dropdown-toggle
+      line-height 0px
+    
+
+.visit_conversation
+  i
+    margin-right 5px
+
+.export_box
+  margin 15px 0 0

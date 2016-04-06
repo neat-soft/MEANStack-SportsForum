@@ -1,0 +1,13 @@
+<h1>Comment Challenged</h1>
+<h3>{{= (challenge.challenger.author || challenge.challenger.guest).name }} challenged your comment at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a></h3>
+<p>
+    {{ if(challenge.challenger.ptext) { }}
+        {{- challenge.challenger.ptext }}
+    {{ } else { }}
+        {{= challenge.challenger.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

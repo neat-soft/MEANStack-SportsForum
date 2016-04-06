@@ -1,0 +1,16 @@
+<h1>
+    The resolution window has been closed
+</h1>
+<h3>The resolution window has been closed for a Yolo at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<h3>You can no longer acknowledge loss. The Yolo could not be resolved automatically and has been sent to the moderator.</h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

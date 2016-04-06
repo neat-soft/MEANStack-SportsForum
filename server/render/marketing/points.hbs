@@ -1,0 +1,193 @@
+{{#partial "admin_content"}}
+
+<div class="tab-pane active" id="tab1">
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+
+  <ul class="nav nav-tabs hide-in-frame">
+    <li><a href="{{adminSectionUrl "/admin/badges"}}">Badges</a></li>
+    <li class="active"><a href="/admin/points">Points Settings</a></li>
+  </ul>
+
+  <form class="form-horizontal" action="{{adminSectionUrl "/admin/points"}}" method="post" role="form" autocomplete="off">
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="status_comment">Status required to comment:</label>
+      <div class='col-sm-2'>
+        <select id='status_comment' name='points_settings.status_comment' class='form-control'>
+          {{#each statusList}}
+            <option value="{{name}}"{{#ifeq name ../points_settings.status_comment}} selected{{/ifeq}}>{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="status_auto_approve">Status required to auto-approve comments:</label>
+      <div class='col-sm-2'>
+        <select id='status_auto_approve' name='points_settings.status_auto_approve' class='form-control'>
+          {{#each statusList}}
+            <option value="{{name}}"{{#ifeq name ../points_settings.status_auto_approve}} selected{{/ifeq}}>{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="status_leaderboard">Status required for Leaderboard:</label>
+      <div class='col-sm-2'>
+        <select id='status_leaderboard' name='points_settings.status_leaderboard' class='form-control'>
+          {{#each statusList}}
+            <option value="{{name}}"{{#ifeq name ../points_settings.status_leaderboard}} selected{{/ifeq}}>{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="status_downvote">Status required to Downvote:</label>
+      <div class='col-sm-2'>
+        <select id='status_downvote' name='points_settings.status_downvote' class='form-control'>
+          {{#each statusList}}
+            <option value="{{name}}"{{#ifeq name ../points_settings.status_downvote}} selected{{/ifeq}}>{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="status_upvote">Status required to Upvote:</label>
+      <div class='col-sm-2'>
+        <select id='status_upvote' name='points_settings.status_upvote' class='form-control'>
+          {{#each statusList}}
+            <option value="{{name}}"{{#ifeq name ../points_settings.status_upvote}} selected{{/ifeq}}>{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="status_flag">Status required to flag:</label>
+      <div class='col-sm-2'>
+        <select id='status_flag' name='points_settings.status_flag' class='form-control'>
+          {{#each statusList}}
+            <option value="{{name}}"{{#ifeq name ../points_settings.status_flag}} selected{{/ifeq}}>{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="points_comment">Each comment receives:</label>
+      <div class='col-sm-1'>
+        <input type='text' id='points_comment' name='points_settings.for_comment' class='form-control' value="{{points_settings.for_comment}}"/>
+      </div>
+      <div class="col-sm-1">points <small>(max. 5)</small></div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="free_challenge">Number of free challenges:</label>
+      <div class='col-sm-1'>
+        <input type='text' id='free_challenge' name='points_settings.free_challenge_count' class='form-control' value="{{points_settings.free_challenge_count}}"/>
+      </div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="points_winner">Challenge winner receives:</label>
+      <div class='col-sm-1'>
+        <input type='text' id='points_winner' name='points_settings.for_challenge_winner' class='form-control' value="{{points_settings.for_challenge_winner}}"/>
+      </div>
+      <div class="col-sm-1">points</div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="points_share">Sharing receives:</label>
+      <div class='col-sm-1'>
+        <input type='text' id='points_share' name='points_settings.for_share' class='form-control' value="{{points_settings.for_share}}"/>
+      </div>
+      <div class="col-sm-1">points</div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="points_min_bet">Minimum points for Yolo:</label>
+      <div class='col-sm-1'>
+        <input type='text' id='points_min_bet' name='points_settings.min_bet' class='form-control' value="{{points_settings.min_bet}}"/>
+      </div>
+      <div class="col-sm-1">points</div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="points_min_bet_target">Points reserved in a Targeted Yolo:</label>
+      <div class='col-sm-1'>
+        <input type='text' id='points_min_bet_target' name='points_settings.min_bet_targeted' class='form-control' value="{{points_settings.min_bet_targeted}}"/>
+      </div>
+      <div class="col-sm-1">points</div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="disable_upvotes">Disable points for upvotes</label>
+      <div class="col-sm-2">
+        <input type='checkbox' {{checked points_settings.disable_upvote_points}} id='disable_upvotes' class='input-medium' name="points_settings.disable_upvote_points" value="1"/>
+      </div>
+      <div class='col-sm-6'>
+        <a class="whats_this" rel="tooltip" title="If checked, upvotes will not add points." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="disable_downvotes">Disable points for downvotes</label>
+      <div class="col-sm-2">
+        <input type='checkbox' {{checked points_settings.disable_downvote_points}} id='disable_downvotes' class='input-medium' name="points_settings.disable_downvote_points" value="1"/>
+      </div>
+      <div class='col-sm-6'>
+        <a class="whats_this" rel="tooltip" title="If checked, downvotes will not remove points." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-3" for="ignite_create_thread">Only ignited/igniter can create forum threads</label>
+      <div class="col-sm-2">
+        <input type='checkbox' {{checked points_settings.ignite_create_thread}} id='ignite_create_thread' class='input-medium' name="points_settings.ignite_create_thread" value="1"/>
+      </div>
+      <div class='col-sm-6'>
+        <a class="whats_this" rel="tooltip" title="If checked, only users that are ignited or have ignited someone can post new threads." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <div class="col-md-2"></div>
+      <div class='col-md-3'>
+        <button type='submit' class='btn btn-success'>Save</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+{{/partial}}
+{{> marketing/admin}}

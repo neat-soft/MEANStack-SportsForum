@@ -1,0 +1,12 @@
+html, body{
+    background: none;
+    padding:0;
+}
+
+.admin-top h3{
+    margin-top: 0;
+}
+
+.profile_view .name_column{
+    width:80px;
+}

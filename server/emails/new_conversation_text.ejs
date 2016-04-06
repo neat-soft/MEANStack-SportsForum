@@ -1,0 +1,9 @@
+{{ if (conv.type == "ARTICLE") { }}
+  There is a new article at {{= url }}
+  You are receiving this email because you are subscribed to new articles on {{= siteName }}
+{{ } else { }}
+  There is a new forum topic at {{= url }}
+  You are receiving this email because you are subscribed to new forum topics on {{= siteName }}
+{{ } }}
+You can unsubscribe by following this link {{= config.serverHost }}/unsubscribe/{{= token }}
+{{ include burnzonefooter_text }}

@@ -1,0 +1,15 @@
+{{#ifin model.attributes.type "facebook" "google" "twitter"}}
+  {{model.attributes.name}} {{capitalize model.attributes.type}}
+{{/ifin}}
+{{#ifeq model.attributes.type "sso"}}
+  {{model.attributes.name}} on {{model.attributes.site}}
+{{/ifeq}}
+{{#ifeq model.attributes.type "guest"}}
+  {{model.attributes.count}} Anonymous comments with your email
+{{/ifeq}}
+{{model.attributes.count}}
+{{#if model.attributes.merging}}
+  <span class="label label-success">Queued</span>    
+{{else}}
+  <button class='merge_account btn btn-link'>Merge</button>
+{{/if}}

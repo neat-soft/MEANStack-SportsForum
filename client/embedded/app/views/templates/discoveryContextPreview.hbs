@@ -1,0 +1,25 @@
+<a href="{{absolute_link}}" title="{{translate "go_to_article"}}" target="_blank">
+  <div class="topic-author thread-column pull-left"></div>
+
+  <div class="topic-stats link-text pull-right">
+    <div class="topic-actions thread-column column-comments">
+      <span class="no_activities">{{model.attributes.no_all_activities}}</span><i class="icon icon-comment"></i>
+    </div>
+    {{#if model.attributes.private}}
+      <span class='pull-right badge' title="{{translate 'forum_private_for_you'}}">{{translate 'forum_is_private_short'}}</span>
+    {{/if}}
+  </div>
+
+  <div class="topic-title thread-column">
+    <div class="truncate">
+      <h4><span class="text" data-rv-text="model.text"></span></h4>
+    </div>
+    <div class="summary-wrapper">
+      <div class="comment-summary truncate pull-left"></div>
+    </div>
+  </div>
+</a>
+
+<div class="clear"></div>
+
+</div>

@@ -1,0 +1,15 @@
+<h1>Pending challenge</h1>
+<h3>{{= challenge.challenger.author.name }} challenged at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a>, waiting for approval</h3>
+<p>
+    {{ if(challenge.challenger.ptext) { }}
+        {{- challenge.challenger.ptext }}
+    {{ } else { }}
+        {{= challenge.challenger.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+    <br>
+    <% include mod_subscription_footer_html %>
+</p>
+                                            

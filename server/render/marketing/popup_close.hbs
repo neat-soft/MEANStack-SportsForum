@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+  var message = "";
+  {{#if error}}
+    message = "burnzone-rpc {{social}}:error {{error}}";
+  {{else}}
+    message = "burnzone-rpc {{social}}:success {{text}}";
+  {{/if}}
+  try {
+    window.opener.postMessage(message, "*");
+  }
+  catch (e) {
+    if (/such interface supported/i.test(e.message)) {
+      // IE workaround
+      window.opener.iePostMessage(message);
+    }
+  }
+  window.open('','_self','');
+  window.close();
+</script>
+</body>
+</html>

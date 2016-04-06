@@ -1,0 +1,182 @@
+{{#partial "admin_content"}}
+
+<div class="tab-pane active" id="tab1">
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+
+  <ul class="nav nav-tabs hide-in-frame">
+    <li class="active"><a href="{{adminSectionUrl "/admin/badges"}}">Badges</a></li>
+    <li><a href="/admin/points">Points Settings</a></li>
+  </ul>
+
+  <form class="form-horizontal" action="{{adminSectionUrl "/admin/badges"}}" method="post" role="form" autocomplete="off">
+    <h3>Badges</h3>
+
+    <div id="badge_template" class='form-group display_none'>
+      <div class="control-label badge-container col-md-2">
+        <img src=""></img>
+      </div>
+      <div class='col-md-6'>
+        <input type="text" placeholder='avatar url' class='form-control input-sm' name="avatar" value="">
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-danger btn-sm del-badge"><i class="fa fa-trash-o"></i></button> <span class="label label-danger">Not saved</span>
+      </div>
+    </div>
+
+      {{#each_with_id badges}}
+        {{#ifnot elem.hide_from_admin}}
+        <hr>
+        <div class="badge-wrap">
+        <div class='form-group'>
+          <div class="control-label badge-container col-md-2">
+            Name
+          </div>
+          <div class="col-md-3">
+            <input type="hidden" name="badges[{{id}}][id]" value="{{id}}" />
+            <input type="text" class="form-control badge_name" name="badges[{{id}}][icon]" maxlength="5" value="{{elem.icon}}" />
+          </div>
+          <div class="control-label badge-container col-md-1">
+            Color
+          </div>
+          <div class='col-md-2'>
+            <input type="text" class="form-control color_badge" name="badges[{{id}}][color_bg]" value="{{elem.color_bg}}" />
+          </div>
+
+          <div class="col-md-4">
+            <a class="whats_this" rel="tooltip" title="The badge's name will be displayed with the specified color next to the user's name and avatar. Limited to 5 characters." data-placement="right">[?]</a>
+          </div>
+        </div>
+
+        <div class='form-group'>
+          <div class="control-label badge-container col-md-2">
+            Description
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="badges[{{id}}][title]" value="{{elem.title}}" />
+          </div>
+          <div class="col-md-4">
+            <a class="whats_this" rel="tooltip" title="The description will serve as a tooltip for badges and also as title for the badge specific leaderboard." data-placement="right">[?]</a>
+          </div>
+        </div>
+
+        <div class='form-group'>
+          <div class="control-label badge-container col-md-2">
+            Preview
+          </div>
+          <div class="col-md-6 badge_preview">
+            <div class="label badge_marker badge_sample" data-toggle="tooltip" data-container="body" data-placement="bottom" title="{{elem.title}} - Rank 1, 99 points" style="background-color: {{elem.color_bg}}">
+              <span class="badge-title" data-badge-id="">{{elem.icon}}</span>
+            </div>
+          </div>
+        </div>
+
+        {{#ifnot elem.manually_assigned}}
+          <div class='form-group'>
+            <div class="control-label badge-container col-md-2">
+              Enabled
+            </div>
+            <div class="controls col-md-6">
+              <label class="checkbox">
+                <input type="checkbox" name="badges[{{id}}][enabled]"{{#if elem.enabled}} checked="checked"{{/if}}>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <a class="whats_this" rel="tooltip" title="If checked, the badge will be shown next to the username in conversations." data-placement="right">[?]</a>
+            </div>
+          </div>
+
+          <div class='form-group'>
+            <div class="control-label badge-container col-md-2">
+              Verification
+            </div>
+            <div class="col-md-6">
+              <select class="form-control" name="badges[{{id}}][verified]">
+                <option value="on"{{#if elem.verified}} selected="selected"{{/if}}>required</option>
+                <option value=""{{#ifnot elem.verified}} selected="selected"{{/ifnot}}>not required</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <a class="whats_this" rel="tooltip" title="If verification is required, only verified users are eligible for earning the badge." data-placement="right">[?]</a>
+            </div>
+          </div>
+
+          <div class='form-group'>
+            <div class="control-label badge-container col-md-2">
+              Awarded for
+            </div>
+            <div class="controls col-md-6">
+              <select class="form-control" name="badges[{{id}}][awarded_for]">
+                <option value="points_all"{{#if elem.points}}{{#ifnot elem.rule.type}} selected="selected"{{/ifnot}}{{/if}}>all points</option>
+                <option value="points_answer"{{#ifeq elem.rule.type "QUESTION_AWARD"}} selected="selected"{{/ifeq}}>points from answers</option>
+                <option value="points_challenge"{{#ifeq elem.rule.type "WIN_CHALLENGE"}} selected="selected"{{/ifeq}}>points from winning challenges</option>
+                <option value="count_share"{{#ifeq elem.rule.type "SHARE"}} selected="selected"{{/ifeq}}>number of shares</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <a class="whats_this" rel="tooltip" title="The users are ranked by the number of points won in a certain category." data-placement="right">[?]</a>
+            </div>
+          </div>
+
+          {{#if elem.registered_last_days}}
+          <div class='form-group'>
+            <div class="control-label badge-container col-md-2">
+              Registered
+            </div>
+            <div class="col-md-6">
+              <select class="form-control" disabled="disabled">
+                <option>
+                  in the last {{elem.registered_last_days}} days
+                </option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <a class="whats_this" rel="tooltip" title="Only users registered in this timeframe are eligible for earning the badge." data-placement="right">[?]</a>
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if elem.limit_percent}}
+            <div class='form-group'>
+              <div class="control-label badge-container col-md-2">
+                Awarded to
+              </div>
+              <div class="col-md-6">
+                <select class="form-control" disabled="disabled">
+                  <option>
+                    top {{elem.limit_percent}}% users
+                    {{#ifnot elem.since}}
+                      of all time
+                    {{else}}
+                      {{#if elem.since.last_30_days}}
+                        of the last 30 days
+                      {{/if}}
+                      {{#if elem.since.current_month}}
+                        of current month
+                      {{/if}}
+                    {{/ifnot}}
+                    </option>
+                  </select>
+              </div>
+              <div class="col-md-4">
+                <a class="whats_this" rel="tooltip" title="The percentage of users (with positive score) that can earn the badge." data-placement="right">[?]</a>
+              </div>
+            </div>
+          {{/if}}
+        {{/ifnot}}
+        </div>
+        {{/ifnot}}
+      {{/each_with_id}}
+
+    <div class='form-group'>
+      <div class="col-md-2"></div>
+      <div class='col-md-3'>
+        <button type='submit' class='btn btn-success'>Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{/partial}}
+{{> marketing/admin}}

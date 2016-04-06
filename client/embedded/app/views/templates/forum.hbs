@@ -1,0 +1,119 @@
+<div class="row-fluid notifications_view"></div>
+</div>
+
+<div class="row-fluid">
+  <div class="span12 header">
+    {{#if loggedIn}}
+      <div class="pull-right">
+        <div class="currentUser_view"></div>
+      </div>
+    {{else}}
+      <div class="pull-right">
+        <div class="headerLogin_view"></div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="content content_forum tab-content">
+      <div class="tab-pane" id="contexts">
+        <div class="competitionAnnounce_view"></div>
+        {{> conversation_header}}
+        <div id="contexts_wrapper">
+          <div class="pull-right leaderboard CHECK-HEIGHT"></div>
+          <button class="pull-right ldb-show"><span>+</span></button>
+          <table id='contexts_collection'>
+            <thead class="table_head">
+              <td class="head-commenters" title="{{translate "sorting_options"}}">
+                <span class="column-text">
+                  <span class="small_text"><i class="icon-user"></i></span>
+                  <span class="large_text">{{translate "users"}}</span>
+                </span>
+              </td>
+              <td class="head-title" title="{{translate "sorting_options"}}">
+                <span class="hidden-phone">{{translate "thread_title"}}
+                </span>
+                <span class="visible-phone">{{translate "title"}}
+                </span>
+              </td>
+              <td></td>
+              <td class="head-categories" class="thread-column" title="{{translate "sorting_options"}}">{{translate "head_categories"}}</td>
+              <td class="head-comments thread-column sortable">
+                <div class='mobile column-sorter touch'></div>
+                <div class='full-columns'>
+                  <span class="small_text"><i class="icon-comment"></i></span>
+                  <span class="large_text">{{translate "comments"}}</span>
+                  <span class="sort_direction up "><i class="icon-chevron-up"></i></span>
+                  <span class="sort_direction down"><i class="icon-chevron-down"></i></span>
+                </div>
+              </td>
+              <td class="head-latest-activity thread-column sortable">
+                <div class='mobile column-sorter touch'></div>
+                <div class='full-columns'>
+                  <span class="small_text"><i class="icon-time"></i></span>
+                  <span class="large_text">{{translate "time"}}</span>
+                  <span class="sort_direction up"><i class="icon-chevron-up"></i></span>
+                  <span class="sort_direction down"><i class="icon-chevron-down"></i></span>
+                </div>
+              </td>
+              <td class="head-activity-rating thread-column sortable">
+                <div class='mobile column-sorter touch'></div>
+                <div class='full-columns'>
+                  <span class="small_text"><i class="icon-time"></i></span>
+                  <span class="large_text">{{translate "filter_activity_rating"}}</span>
+                  <span class="sort_direction up"><i class="icon-chevron-up"></i></span>
+                  <span class="sort_direction down"><i class="icon-chevron-down"></i></span>
+                </div>
+              </td>
+            </thead>
+            <tbody class="contexts_view">
+              <tr class='bets_thread'>
+                <td></td>
+                <td class="thread-title thread-column">
+                  <div>
+                    <h4 class="truncate"><a href="#brzn/yolo/all" title="{{translate 'bets_thread_info'}}" class="text"><i class='icon-money'></i> {{translate "bets_thread_title"}}</a></h4>
+                  </div>
+                </td>
+                <td></td>
+                <td class="topic-tags thread-column">
+                  <a href="#brzn/yolo/all" class="tag label label-flat" data-tag='yolo' style="border-color: {{color "yolo"}}; color: {{color "yolo"}}">yolo</a>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="control_bar">
+          <button class="more btn">{{translate "show_more"}} <i class="icon-angle-down"></i></button>
+          <div class="loading">
+            <i class="icon-spinner icon-spin"></i>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="current_context">
+        <div>
+          <a href="#brzn/contexts" class="back-to-forums"><i class="icon-chevron-left"></i> {{translate "go_to_forums"}}</a>
+        </div>
+        <div class="context_view"></div>
+      </div>
+      <div class="tab-pane" id="competitions">
+        <a href="#brzn/contexts" class="back-to-forums"><i class="icon-chevron-left"></i> {{translate "go_to_forums"}}</a>
+      </div>
+      <div class="tab-pane" id="bets">
+        <a href="#brzn/contexts" class="back-to-forums"><i class="icon-chevron-left"></i> {{translate "go_to_forums"}}</a>
+      </div>
+      <div class="tab-pane" id="competition_details">
+        <a href="#brzn/competitions"><i class="icon-chevron-left"></i> {{translate "go_to_competitions"}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> footer}}
+
+<div id="user-profile"></div>
+<div id="badge-details" class="leaderboard CHECK-HEIGHT"></div>

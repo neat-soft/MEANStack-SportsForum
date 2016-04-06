@@ -1,0 +1,62 @@
+.video-wrapper
+  width 690px
+  margin-left auto
+  margin-right auto
+  clear both
+  .close
+    font-size 60px
+    color white
+    opacity 0.7
+  .close:hover
+  .close:focus
+    color black
+    opacity 0.5
+.video-intro
+  padding-top 10%
+  position fixed
+  top 0
+  left 0
+  background rgba(0,0,0,0.8)
+  z-index 9999
+  width 100%
+  height 100%
+  iframe
+    box-shadow 0px 0px 14px 8px #21222A
+.video-sports iframe
+  margin-right auto
+  margin-left auto
+  display block
+  margin-bottom 20px
+      
+@media(min-width: 545px) and (max-width: 690px)
+  .video-sports iframe
+    width 500px
+    height 300px
+  .video-intro
+    .video-wrapper
+      width 500px
+      iframe
+        width 500px
+        height 300px
+
+@media(min-width: 400px) and (max-width: 545px)
+  .video-sports iframe
+    width 355px
+    height 230px
+  .video-intro
+    .video-wrapper
+      width 355px
+      iframe
+        width 355px
+        height 230px
+
+@media(max-width: 400px)
+  .video-sports iframe
+    width 100%
+    height auto
+  .video-intro
+    .video-wrapper
+      width 100%
+      iframe
+        width 100%
+        height auto

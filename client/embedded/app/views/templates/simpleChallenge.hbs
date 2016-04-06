@@ -1,0 +1,31 @@
+{{#if deleted}}
+  <div class="challenge_container single-item-wrapper">
+    {{> top_note_bar}}
+    <div class="deleted_info">
+      <em>{{translate "challenge_deleted"}}</em>
+    </div>
+  </div>
+  <div class="clearleft"></div>
+{{else}}
+  <div class="challenge_container single-item-wrapper">
+
+    <a target='_blank' class="btn-link comment_action_group goto_comment" title="{{translate "title_goto_comment"}}" href="{{commentLink}}"> &mdash; {{translate "goto_comment"}} <i class="icon-chevron-right"></i></a>
+
+    <div class="main_challenge_view">
+      <div class="tc ends_time_container">
+        <img src="{{resource "/img/flame-with-glow.png"}}" title="{{translate "challenge"}}" />
+        <span class="ends_time time"></span>
+      </div>
+      <div class="tc active-replies-container">&nbsp;<span class="active-replies"></span></div>
+      <div class="challenged span5 pull-left" title="{{translate "title_challenged_side"}}">
+      </div>
+      <div class="versus span2">
+        <div class="vs-text">{{translate "vs"}}</div>
+      </div>
+      <div class="challenger span5" title="{{translate "title_challenger_side"}}">
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+{{/if}}

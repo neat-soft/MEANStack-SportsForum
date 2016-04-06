@@ -1,0 +1,51 @@
+{{#partial "admin_content"}}
+
+<div class="tab-pane active site_settings_adv" id="tab1">
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+
+  <ul class="nav nav-tabs">
+    <li><a href="{{adminSectionUrl "/admin/settings"}}">General Settings</a></li>
+    <li class="active"><a href="/admin/settingsadv">Advanced Settings (BETA)</a></li>
+  </ul>
+
+  <p>
+    These options define when a new conversation should be created for your site. Try to be as specific as possible in order to prevent creating unnecessary Burnzone conversations and make our notifications about new conversations function properly.
+  </p>
+  <form class='form-horizontal' action="{{adminSectionUrl "/admin/settingsadv"}}" method="post" role="form">
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="forceid">Force IDs</label>
+      <div class='col-md-3'>
+        <input type='checkbox' id='forceid' name='forceid' placeholder='forceid' value="1" {{checked site.conv.forceId}} />
+        <a class="whats_this" rel="tooltip" title="New conversations must have a site-wide unique id. If you can ensure a unique id for your articles then this must be checked (e.g. Wordpress)." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="useqs">Use query strings to define new conversations</label>
+      <div class='col-md-3'>
+        <input type='checkbox' id='useqs' name='useqs' placeholder='useqs' value="1" {{checked site.conv.useQs}} />
+        <a class="whats_this" rel="tooltip" title="Check if you can't ensure a unique id for your articles or for even more strictness. Configure the query parameters below." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="qsdefinenew">Query string keys that define conversations (one per line)</label>
+      <div class='col-md-4'>
+        <textarea id="qsdefinenew" name="qsdefinenew" rows="5" cols="30" placeholder="">{{qsDefineNew}}</textarea>
+        <a class="whats_this" rel="tooltip" title="Enter here the query string parameters that your system uses to define articles, one per line." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <div class="col-md-2"></div>
+      <div class='col-md-3'>
+        <button type='submit' class='btn btn-success'>Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{/partial}}
+{{> marketing/admin}}

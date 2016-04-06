@@ -1,0 +1,63 @@
+<div class="ldb-top">
+  <button class="ldb-hide"><span><i class="icon-minus"></i></span></button>
+  <h5 title="{{translate "site_leaderboard_title"}}">{{translate "leaderboards_title"}}</h5>
+</div>
+{{#if current_badge}}
+<div class="note">
+  <div>
+    {{translate "badge_cutoff"}}
+  </div>
+  <div>
+    {{translate "rank"}} <span class="rank_cutoff">?</span>
+  </div>
+</div>
+{{else}}
+<a class="note" href="https://burnzone.desk.com/customer/portal/articles/1052629-how-do-i-get-points-" target="_blank" title="{{translate "how_to_points"}}">{{translate "how_to_points"}} <i class="icon-question-sign"></i></a>
+{{/if}}
+
+<div class="scroll show_top display_none">
+  <a class="go_up" href="#" title="{{translate "scroll_leaderboard_up"}}">
+    <i class="icon-angle-up"></i>
+  </a>
+  <a class="go_to_top pull-right" href="#" title="{{translate "scroll_leaderboard_top"}}">
+    <i class="icon-double-angle-up"></i>
+  </a>
+</div>
+
+<div class="custom-select-wrapper">
+  <select class="top_users">
+    {{#ifnot appIsForum}}
+      <option value="conversation"{{#ifeq options.type "conversation"}} selected="selected"{{/ifeq}}>{{translate "conversation_leaderboard"}}</option>
+    {{/ifnot}}
+    {{#each all_badges}}
+      {{#if elem.enabled}}
+        {{#ifnot elem.manually_assigned}}
+          <option value="{{key}}">{{elem.title}}</option>
+        {{/ifnot}}
+      {{/if}}
+    {{/each}}
+  </select>
+</div>
+{{#if competition}}
+  <div class="competition-info">
+    <div class="competition-title">
+      {{competition.attributes.title}}
+    </div>
+    <div>
+      <i class='icon-trophy'></i>
+    </div>
+    <div class="competition-prize">
+      {{{competition_win}}}
+    </div>
+  </div>
+{{/if}}
+<div class="nobody_has_points display_none">
+  {{translate "nobody_has_points"}}
+</div>
+<div class="users_view"></div>
+
+<div class="scroll show_bottom display_none">
+  <a class="go_down" href="#" title="{{translate "scroll_leaderboard_down"}}">
+    <i class="icon-angle-down"></i>
+  </a>
+</div>

@@ -1,0 +1,30 @@
+{{#partial "admin_content"}}
+
+<script type="text/javascript">
+  var conversaitData = {
+    siteName: "{{site.name}}",
+    site: {{{json req.site}}},
+    avatars: {{{avatars}}},
+    verified_leaderboard: "{{site.verified_leaderboard}}",
+    timezone: "{{site.tz_name}}",
+    baseUrlResources: "{{baseUrlResources}}",
+    statics: {{{statics}}},
+    badges: {{{badges}}},
+    user: {{{json req.user}}}
+  };
+</script>
+<div id="conversait_moderator"></div>
+
+{{/partial}}
+
+{{#partial "app_init"}}
+
+<script src="{{resource "/js/moderator-vendor.js"}}"></script>
+<script src="{{resource "/js/moderator.js"}}"></script>
+<script>
+  require("main");
+</script>
+
+{{/partial}}
+
+{{> marketing/admin}}

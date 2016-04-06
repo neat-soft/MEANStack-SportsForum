@@ -1,0 +1,29 @@
+{{#if admin}}
+
+  {{> marketing/admin}}
+
+{{else}}
+
+  {{#partial "content"}}
+
+  <div class="container public_plugins">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="title">Supported by major platforms</h2>
+        {{#block "admin_content"}}{{/block}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="help_section">
+          <a href="https://burnzone.desk.com/" target="_blank">Click here if you need any help</a> or feel free to contact us via info@theburn-zone.com !
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{/partial}}
+
+  {{> marketing/layout}}
+
+{{/if}}

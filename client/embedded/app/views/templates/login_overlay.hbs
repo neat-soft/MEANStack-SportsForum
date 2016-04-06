@@ -1,0 +1,33 @@
+<div class="login-overlay CHECK-HEIGHT">
+
+  <a class="pull-right close-login-overlay">x</a>
+
+  <div class="tc">
+    <div class="logins_view"></div>
+  </div>
+
+  <hr />
+  <div class="tc">
+    <h3>
+      {{translate "sign_up"}}
+      <a class="help_note" rel="tooltip" title="{{translate "create_user_expl"}}" data-placement="right">[?]</a>
+    </h3>
+  </div>
+
+  <input class="anon_name span12" type="text" placeholder="{{translate "anon_name"}}" />
+  <input class="anon_email span12" type="text" placeholder="{{translate "anon_email"}}" />
+  <input class="anon_pass span12" type="password" placeholder="{{translate "anon_pass"}}" />
+
+  <button class="submit">
+    <span class="submit_text">{{translate "reg_and_submit_comment"}}</span>
+    <span class="submit_icon">
+      <i class="icon-spinner icon-spin"></i>
+    </span>
+  </button>
+
+  <br />
+  <div class='already_signedup'>
+    {{translate "sign_in_already_have_account"}}
+  </div>
+
+</div>

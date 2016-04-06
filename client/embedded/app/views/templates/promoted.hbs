@@ -1,0 +1,18 @@
+<div class="comment_wrapper single-item-wrapper">
+  {{> mod_menu }}
+  <div class="tc description_bar">
+    {{#if type_promoted}}
+      <i class="icon-certificate"></i>
+      <small class="promoted_points_note" title="{{translate "title_promoted_points_note"}}"></small>
+    {{/if}}
+    {{> funded_note}}
+  </div>
+  <div class="main_comment_view">
+
+    {{> left_box}}
+    {{> top_note_bar}}
+    <div class="text"></div>
+    {{> options_bar}}
+
+  </div>
+</div>

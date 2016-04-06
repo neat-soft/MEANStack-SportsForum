@@ -1,0 +1,20 @@
+<h1>
+    {{ if (comment.forum) { }}
+        New Forum Topic
+    {{ } else { }}
+        New Comment
+    {{ } }}
+</h1>
+<h3>{{= (comment.author || comment.guest).name }} mentioned you in comment at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <br>
+    <% include burnzonefooter_html %>
+</p>
+                                            

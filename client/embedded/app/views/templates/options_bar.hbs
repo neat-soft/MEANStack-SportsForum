@@ -1,0 +1,130 @@
+<div class="options_bar">
+  {{#ifneq model.attributes.type "CHALLENGE"}}
+    <a class="toggle_oembed btn btn-link">{{translate 'show_embedded_items'}}</a>
+  {{/ifneq}}
+  <div class="mobile_options_menu btn-group visible-phone ios-visible pull-right flat-dropdown">
+    <button class="btn btn-medium dropdown-toggle mobile_options_menu_toggle" data-toggle="dropdown">
+      {{!-- <i class="icon-chevron-down"></i> --}}
+      <small>{{translate "options"}}</small>
+    </button>
+    <ul class="dropdown-menu pull-left">
+      {{#if type_promoted}}
+        {{#ifeq options.mode 'full'}}
+          <li><a href="{{commentLink}}">{{translate "view_original"}}</a></li>
+        {{/ifeq}}
+      {{else}}
+        {{#ifeq options.mode 'full'}}
+          <li><a href="#" class="reply">{{!-- <i class="icon-reply"></i> --}} {{text_reply}}</a></li>
+          {{#if betting_enabled}}
+            <li><a href="#" class="reply-with-bet">{{!-- <i class="icon-reply"></i> --}} {{translate "reply_with_bet"}}</a></li>
+          {{/if}}
+          {{#ifnot type_challenge}}
+            <li><a href="{{linkBase}}/{{model.attributes.challengedIn.id}}/reply" class="reply_in_challenge">{{!-- <i class="icon-reply"></i> --}}{{translate "reply_in_challenge"}}</a></li>
+          {{/ifnot}}
+        {{/ifeq}}
+        <li><a href="#" class="stripe-button fund">{{translate "fund_comment"}}</a></li>
+        {{#ifeq options.mode 'full'}}
+          {{#if can_challenge}}
+            <li><a href="#" class="challenge">{{!-- <i class="icon-fire"></i> --}}{{translate "challenge"}}</a></li>
+          {{/if}}
+        {{#if type_bet}}
+          <li><a href="#" title="{{translate "title_bet_close"}}" class="bet-close">{{translate "bet_close"}}</a></li>
+          <li><a href="#" title="{{translate "title_bet_start_forf"}}" class="bet-start-forf">{{translate "bet_start_forf"}}</a></li>
+        {{/if}}
+          <li><a href="#" class="edit">{{!-- <i class="icon-edit"></i> --}}{{translate "edit_comment"}}</a></li>
+          <li><a href="#" class="promote">{{translate "promote"}}</a></li>
+          <li><a href="#" class="self_promote">{{ translate "self_promote" value=app.options.promoteCost }}</a></li>
+        {{/ifeq}}
+      {{/if}} {{!-- ending if/else promoted--}}
+      {{#if options.linktofull}}
+        <li><a target="_blank" class="goto_comment" title="{{translate "goto_comment"}}" href="{{emailLink}}">{{translate "goto_comment"}}{{!-- <i class="icon-chevron-right"></i> --}}</a></li>
+      {{/if}}
+      <li><a href="#" class="share-fb">{{!-- <i class="icon-facebook-sign"></i> --}}{{translate "share_fb"}}</a></li>
+      <li><a href="#" class="share-tw">{{!-- <i class="icon-twitter-sign"></i> --}}{{translate "share_tw"}}</a></li>
+      <li><a href="mailto:?subject={{translate "share_mail_subject"}}&amp;body={{translate "share_mail_body"}} {{emailLink}}" class="share-mail" target="_blank">{{!-- <i class="icon-envelope-alt"></i> --}}{{translate "share_mail"}}</a></li>
+      {{#ifeq options.mode 'full'}}
+        <li><a href="#" class="flag">{{!-- <i class="icon-flag"></i> --}}{{translate "flag"}}</a></li>
+      {{/ifeq}}
+    </ul>
+  </div>
+
+  <span class="show_actions hidden-phone"><i class="icon-share-alt"></i> {{translate "more_actions"}}</span>
+  {{#ifeq options.mode 'full'}}
+    {{#if type_promoted}}
+      <a href="{{commentLink}}" class="hidden-phone btn-link view_original comment_action_group" title="{{translate "title_view_original"}}">
+        {{translate "view_original"}}
+      </a>
+    {{else}}
+      <a href="#" class="hidden-phone btn-link reply comment_action_group" title="{{text_title_reply}}">
+        <i class="icon-reply"></i> {{text_reply}}
+      </a>
+      {{#if betting_enabled}}
+        <a href="#" class="hidden-phone btn-link reply-with-bet comment_action_group" title="{{translate "title_reply_with_bet"}}">
+          <i class="icon-reply"></i> {{translate "reply_with_bet"}}
+        </a>
+      {{/if}}
+    {{/if}}
+
+    {{#ifnot type_promoted}}
+      <a href="{{linkBase}}/{{model.attributes.challengedIn.id}}/reply" class="hidden-phone comment_action_group btn-link reply_in_challenge">
+        <i class="icon-reply challenge_reply"></i> {{text_comment_in_challenge}}
+      </a>
+    {{/ifnot}}
+  {{/ifeq}}
+
+  {{#ifnot type_challenge}}
+    <a href="#" class="hidden-phone btn-link comment_action_group stripe-button fund" title="{{translate "fund_comment_info"}}">
+      {{translate "fund_comment"}}
+    </a>
+  {{/ifnot}}
+
+  {{#ifeq options.mode 'full'}}
+    {{#ifnot type_promoted}}
+      {{#if can_challenge}}
+        <a href="#" class="hidden-phone btn-link challenge comment_action_group" title="{{translate "title_challenge"}}">
+          <i class="icon-fire"></i> {{translate "challenge"}}
+        </a>
+      {{/if}}
+    {{/ifnot}}
+
+    {{#ifnot type_promoted}}
+      <a class="hidden-phone btn-link edit comment_action_group" title="{{translate "title_edit_comment"}}">
+        <i class="icon-edit"></i>{{translate "edit_comment"}}
+      </a>
+      {{#ifnot type_challenge}}
+        <a href="#" class="pull-right hidden-phone btn-link self_promote comment_action_group">
+          <i class="icon-bell"></i>{{ translate "self_promote" value=app.options.promoteCost }}
+        </a>
+      {{/ifnot}}
+    {{/ifnot}}
+  {{/ifeq}}
+
+  {{#if options.linktofull}}
+    <a target="_blank" class="hidden-phone btn-link comment_action_group goto_comment" title="{{translate "goto_comment"}}" href="{{emailLink}}">{{translate "goto_comment"}}<i class="icon-chevron-right"></i></a>
+  {{/if}}
+
+  <span class="share hidden-phone comment_action_group btn-link" title="{{translate "title_share"}}">
+    <i class="icon-share"></i> {{translate "share"}}
+    <a href="#" class="share-fb" title="{{translate "share_fb"}}"><i class="icon-facebook"></i></a>
+    <a href="#" class="share-tw" title="{{translate "share_tw"}}"><i class="icon-twitter"></i></a>
+    <a href="mailto:?subject={{translate "share_mail_subject"}}&amp;body={{translate "share_mail_body"}} {{emailLink}}" title="{{translate "share_mail"}}" class="share-mail"><i class="icon-envelope-alt"></i></a>
+  </span>
+
+  {{#ifeq options.mode 'full'}}
+    <a href="#" class="pull-right hidden-phone btn-link flag comment_action_group" title="{{translate "title_flag"}}">
+      <i class="icon-flag"></i>{{translate "flag"}}
+    </a>
+
+    <span class="flagged pull-right"><i class="icon-warning-sign"></i>{{translate "flagged"}}</span>
+    <a href="#" class="pull-right hidden-phone btn-link promote comment_action_group" title="{{translate "promote_title"}}">
+      <i class="icon-bell"></i>{{translate "promote"}}
+    </a>
+  {{/ifeq}}
+  {{#ifnot type_promoted}}
+    {{#if type_bet}}
+      <a href="#" title="{{translate "title_bet_close"}}" class="hidden-phone btn-link bet-close comment_action_group pull-right">{{translate "bet_close"}}</a>
+      <a href="#" title="{{translate "title_bet_start_forf"}}" class="hidden-phone btn-link bet-start-forf comment_action_group pull-right">{{translate "bet_start_forf"}}</a>
+    {{/if}}
+  {{/ifnot}}
+
+</div>

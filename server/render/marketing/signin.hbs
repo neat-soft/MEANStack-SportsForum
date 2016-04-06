@@ -1,0 +1,49 @@
+{{#partial "title"}} Sign in {{/partial}}
+{{#partial "content"}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="panel panel-default signin_box">
+        <div class="panel-heading">
+          <h4 class="tc">Log in to your account</h4>
+        </div>
+        <div class="panel-body">
+          {{#if error}}
+            <div class="alert alert-danger tc">{{error}}</div>
+          {{/if}}
+          {{messages_boots}}
+          <form method="post" rel="login" action="/auth/signin{{query "popup" "redirect" "embed" "site" "async" "demo"}}">
+            <div class="form-group">
+              <label for="email" class="control-label">E-mail:</label>
+              <input type="text" class="form-control" placeholder="E-mail" name="email" {{post "email" "text"}} value="{{messages.auth_email.[0]}}" />
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="control-label">Password:</label>
+              <input type="password" class="form-control" placeholder="Password" name="passwd" />
+            </div>
+
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+          <p class="sidenote">
+            <a href="/auth/reset{{query "demo"}}">Forgot password?</a>
+          </p>
+          <p class="sidenote">
+            Don't have an account? <a href="/signup{{query "popup" "redirect" "demo"}}"> Sign up</a>
+          </p>
+
+          <!-- <div class="left">
+            <input id="remember_me" type="checkbox" />
+            <label for="remember_me">Remember me</label>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+{{/partial}}
+{{> marketing/layout}}

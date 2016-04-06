@@ -1,0 +1,35 @@
+<div class="top_note_bar">
+  {{#if deleted}}
+    <small class="time"></small>
+  {{else}}
+    <a class="user-profile-link" href="#brzn/users/{{model.attributes.author.id}}" data-uid="{{model.attributes.author.id}}">
+      <span class="author_name"></span>
+      <span class="profile-points" title="{{translate "points"}}"></span>
+    </a>
+    {{> user_markers}}
+    <small class="in-reply-to link cfgstyle">&gt;&gt;&nbsp;<a href="{{linkBase}}/{{model.attributes.parent.id}}"></a></small>
+    <small class="time"></small>
+    <small class="active-replies"></small>
+
+    {{#if type_answer}}
+      <small class="best_marker" title="{{translate "title_best_answer"}}">
+        {{!-- <i class="icon-star"></i> --}}
+        <span class="best_marker_text">
+        </span>
+      </small>
+      <small class="answered" title="{{translate "title_answer_note"}}">
+        {{translate "answer"}}
+      </small>
+    {{/if}}
+
+    <a href="{{linkBase}}/{{model.attributes.challengedIn.id}}" class="challenged_note" title="{{translate "title_challenged"}}">
+      {{!-- <i class="icon-fire"></i>  --}}
+      <small>{{translate "challenged_comment"}}</small>
+    </a>
+
+    {{#if type_question}}
+      <small class="question_points_offered_note hidden-phone"></small>
+    {{/if}}
+
+  {{/if}} {{!-- ending if/else challenge --}}
+</div>

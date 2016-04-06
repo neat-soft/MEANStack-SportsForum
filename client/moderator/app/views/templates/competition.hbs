@@ -1,0 +1,76 @@
+{{#if error}}
+  <div class="clearfix"></div>
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+  <div class="pull-right">
+    <div class="competition-action">
+      <button class="edit-competition btn btn-success" title="{{translate "title_edit_competition"}}"><i class="fa fa-edit"></i> {{translate "competition_edit"}}</button>
+    </div>
+    <div class="competition-action">
+      <button class="remove-competition btn btn-danger" title="{{translate "title_remove_competition"}}"><i class="fa fa-trash-o"></i> {{translate "competition_remove"}}</button>
+    </div>
+    <div class="competition-action">
+      <button class="view-leaderboard btn btn-info dropdown-toggle" title="{{translate "title_view_competition_leaderboard"}}"><i class="fa fa-list-ol"></i> {{translate "competition_leaderboard"}}</button>
+    </div>
+  </div>
+
+  <div>
+    <strong>{{model.attributes.title}}</strong>
+  </div>
+  <div>
+    {{#if model.attributes.active}}
+      <span class="yes">{{translate "competition_active"}}</span>
+    {{else}}
+      {{#if ended}}
+        <span class="no">{{translate "competition_ended"}}</span>
+      {{else}}
+        <span class="no">{{translate "competition_future"}}</span>
+      {{/if}}
+    {{/if}}
+  </div>
+  <div>
+    <span>{{translate "competition_community"}}:
+    {{model.attributes.community}}
+  </div>
+  <div>
+    <span>{{translate "competition_start"}}:
+    {{start_tz}} ({{tz}})
+  </div>
+  <div>
+    <span>{{translate "competition_end"}}:
+    {{end_tz}} ({{tz}})
+  </div>
+  <div>
+    <span class="">{{translate "competition_share"}}:
+      {{#if model.attributes.social_share}}
+        <span class="yes">{{translate "yes"}}</span>
+      {{else}}
+        <span class="no">{{translate "no"}}</span>
+      {{/if}}
+    </span>
+  </div>
+  <div>
+    <span class="">{{translate "competition_verified"}}:
+      {{#if model.attributes.verified}}
+        <span class="yes">{{translate "yes"}}</span>
+      {{else}}
+        <span class="no">{{translate "no"}}</span>
+      {{/if}}
+    </span>
+  </div>
+  {{#if model.attributes.prize}}
+    <div>
+      <span>{{translate "competition_prize"}}:
+        <a href="{{model.attributes.prize_url}}">{{model.attributes.prize}}</a>
+      </span>
+    </div>
+  {{/if}}
+
+  <div class="competition-profiles display_none">
+    <h3>Leaderboard</h3>
+    <div class="placeholder"></div>
+  </div>
+  <hr>
+
+  <div class="clear"></div>

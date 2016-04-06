@@ -1,0 +1,66 @@
+<div class="close">
+  {{translate "close"}}
+</div>
+
+<div class="pull-left">
+  <div class="author_image_container media-object">
+  </div>
+</div>
+
+<div>
+  <h4 class="profile-name" data-rv-text="model.name"></h4>
+  {{#if model.current}}
+    {{#ifneq model.attributes.type "sso"}}
+      &mdash;
+      <span class="change-settings"></span>
+    {{/ifneq}}
+  {{/if}}
+  <p class="points"></p>
+</div>
+
+<div class="trust-stats">
+  <div class="stats">
+    <strong class="comments_required">{{translate "comments"}}</strong>
+    <strong class="vote_ratio">{{translate "votes"}}</strong>
+    <strong class="social_verified">{{translate "verified"}}</strong>
+    <strong class="profile_age">{{translate "profile_age"}}</strong>
+    <div class="label trusted_marker"><span>{{translate "trusted_marker"}}</span></div>
+    <div class="label moderator_marker"><span>{{translate "moderator"}}</span></div>
+  </div>
+  <div class="info hide-info">
+  </div>
+</div>
+
+<ul class="nav nav-tabs comment-list">
+  <li class='active'>
+    <a href="#{{model.id}}history" class='show-user-content show-history'>
+      <strong class="no_comments"></strong>
+      <strong class="no_challenges"></strong>
+      <strong class="no_questions"></strong>
+    </a>
+  </li>
+  <li>
+    <a href="#{{model.id}}bets" class='show-user-content show-bets'>
+      <strong class="no_bets"></strong>
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="{{model.id}}history">
+    <div class="comment_history">
+      <div class="history">
+      </div>
+
+      <div class="control_bar">
+        <button class="more btn"><i class="icon-angle-down"></i> {{translate "show_more"}}</button>
+        <div class="loading">
+          <i class="icon-spinner icon-spin"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane" id="{{model.id}}bets">
+    <div class='bets_view'></div>
+  </div>
+</div>

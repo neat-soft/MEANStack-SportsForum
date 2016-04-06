@@ -1,0 +1,73 @@
+{{#partial "title"}} Sign up {{/partial}}
+{{#partial "content"}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="panel panel-default signup_box">
+          <div class="panel-heading">
+            <h4 class="tc">Create your account</h4>
+          </div>
+          <div class="panel-body">
+            {{#if error}}
+              <div class="alert alert-danger tc">{{error}}</div>
+            {{/if}}
+            {{messages_boots}}
+            <div class="col-md-6 col-sm-6">
+              <form method="post" action="/signup{{query "popup" "redirect" "demo"}}">
+
+                <div class="form-group">
+                  <label for="signup_name" class="control-label">Name:</label>
+                  <input type="text" id="signup_name" class="form-control input-xlarge" name="name" placeholder="Name" {{post "name" "text"}} value="{{messages.auth_name.[0]}}" />
+                </div>
+
+                <div class="form-group">
+                  <label for="signup_email" class="control_label">E-mail:</label>
+                  <input type="text" id="signup_email" class="form-control input-xlarge" name="email" placeholder="E-mail" {{post "email" "text"}} data-content="Must be a valid address. We'll send an email to this address to verify it and fully activate your account." data-placement="right" />
+                </div>
+
+                <div class="form-group">
+                  <label for="signup_passwd" class="control-label">Password:</label>
+                  <input type="password" id="signup_passwd" class="form-control input-xlarge" name="passwd" placeholder="Password" />
+                </div>
+
+                <div class="form-group">
+                  <label for="signup_passwd_confirm" class="control-label">Confirm password:</label>
+                  <input type="password" id="signup_passwd_confirm" class="form-control input-xlarge" name="passwd_confirm" placeholder="Confirm password"/>
+                </div>
+
+                <script type="text/javascript">
+                var RecaptchaOptions = {
+                  theme : 'white'
+                };
+                </script>
+                <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k={{captcha_public_key}}">
+                </script>
+                <noscript>
+                   <iframe src="http://www.google.com/recaptcha/api/noscript?k={{captcha_public_key}}&error={{captcha_error}}" height="300" width="500" frameborder="0"></iframe><br />
+                   <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                   </textarea>/
+                   <input type="hidden" name="recaptcha_response_field" value="manual_challenge" />
+                </noscript>
+                <div class="form-group clearfix">
+                  <button type="submit" class="btn btn-success pull-right"> Sign up </button>
+                </div>
+                <p class="sidenote">Already have an account? <a href="/auth/signin{{query "popup" "redirect" "demo"}}">Sign in</a></p>
+              </form>
+
+            </div>
+            <div class="col-md-6 col-sm-6 additional_section">
+              <h5 class="tc">We support several platforms</h5>
+              {{> marketing/plugin_platforms}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+{{/partial}}
+{{> marketing/layout}}

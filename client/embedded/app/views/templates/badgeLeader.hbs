@@ -1,0 +1,18 @@
+<a href="#brzn/users/{{model.attributes.user.id}}">
+  <div class="author_image" style="background-image: url({{avatar model.attributes.user.attributes}});">
+    <div class="badge_box">
+    <!--
+      <div class="label badge_marker">
+        <span class="badge-title">{{badge_icon}}</span>
+      </div>
+      -->
+      <div class="badges_view"></div>
+    </div>
+  </div>
+</a>
+<a href="#brzn/users/{{model.attributes.user.id}}" title="{{model.attributes.user.attributes.name}}">
+  <strong class="author_name">{{model.attributes.user.attributes.name}}</strong>
+</a>
+
+<div class="points" title="{{current_badge.attributes.value}} {{translate "points"}}"><span class="profilepoints">{{current_badge.attributes.value}}</span> {{translate "points"}}</div>
+<div class="points" title="{{current_badge.attributes.value}} {{translate "points"}}">{{translate "rank"}} <span class="badge_rank">{{current_badge.attributes.rank}}</span>/{{current_badge.attributes.rank_last}}</div>

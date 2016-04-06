@@ -1,0 +1,16 @@
+{{#partial "title"}} Successfully unsubscribed! {{/partial}}
+{{#partial "content"}}
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      {{#if context}}
+      <p class="lead">Your subscription to the conversation has been deactivated.</p>
+      {{else}}
+      <p class="lead">Your subscription to new conversations on {{siteName}} has been deactivated.</p>
+      {{/if}}
+    </div>
+  </div>
+</div>
+{{/partial}}
+{{> marketing/layout}}

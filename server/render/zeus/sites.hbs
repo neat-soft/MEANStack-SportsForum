@@ -1,0 +1,37 @@
+{{#partial "content"}}
+
+<form action="/zeus/sites">
+  Go to site <input name="name" type="text" /> (press Enter)
+  <input type="hidden" name="auth" value="{{req.query.auth}}"/>
+</form>
+
+<!-- <form action="/zeus/sites">
+  Find sites with pattern (regex, slower) <input name="regex" type="text" /> (press Enter)
+</form>
+ -->
+
+<h3>Yesterday's top sites by number of page views</h3>
+<ul>
+{{#each views}}
+  <li><a href="/zeus/sites/{{this.site.name}}">{{this.name}}</a> - {{this.count}} views</li>
+{{/each}}
+</ul>
+<hr/>
+
+<p>Total: {{sites.total}}</p>
+<ul>
+{{#each sites.data}}
+  <li><a href="/zeus/sites/{{this.name}}">{{this.name}}</a></li>
+{{/each}}
+</ul>
+
+<div class="pager">
+  <ul>
+    <li><a href="{{link "/zeus/sites" f=sites.firstinpage l=sites.lastinpage prev=1}}">&larr; Prev</a></li>
+    <li><a href="{{link "/zeus/sites" f=sites.lastinpage l=sites.lastinpage}}">Next &rarr;</a></li>
+  </ul>
+</div>
+
+{{/partial}}
+
+{{> zeus/layout}}

@@ -1,0 +1,125 @@
+{{#partial "title"}} Admin {{/partial}}
+{{#partial "content"}}
+<div class="dashboard_container">
+
+  <div class="row">
+
+    <aside class="col-sm-3">
+
+      {{#if framed}}
+      <div class="create-new-site">
+        <a href="{{config.serverHost}}/admin/addsite" class="btn btn-xs btn-success">Create new site</a>
+      </div>
+      {{/if}}
+
+
+      <div class="site_box">
+        {{#ifnot embed}}
+          <div class="btn-group pull-left">
+            <a class="dropdown-toggle sitesList" data-toggle="dropdown" href="#">
+              <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu">
+                {{#ifnot framed}}
+                <li><a href="{{config.serverHost}}/admin/addsite">Add site</a></li>
+                <li class="divider"></li>
+                {{/ifnot}}
+                {{#each req.userProfiles}}
+                  {{#if this.permissions.admin}}
+                    <li><a href="{{adminSectionUrl ../../req.path name=this.siteName req=../../req}}">{{this.siteName}}</a></li>
+                  {{else}}
+                    <li><a href="{{adminSectionUrl "/admin/moderator" name=this.siteName req=../../req}}">{{this.siteName}}</a></li>
+                  {{/if}}
+                {{/each}}
+            </ul>
+          </div>
+        {{/ifnot}}
+        <div class="site_box_info">
+          <h3>{{site.name}}</h3>
+        </div>
+        <div class="site_box_sso display_none">
+          {{site.sso.secret}}
+        </div>
+      </div>
+      <nav>
+
+        <ul class="nav nav-tabs nav-stacked">
+          {{#ifnot embed}}
+            {{#ifnot framed}}
+              <li {{#ifeq template "marketing/moderator"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/moderator"}}">
+                <i class="fa fa-comments"></i>Moderator
+                </a>
+              </li>
+            {{/ifnot}}
+            {{#ifor req.profile.permissions.admin req.user.zeus}}
+              {{#ifnot framed}}
+                <li {{#ifeq template "marketing/analytics"}}class="active"{{/ifeq}}>
+                  <a href="{{adminSectionUrl "/admin/analytics"}}"><i class="fa fa-bar-chart-o"></i>Analytics</a>
+                </li>
+              {{/ifnot}}
+              <li {{#ifeq template "marketing/site_settings"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/settings"}}"><i class="fa fa-cogs"></i> Settings{{#ifnotconf "settings"}}<span class="label label-default pull-right">not configured</span>{{/ifnotconf}}</a>
+              </li>
+              <li {{#ifeq template "marketing/badges"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/badges"}}"><i class="fa fa-cogs"></i> Badges &amp; Points{{#ifnotconf "badges"}}<span class="label label-default pull-right">not configured</span>{{/ifnotconf}}</a>
+              </li>
+              <li {{#ifeq template "marketing/appearance"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/appearance"}}"><i class="fa fa-desktop"></i> Appearance{{#ifnotconf "appearance"}}<span class="label label-default pull-right">not configured</span>{{/ifnotconf}}</a>
+              </li>
+              <li {{#ifeq template "marketing/premium"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/premium"}}"><i class="fa fa-money"></i> Premium {{#if sub_trial_days}}<span class="label label-default pull-right">{{sub_trial_days}} days remaining</span>{{/if}}</a>
+              </li>
+              <li {{#ifeq template "marketing/forum"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/forum"}}"><i class="fa fa-comments-o"></i> Forum{{#ifnotconf "forum"}}<span class="label label-default pull-right">not configured</span>{{/ifnotconf}}</a>
+              </li>
+              <li {{#ifeq template "marketing/widgets"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/widgets"}}"><i class="fa fa-puzzle-piece"></i> Widgets</a>
+              </li>
+              <li {{#ifeq template "marketing/sso"}}class="active"{{/ifeq}}>
+                <a href="{{adminSectionUrl "/admin/sso"}}"><i class="fa fa-sign-in"></i> SSO{{#ifnotconf "sso"}}<span class="label label-default pull-right">not configured</span>{{/ifnotconf}}</a>
+              </li>
+              {{#ifnot framed}}
+                <li {{#if installation}}class="active"{{/if}}>
+                <a href="{{adminSectionUrl "/admin/install"}}"><i class="fa fa-download"></i>Install</a>
+                </li>
+
+                <li class="coming_soon">
+                <a><i class="fa fa-facebook"></i>Social Media <span class="pull-right">Coming soon!</span> </a>
+                </li>
+                <li class="coming_soon">
+                <a><i class="fa fa-dollar"></i>Ads <span class="pull-right">Coming soon!</span></a>
+                </li>
+                <li class="coming_soon">
+                <a><i class="fa fa-arrow-down"></i>Import <span class="pull-right">Coming soon!</span></a>
+                </li>
+              {{/ifnot}}
+            {{/ifor}}
+          {{/ifnot}}
+        </ul>
+
+      </nav>
+
+    </aside>
+
+    <section class="col-sm-9 content_area">
+
+      <div class="tab-content">
+        {{messages_boots}}
+        {{#block "admin_content"}}
+
+        {{/block}}
+      </div>
+
+      <footer class="help_section">
+        <a href="https://burnzone.desk.com/" target="_blank">Click here if you need any help</a> or feel free to contact us via
+        <a href="mailto:info@theburn-zone.com">info@theburn-zone.com</a> !
+      </footer>
+
+    </section>
+
+  </div>
+</div>
+{{/partial}}
+{{> marketing/layout}}

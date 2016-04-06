@@ -1,0 +1,122 @@
+{{#if error}}
+  <div class="clearfix"></div>
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+  <div class="col-md-12">
+  <form class='form-horizontal' role="form" action="" method="put">
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_title">{{translate "competition_title"}}*</label>
+      <div class='col-md-3'>
+        <input class="form-control" id="input_competition_title" name="competition_title" type="text" value="{{model.attributes.title}}">
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="Title for the competition" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_community">{{translate "competition_community"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <input class="form-control" id="input_competition_community" name="competition_community" type="text" value="{{model.attributes.community}}">
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="Name of the community" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_start">{{translate "competition_start"}}*</label>
+      <div class='col-md-3'>
+        <input class="form-control input_competition_start" id="input_competition_start" name="competition_start" type="text" value="{{start_tz}}"> {{tz}}
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="When does the competition start" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_end">{{translate "competition_end"}}*</label>
+      <div class='col-md-3'>
+        <input class="form-control input_competition_end" id="input_competition_end" name="competition_end" type="text" value="{{end_tz}}"> {{tz}}
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="When does the competition end" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_prize">{{translate "competition_prize"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <input class="form-control" id="input_competition_prize" name="competition_prize" type="text" value="{{model.attributes.prize}}">
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="Name of the prize" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_prize_url">{{translate "competition_prize_url"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <input class="form-control" id="input_competition_prize_url" name="competition_prize_url" type="text" value="{{model.attributes.prize_url}}">
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="URL to information about the prize" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_rules_url">{{translate "competition_rules_url"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <input class="form-control" id="input_competition_rules_url" name="competition_rules_url" type="text" value="{{model.attributes.rules_url}}">
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="URL to information about competition rules" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_verified">{{translate "competition_verified"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <input type='checkbox' id='input_competition_verified' class='checkbox' name="competition_verified" value="1" {{#if model.attributes.verified}}checked="checked"{{/if}} />
+        <a class="whats_this" rel="tooltip" title="Require users to be verified for participation in the competition" data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_social_link">{{translate "competition_share"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <input type='checkbox' id='input_competition_share' class='checkbox' name="social_link" value="1" {{#if model.attributes.social_share}}checked="checked"{{/if}} />
+        <a class="whats_this" rel="tooltip" title="Users get points during the competition only after sharing a comment to social media." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-md-2" for="input_competition_badge">{{translate "competition_badge"}}&nbsp;</label>
+      <div class='col-md-3'>
+        <select id='input_competition_badge' class='form-control'>
+          <option value=""></option>
+          {{#each_with_id all_badges}}
+            {{#ifnot elem.manually_assigned}}
+              <option value="{{id}}"{{#ifeq ../../model.attributes.badge_id id}} selected="selected"{{/ifeq}}>{{elem.title}}</option>
+            {{/ifnot}}
+          {{/each_with_id}}
+        </select>
+      </div>
+      <div class="col-md-7">
+        <a class="whats_this" rel="tooltip" title="Only users with this badge qualify for the competition." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      {{#if model.attributes._id}}
+        <button class="btn btn-success save-competition"><i class="fa fa-check"></i> {{translate "competition_update"}}</button>
+      {{else}}
+        <button class="btn btn-success save-competition"><i class="fa fa-check"></i> {{translate "competition_add"}}</button>
+      {{/if}}
+      <button class="btn btn-danger cancel-competition"><i class="fa fa-times"></i> {{translate "cancel"}}</button>
+    </div>
+  </form>
+
+  <div class="clear"></div>
+
+  </div>

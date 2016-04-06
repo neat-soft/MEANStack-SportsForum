@@ -1,0 +1,62 @@
+/* DEMO SECTION */
+@import "variables"
+
+.commenting-demo
+.forums-demo
+  margin-top 50px
+  .content_cta
+    margin-top 25px
+  .small_offer_note
+    margin-top 10px
+    display inline-block
+
+.forums-demo
+  #conversait_area
+    display none
+
+.commenting-demo
+.forums-demo
+  .conversait_area
+    color black
+    margin 0 auto
+    padding 0 15px
+    background-color white
+
+@media(max-width: 400px)
+  .commenting-demo
+    .conversait_area
+      padding 0px
+      margin-bottom 20px
+  .forums-demo
+    .conversait_area
+      padding 0px
+
+@media(min-width: 600px)
+  .commenting-demo
+  .forums-demo
+    .conversait_area
+      border 8px solid #E3E3E3
+      border-radius 10px
+  .conversait_area[data-conversait-app-type="widget:discovery"]
+    border-bottom 0px
+    border-bottom-left-radius 0px
+    border-bottom-right-radius 0px
+  .conversait_area[data-conversait-app-type="article_demo"]
+  .conversait_area[data-conversait-app-type="forum"]
+    border-top 0px
+    border-top-left-radius 0px
+    border-top-right-radius 0px
+
+#conversait_embed
+  border-radius 5px
+
+.panel-group
+  .panel-title >a
+    text-decoration none
+    display block
+    padding 10px 15px
+    font-weight 400
+    color bzBlue
+  .panel-heading
+    padding 0px
+    border-radius 3px

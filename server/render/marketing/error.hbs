@@ -1,0 +1,5 @@
+{{#partial "title"}} Error {{/partial}}
+{{#partial "content"}}
+  <div class="alert alert-danger">{{#if error}}{{error}}{{else}}Error{{/if}}</div>
+{{/partial}}
+{{> marketing/layout}}

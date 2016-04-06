@@ -1,0 +1,79 @@
+<div class="container">
+  <!-- header -->
+  <h2 class="section_header">
+    <span>Contact Us</span>
+  </h2>
+
+  <div class="row map">
+    <div class="span12">
+      <h4>
+        To learn more about BurnZone products or to ask us a question use one of the contact methods below:
+      </h4>
+    </div>
+  </div>
+
+
+  <div class="row form">
+    {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+    {{#if info}}
+    <div class="alert alert-success">{{info}}</div>
+    {{/if}}
+    <div class="span6">
+      <form class="form-horizontal" action="/about#contact" method="post">
+         <div class="control-group">
+            <label class="control-label" for="inputName">Name</label>
+            <div class="controls">
+              <input type="text" class="span4" id="inputName" name="name"/>
+            </div>
+          </div>
+           <div class="control-group">
+             <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+               <input type="text" class="span4" id="inputEmail" name="email"/>
+             </div>
+           </div>
+           <div class="control-group">
+             <label class="control-label" for="inputPhone">Phone</label>
+            <div class="controls">
+               <input type="text" class="span4" id="inputPhone" name="phone"/>
+            </div>
+          </div>
+           <div class="control-group">
+             <label class="control-label" for="inputComment">Comment</label>
+             <div class="controls">
+               <textarea class="span4" id="inputComment" rows="6" name="text"></textarea>
+             </div>
+           </div>
+           <div class="control-group">
+             <div class="controls action">
+              <input type="submit" class="btn" value="Send" />
+            </div>
+           </div>
+        </form>
+     </div>
+
+    <div class="span4">
+      <!-- <div class="address"> -->
+        <!-- <h3>Contact</h3> -->
+        <div class="info">
+          <i class="icon-phone icon-large"></i>
+          385-743-1273
+        </div>
+        <div class="info">
+          <i class="icon-envelope icon-large"></i>
+          info@theburn-zone.com
+        </div>
+      <!-- </div> -->
+    </div>
+    <div class="span4">
+      <h3>Social media</h3>
+      <div class="social">
+        <a href="http://www.facebook.com/pages/Burnzone/526512404025967" class="fb"><i class="icon-facebook icon-2x"></i></a>
+        <a href="https://twitter.com/Burn_Zone" class="tw"><i class="icon-twitter icon-2x"></i></a>
+        <!-- <a href="http://www.youtube.com/user/burnzonedotcom"><i class="social yt"></i></a> -->
+      </div>
+    </div>
+  </div>
+</div>

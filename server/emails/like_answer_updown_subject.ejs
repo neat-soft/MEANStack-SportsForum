@@ -1,0 +1,7 @@
+{{ if job.likeChanges.up <= 0 && job.likeChanges.down != 0 { }}
+  {{ likedown = likeChanges.down > 0 }}
+  [{{= siteName }}] Your answer was {{ if (likedown) { }} down-liked {{ } else { }} retracted a down-like {{ } }}
+{{ { else } }}
+  {{ likeup = likeChanges.up > 0 }}
+  [{{= siteName }}] Your answer was {{ if (likeup) { }} liked {{ } else { }} retracted a like {{ } }}
+{{ } }}{{ if(conversationTitle) { }} at "{{= conversationTitle }}" {{ } }}

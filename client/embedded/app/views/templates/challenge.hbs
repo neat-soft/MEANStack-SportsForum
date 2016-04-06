@@ -1,0 +1,38 @@
+{{#if deleted}}
+  <div class="challenge_container single-item-wrapper">
+    {{> top_note_bar}}
+    <div class="deleted_info">
+      <em>{{translate "challenge_deleted"}}</em>
+    </div>
+  </div>
+  <div class="clearleft"></div>
+  <div class="comments_view"></div>
+{{else}}
+  <div class="challenge_container single-item-wrapper">
+
+    <div class="main_challenge_view">
+
+      {{> mod_menu}}
+
+      <div class="tc ends_time_container">
+        <img src="{{resource "/img/flame-with-glow.png"}}" title="{{translate "challenge"}}" />
+        <span class="ends_time time"></span>
+      </div>
+      <div class="tc active-replies-container">&nbsp;<span class="active-replies"></span></div>
+      <div class="challenged span5 pull-left" title="{{translate "title_challenged_side"}}">
+      </div>
+      <div class="versus span2">
+        <div class="vs-text">{{translate "vs"}}</div>
+      </div>
+      <div class="challenger span5" title="{{translate "title_challenger_side"}}">
+      </div>
+      {{> options_bar}}
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  {{> edit_comment}}
+  <div class="newComment_view"></div>
+  <div class="comments_view"></div>
+
+{{/if}}

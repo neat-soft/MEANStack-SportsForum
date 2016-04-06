@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+{{> marketing/head}}
+
+<body>
+  <script type="text/javascript">
+    if (window.Burnzone == null)
+      window.Burnzone = {};
+    window.Burnzone.conversaitData = {
+      loginUrl: "{{{loginUrl}}}",
+      baseUrl: "{{{siteurl}}}",
+      baseUrlNotifications: "{{{baseUrlNotifications}}}",
+      baseUrlResources: "{{{baseUrlResources}}}"
+    }
+  </script>
+  {{#ifnot embed}}
+  {{#ifnot framed}}
+      {{> marketing/header}}
+  {{/ifnot}}
+  {{/ifnot}}
+  
+  {{#if framed}}
+  <div class="framed_page{{#if demo}} demo_page{{/if}}">
+  {{/if}}
+
+  {{#block "content"}}
+    
+  {{/block}}
+
+  {{#if framed}}
+</div>
+  {{/if}}
+
+  {{#ifnot embed}}
+  {{#ifnot admin}}
+  {{#ifnot framed}}
+      {{> marketing/footer}}
+  {{/ifnot}}
+  {{/ifnot}}
+  {{/ifnot}}
+
+  <script src="{{resource "/js/site-vendor.js"}}"></script>
+  <script src="{{resource "/js/site.js"}}"></script>
+
+  {{#block "app_init"}}
+  {{/block}}
+
+  <!-- SiteCatalyst code version: H.25.3.
+  Copyright 1996-2013 Adobe, Inc. All Rights Reserved
+  More info available at http://www.omniture.com -->
+  <script language="JavaScript" type="text/javascript" src="{{resource "/js/AppMeasurement_marketing.js"}}"></script>
+  <script language="JavaScript" type="text/javascript"><!--
+  /* You may give each page an identifying name, server, and channel on
+  the next lines. */
+  s.contextData.user_id = "{{user_id}}";
+  s.eVar5 = "{{req.site.name}}";
+  /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+  var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+  <script language="JavaScript" type="text/javascript"><!--
+  if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //--></script><noscript><img src="http://patrickhillery.112.2o7.net/b/ss/brnzonecomprod/1/H.25.3--NS/0"
+  height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+  <!-- End SiteCatalyst code version: H.25.3. -->
+
+  <script type="text/javascript"> var lsBaseURL = (("https:" == document.location.protocol) ? "https://tracker.leadsius.com/djs/" : "http://tracker.leadsius.com/djs/"); document.write(unescape("%3Cscript src='" + lsBaseURL + "tracker.js?_k=e4167b5e33db99c3e0279d4b7e96403191cf983a' type='text/javascript'%3E%3C/script%3E")); </script>
+
+</body>
+</html>

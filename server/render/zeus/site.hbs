@@ -1,0 +1,232 @@
+{{#partial "content"}}
+
+<h3>DB object</h3>
+<pre>
+{{json site}}
+</pre>
+
+<h3>Owner <a href="mailto:{{owner.email}}">{{owner.email}}</a></h3>
+<pre>
+{{json owner}}
+</pre>
+
+<h3 id='premium'>Premium</h3>
+<div>
+{{#if site.premium.subscription.forever}}
+  Has free unlimited premium subscription
+  <form action='/zeus/sites/{{site.name}}/revokepremium' method='post'>
+    <button type='submit'>Revoke</button>
+  </form>
+{{else}}
+  Does not have a free unlimited premium subscription
+  <form action='/zeus/sites/{{site.name}}/grantpremium' method='post'>
+    <button type='submit'>Grant free unlimited premium</button>
+  </form>
+{{/if}}
+</div>
+
+<h3>Statistics, summary</h3>
+<div>Approved comments: {{comments.count_approved}}</div>
+<div>Approved comments this week: {{comments.thisweek.count_approved}}</div>
+<div>Approved comments last week: {{comments.lastweek.count_approved}}</div>
+<div>Total conversations: {{conv.count}}</div>
+<div>Conversations created this week: {{convcreated.thisweek.count}}</div>
+<div>Conversations created last week: {{convcreated.lastweek.count}}</div>
+<div>Total user profiles: {{profiles.count}}</div>
+<div>Profiles created this week: {{profiles.thisweek.count}}</div>
+<div>Profiles created last week: {{profiles.lastweek.count}}</div>
+<hr/>
+
+<h3>Top 10 page views yesterday</h3>
+{{#if page_views.top_day.list.length}}
+  <ol>
+  {{#each page_views.top_day.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 page views two days ago</h3>
+{{#if page_views.top_day_prev.list.length}}
+  <ol>
+  {{#each page_views.top_day_prev.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 page views this week</h3>
+{{#if page_views.top_week.list.length}}
+  <ol>
+  {{#each page_views.top_week.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 page views last week</h3>
+{{#if page_views.top_week_prev.list.length}}
+  <ol>
+  {{#each page_views.top_week_prev.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 page views this month</h3>
+{{#if page_views.top_month.list.length}}
+  <ol>
+  {{#each page_views.top_month.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 page views last month</h3>
+{{#if page_views.top_month_prev.list.length}}
+  <ol>
+  {{#each page_views.top_month_prev.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 page views this year</h3>
+{{#if page_views.top_year.list.length}}
+  <ol>
+  {{#each page_views.top_year.list}}
+    <li>
+      <a target="_blank" href="{{this.url}}">
+        {{this.url}}
+      </a> {{this.count}} views ({{this.errors}} errors)
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 conversations created this week</h3>
+{{#if convcreated.thisweek.list.length}}
+  <ol>
+  {{#each convcreated.thisweek.list}}
+    <li>
+      <a target="_blank" href="{{this.initialUrl}}">
+        {{this.initialUrl}}
+        <div>Comments: <strong>{{this.no_all_activities}}</strong></div>
+      </a>
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 conversations created last week</h3>
+{{#if convcreated.lastweek.list.length}}
+  <ol>
+  {{#each convcreated.lastweek.list}}
+    <li>
+      <a target="_blank" href="{{this.initialUrl}}">
+        {{this.initialUrl}}
+        <div>Comments: <strong>{{this.no_all_activities}}</strong></div>
+      </a>
+    </li>
+  {{/each}}
+  </ol>
+{{else}}
+  None
+{{/if}}
+<hr/>
+
+<h3>Top 10 active conversations this week</h3>
+{{#if convactive.thisweek.pending}}
+  Pending, try again later
+{{else}}
+  {{#if convactive.thisweek.list.length}}
+    <ol>
+    {{#each convactive.thisweek.list}}
+      <li>
+        <a target="_blank" href="{{this.conv.initialUrl}}">
+          {{this.conv.initialUrl}}
+          <div>New comments: <strong>{{this.newcomments}}</strong></div>
+          <div>Total comments: {{this.conv.no_all_activities}}</div>
+        </a>
+      </li>
+    {{/each}}
+    </ol>
+  {{else}}
+    None (no new comments!)
+  {{/if}}
+{{/if}}
+<hr/>
+
+<h3>Top 10 active conversations last week</h3>
+{{#if convactive.lastweek.pending}}
+  Pending, try again later
+{{else}}
+  {{#if convactive.lastweek.list.length}}
+    <ol>
+    {{#each convactive.lastweek.list}}
+      <li>
+        <a target="_blank" href="{{this.conv.initialUrl}}">
+          {{this.conv.initialUrl}}
+          <div>New comments: <strong>{{this.newcomments}}</strong></div>
+          <div>Total comments: {{this.conv.no_all_activities}}</div>
+        </a>
+      </li>
+    {{/each}}
+    </ol>
+  {{else}}
+    None (no new comments!)
+  {{/if}}
+{{/if}}
+<hr/>
+
+{{/partial}}
+
+{{> zeus/layout}}

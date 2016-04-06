@@ -1,0 +1,18 @@
+<h1>
+    New {{ if (conv.type == "ARTICLE") { }}
+        article
+    {{ } else { }}
+        forum topic
+    {{ } }}
+</h1>
+<h3>
+    {{ if (conv.type == "ARTICLE") { }}
+        There is a new article, "{{= conversationTitle }}," at <a href="{{= url }}">{{= siteName }}</a>
+    {{ } else { }}
+        There is a new forum topic, "{{= conversationTitle }}", at <a href="{{= url }}">{{= siteName }}</a>
+    {{ } }}
+</h3>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

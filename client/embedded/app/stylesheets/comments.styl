@@ -1,0 +1,879 @@
+//Styling comments, new comments and elements that are shared between comments/questions/challenges and
+//new challenges/new questions.
+
+.text.forum_title
+  font-size 18px
+
+.format_note
+  margin-bottom 15px
+  display block
+
+.question_note
+  margin-top 2px
+  display none
+  label
+    margin-bottom 0
+  input.is_question
+    margin-top 0
+
+  .is_question_label
+    display inline-block
+  .points_offered_note
+    display none
+
+.promote_points_number
+.question_points_offered
+  max-width 20px
+  padding 1px
+  text-align center
+  vertical-align baseline
+
+.like_section
+.like_section_mobile
+  position relative
+  z-index 1
+
+.like_section
+  text-align center
+  width 40px
+  height 35px
+  font-size 18px
+  word-wrap break-word
+  float left
+  i
+    font-size 10px
+    border-radius 50%
+    padding 3px 4px
+  .positive_votes
+  .negative_votes
+    width 50%
+
+.like_section_mobile
+  text-align center
+  width 47px
+  height 40px
+  font-size 18px
+  word-wrap break-word
+  float left
+  i
+    font-size 12px
+    border-radius 50%
+    padding 4px 5px
+  .positive_votes
+  .negative_votes
+    width 50%
+  .user_likes
+    line-height 16px
+    margin-bottom 3px
+    
+.like_section
+.like_section_mobile
+  .bz-icon
+    font-size 7px
+
+.user_likes
+  font-size 12px
+  font-weight normal
+  margin 0px
+  line-height 12px
+
+.promoted_view
+.comment_view
+.bet_view
+.question_view
+  .options_bar
+    overflow hidden
+
+.promoted_view .comment_wrapper
+.comment_view .comment_wrapper
+.bet_view .comment_wrapper
+.question_view .question_view_container
+  overflow hidden
+
+.user-ref
+  color orange
+  font-weight bold
+  cursor pointer
+.user-ref:before
+  content "@"
+a.user-ref
+  text-decoration none
+
+.mobile_options_menu
+  .promote
+    display none
+
+.promote
+  display none
+
+.flag
+  display none
+
+.options_bar
+  .flagged
+    display none
+    margin 5px 5px 0 0
+    font-size 9px
+
+.single-item-wrapper
+  .promoted_note
+    display none
+.single-item-wrapper.PROMOTED
+  .promoted_note
+    display inline
+    i
+      font-size 12px
+  .promote.btn-link
+    display none
+
+.newContext_view
+  display none
+  .newcomment_textarea_container
+    display none
+
+.newComment_view
+.newContext_view
+  position relative
+  .cancel
+  .description_bar
+  .submit_icon
+    display none
+
+.submit_icon
+  display none
+
+.newComment_view
+.newContext_view
+  &.LOADING
+    .input_comment
+      background-color loading_textarea_bg
+    .submit
+      cursor default
+    .submit_icon
+      display inline
+      font-size larger
+      margin-left 5px
+
+.newcomment_avatar
+  &.author_image_container
+    width 40px
+    margin 0 5px 0 10px
+    padding-top 10px
+    line-height 35px
+  .author_image
+    height auto
+    width auto
+
+.context_view
+  .newcomment_textarea_container
+    padding 0 1% 0 1%
+    margin-bottom 20px
+  .newComment_view
+    .newComment_text_reply
+    .newComment_text
+      margin-top 17px
+      padding 3px 8px
+      font-size 14px
+    .xtextarea
+      padding-left 15px
+      border none
+    &.QUESTION_CHECKED
+      .xtextarea
+        padding-left 30px
+    .submit_controls
+      border none
+
+.comments_view
+  .conversation-header
+    margin-bottom 30px
+    text-align center
+    padding-top 2.5px
+    padding-bottom 2.5px
+    .view_separate_page
+      display none
+  .banner
+    width 100%
+    display inline
+    padding 5px 0 5px 5px
+.submit_group
+  label
+    display inline
+  .submit
+    margin-right 5px
+  .promote_comment
+  .mark_as_private
+  .submit_bet
+    display inline-block
+    text-align center
+    div
+      padding 3px
+      font-size 12px
+  .promote_comment
+    div
+      margin 0 5px
+.promote_li
+.private_li
+  label
+    display inline
+  .highlight_comment
+    padding 3px
+    font-size 12px
+.newcomment_textarea_container
+  position relative
+.newcomment_textarea_container:before
+  content ""
+  position absolute
+  right 100%
+  top 16px
+  border-top 22px solid darkGray
+  border-right 5px solid darkGray
+
+.newComment_view
+.newChallenge_view
+.newContext_view
+.edit_comment
+  textarea
+    width 100%
+    margin 0
+    padding 4px
+    resize none
+    word-wrap break-word
+    font-size 14px
+    height 90px
+    box-sizing border-box
+    border-bottom none
+  .xtextarea
+    width 100%
+    margin 0
+    padding 7px 4px 4px 4px
+    resize none
+    word-wrap break-word
+    font-size 14px
+    height 90px
+    box-sizing border-box
+    border-bottom none
+    overflow hidden
+    &:focus
+      outline none
+      -webkit-box-shadow none
+      box-shadow none
+
+.edit_comment
+  position relative
+  top -10px
+  .xtextarea
+    border-width 1px
+    border-style dotted
+    margin-bottom 5px
+    border-color browngray
+    height auto
+
+.autosizejs + .dropdown-menu
+  a
+    cursor pointer
+
+.comment_action_group
+  font-size 11px
+  margin-right 10px
+  i
+    font-size 10px
+    text-decoration none
+  &:hover
+    text-decoration none
+
+.flag.comment_action_group
+.promote.comment_action_group
+.self_promote.comment_action_group
+  i
+    margin-right 4px
+.fund.comment_action
+.fund.comment_action_group
+  font-weight bold
+
+.newComment_view
+.newContext_view
+  &.IS_QUESTION
+    .question_note
+      display inline
+
+.newComment_view
+.newContext_view
+  &.QUESTION_CHECKED
+    .description_bar
+      display block
+      left auto
+      font-size 14px
+      position absolute
+      padding 5px 2px
+      margin-top 45px
+    .question_note
+    .points_offered_note
+      display inline-block
+
+.bets_view
+.comments_view
+  .text
+    clear both
+
+.question_view > .newComment_view
+.comment_view > .newComment_view
+.bet_view > .newComment_view
+.bet_view > .newChallenge_view
+.challenge_view > .newComment_view
+.comment_view > .newChallenge_view
+.question_view > .newChallenge_view
+.answer_view > .newChallenge_view
+  display none
+
+.question_view > .comments_view:empty
+.comment_view > .comments_view:empty
+.bet_view > .comments_view:empty
+.challenge_view > .comments_view:empty
+.answer_view > .comments_view:empty
+  display none
+
+.question_view.REPLYING > .newComment_view
+.comment_view.REPLYING > .newComment_view
+.bet_view.REPLYING > .newComment_view
+.answer_view.REPLYING > .newComment_view
+.challenge_view.REPLYING > .newComment_view
+.comment_view.CHALLENGING > .newChallenge_view
+.question_view.CHALLENGING > .newChallenge_view
+.answer_view.CHALLENGING > .newChallenge_view
+  display inline-block
+  .cancel
+    display inline-block
+    margin-right 5px
+  .newcomment_textarea_container
+    width 97%
+    margin-left 0px
+
+.question_view.REPLYING
+.comment_view.REPLYING
+.bet_view.REPLYING
+.answer_view.REPLYING
+.challenge_view.REPLYING
+.comment_view.CHALLENGING
+.question_view.CHALLENGING
+.answer_view.CHALLENGING
+  > .newChallenge_view
+  > .newComment_view
+    margin-bottom 10px
+    .newcomment_avatar
+      display none
+    .newComment_text
+      display none
+    .xtextarea
+      padding-left 0px
+    .newComment_text_reply
+      display inline
+    
+.newComment_text_reply
+  display none
+
+/* hide reply to marker for first level comments */
+.comment-level-1
+  > .single-item-wrapper
+    .in-reply-to
+      display none
+  .newComment_view
+    margin-left 5px
+
+.time
+.in-reply-to
+  display inline-block
+
+.comment-level-1
+.comment-level-2
+  > .comments_view
+    margin-left 25px
+.comment-level-1.challenge_view
+  > .comments_view
+    margin-left 25px
+.comment-level-1.question_view
+  > .comments_view
+  .answers_view
+    margin-left 25px
+
+.comment_view
+.bet_view
+.question_view
+.answer_view
+  .self_promote
+  .reply_in_challenge
+    display none
+
+.comments_view
+  .comment_view
+  .bet_view
+  .question_view
+  .answer_view
+  .challenge_view
+    &.highlight-comment.fade-highlight > .single-item-wrapper
+      border-top 1px solid transparent
+
+/*
+  The following block is a fix for mobile Safari's issue: messing up click events inside a div with a :hover rule that makes something visible.
+  We make displaying stuff on hover possible only on non-ios devices
+*/
+
+.non-ios
+  .comment_wrapper:hover
+  .question_view_container:hover
+  .answer_wrapper:hover
+  .challenge_container:hover
+    .options_bar
+      visibility visible
+      .show_actions
+        display none
+
+.non-ios
+  .USER_IS_MODERATOR
+    .comment_wrapper:hover
+    .question_view_container:hover
+    .answer_wrapper:hover
+      .options_bar
+        .self_promote.btn-link
+          display none
+        .promote.btn-link
+          display inline-block
+          padding-left 0
+          margin-top 0px
+
+.non-ios
+  .USER_IS_MODERATOR
+    .question_view_container.single-item-wrapper.PROMOTED
+      .options_bar
+        .self_promote.btn-link
+          display none
+        .promote.btn-link
+          display none
+
+.non-ios
+  .USER_IS_MODERATOR
+    .comment_wrapper.single-item-wrapper.PROMOTED
+      .options_bar
+        .self_promote.btn-link
+          display none
+        .promote.btn-link
+          display none
+
+.promoted_comments_view
+  .promoted_view
+    .comment_wrapper:hover
+    .question_view_container:hover
+    .answer_wrapper:hover
+      .options_bar
+        .promote.btn-link
+        .self_promote.btn-link
+          display none
+
+.options_bar
+  visibility hidden
+  .show_actions
+    visibility visible
+    font-size 11px
+    i
+      font-size 9px
+  .mobile_options_menu
+    visibility visible
+    text-transform none
+    ul
+      visibility visible
+      text-transform none
+      a
+        border-bottom separator
+        padding 5px 15px
+        &:hover
+          background-color blockHover
+      .flag
+        border-bottom 0px
+
+.challenge_container
+  .options_bar
+    .mobile_options_menu
+      .challenge
+      .promote
+        display none
+
+.promote_popup
+  display none
+
+.PROMOTE_POPUP_VISIBLE
+  .promote_popup
+    display block
+  .self_promote
+    visibility hidden
+
+.single-item-wrapper.CAN_SELF_PROMOTE:hover
+  .options_bar
+    .self_promote.btn-link
+      display inline-block
+      
+.comment_wrapper:hover
+.question_view_container:hover
+.answer_wrapper:hover
+.challenge_container:hover
+  .options_bar
+    .flag.btn-link
+      display inline-block
+      padding-left 0
+      margin-top 0px
+
+.comment_view.USER_FLAGGED > .comment_wrapper
+.bet_view.USER_FLAGGED > .comment_wrapper
+.answer_view.USER_FLAGGED > .answer_wrapper
+.question_view.USER_FLAGGED > .question_view_container
+.challenge_view.USER_FLAGGED > .challenge_container
+.promoted_view.USER_FLAGGED > .comment_wrapper
+  .options_bar
+    .flag
+      display none
+
+.comment_view.FLAGGED > .comment_wrapper
+.bet_view.FLAGGED > .comment_wrapper
+.answer_view.FLAGGED > .comment_wrapper
+.question_view.FLAGGED > .question_view_container
+.challenge_view.FLAGGED > .challenge_container
+  > .options_bar
+    .flagged
+      display inline-block
+
+.majorCommentInChallenge_view.BEST
+  .best_marker
+    display inline-block
+
+.answer_view.BEST
+  >.answer_wrapper
+    .answered
+      display none
+    .best_marker
+      display inline-block
+
+.comment_view.IN_CHALLENGE > div > div > div
+.bet_view.IN_CHALLENGE > div > div > div
+.question_view.IN_CHALLENGE > div > div > div
+.answer_view.IN_CHALLENGE > div > div
+  > .reply_in_challenge
+    display inline-block
+  > .mobile_options_menu .reply_in_challenge
+    display inline-block
+
+.comment_view.IN_CHALLENGE > div > div > div
+.bet_view.IN_CHALLENGE > div > div > div
+.answer_view.IN_CHALLENGE > div > div
+  > .reply
+    display none
+  > .mobile_options_menu .reply
+    display none
+
+.majorCommentInChallenge_view.AUTHOR
+.promoted_view.AUTHOR > .single-item-wrapper
+.comment_view.AUTHOR > .single-item-wrapper
+.bet_view.AUTHOR > .single-item-wrapper
+.answer_view.AUTHOR > .single-item-wrapper
+.question_view.AUTHOR > .single-item-wrapper
+  .fund
+    display none
+  .mobile_options_menu .fund
+    display none
+
+.comment_view.IN_CHALLENGE > div > div > div
+.bet_view.IN_CHALLENGE > div > div > div
+.question_view.IN_CHALLENGE > div > div > div
+.answer_view.IN_CHALLENGE > div > div
+.comment_view.AUTHOR > div > div > div
+.bet_view.AUTHOR > div > div > div
+.question_view.AUTHOR > div > div > div
+.answer_view.AUTHOR > div > div
+  > .challenge
+    display none
+  > .mobile_options_menu .challenge
+    display none
+.answer_view.AUTHOR > div > div
+  > .options_bar .challenge
+    display none
+  > .mobile_options_menu .challenge
+    display none
+
+.comment_view.AUTHOR > div > div > div
+.bet_view.AUTHOR > div > div > div
+.question_view.AUTHOR > div > div > div
+.answer_view.AUTHOR > div > div
+  > .mobile_options_menu .self_promote
+    display inline-block
+
+.comment_view > div > div > .view_challenge
+.bet_view > div > div > .view_challenge
+  display none
+.comment_view.IN_CHALLENGE > div > div > .view_challenge
+.bet_view.IN_CHALLENGE > div > div > .view_challenge
+.question_view.IN_CHALLENGE > div > div > .view_challenge
+.answer_view.IN_CHALLENGE > div > div > .view_challenge
+  display inline-block
+
+.comment_view
+.bet_view
+.question_view
+.answer_view
+  &.IN_CHALLENGE > .single-item-wrapper .challenged_note
+    display inline-block
+
+.comment_view.DELETED > .comment_wrapper
+.bet_view.DELETED > .comment_wrapper
+.question_view.DELETED > .question_view_container
+.answer_view.DELETED > .answer_wrapper
+.challenge_view.DELETED > .challenge_container
+  .left_box
+  .options_bar
+    display none
+  .time
+    margin-left 0
+
+.main_comment_view
+.main_question_view
+.main_challenge_view
+.main_answer_view
+  .author_image
+    height 30px
+    position relative
+    z-index 2
+
+.comment_view
+  .comment_wrapper
+    .main_comment_view
+      margin 0 0 15px 5px
+  &.DELETED > .single-item-wrapper
+    margin 0 0 15px 5px
+
+.challenger
+.challenged
+  .majorCommentInChallenge_view.FUNDED
+    padding-top 0px
+    border-left 3px solid
+    padding-left 5px
+    .funded_note
+      display inline
+
+
+.comment_wrapper.FUNDED
+.comment_wrapper.PROMOTED
+  .main_comment_view
+    padding-top 0px
+
+.answer_view.FUNDED > .single-item-wrapper
+  padding-left 5px
+
+.promoted_view
+.answer_view
+.question_view
+.comment_view
+.bet_view
+  &.FUNDED > .single-item-wrapper
+    border-left 3px solid
+    padding-top 0px
+    .funded_note
+      display inline
+
+.promoted_view > .single-item-wrapper
+.answer_view > .single-item-wrapper
+.question_view > .single-item-wrapper
+.comment_view > .single-item-wrapper
+.bet_view > .single-item-wrapper
+.challenger .majorCommentInChallenge_view
+.challenged .majorCommentInChallenge_view
+  .funded_note
+    display none
+    .no_funders
+      display none
+
+.bet_view.FUNDED > .single-item-wrapper
+.promoted_view.FUNDED.MULTIPLE_FUNDERS > .single-item-wrapper
+.answer_view.FUNDED.MULTIPLE_FUNDERS > .single-item-wrapper
+.question_view.FUNDED.MULTIPLE_FUNDERS > .single-item-wrapper
+.comment_view.FUNDED.MULTIPLE_FUNDERS > .single-item-wrapper
+.bet_view.FUNDED.MULTIPLE_FUNDERS > .single-item-wrapper
+.challenger .majorCommentInChallenge_view.FUNDED.MULTIPLE_FUNDERS
+.challenged .majorCommentInChallenge_view.FUNDED.MULTIPLE_FUNDERS
+  .funded_note
+    .no_funders
+      display inline
+
+.promoted_view
+  .comment_wrapper
+    .main_comment_view
+      position relative
+      margin 0 0 15px 5px
+      .text
+        min-height 22px
+
+.single-item-wrapper
+  border-radius 3px
+
+.comments_view
+.bets_view
+.competitions_view
+.user_view
+.fundedComments_view .for_site_collection_view
+.fundedComments_view .for_conv_collection_view
+  fetchMore()
+  .control_bar > .more
+    width 100%
+  &.HAS_MORE
+    fetchMoreHas()
+  &.HAS_MORE.LOADING_MORE
+    fetchMoreLoading()
+  &.HAS_MORE.LOADING
+    fetchMoreLoading()
+
+.forum_view
+  #contexts
+    fetchMore()
+    .control_bar > .more
+      width 100%
+  &.HAS_MORE
+    #contexts
+      fetchMoreHas()
+  &.HAS_MORE.LOADING_MORE
+    #contexts
+      fetchMoreLoading()
+  &.HAS_MORE.LOADING
+    #contexts
+      fetchMoreLoading()
+
+.fundedComments_view
+  position fixed
+  z-index 1111
+  margin 30px auto 0 auto
+  padding 20px 0
+  width 80%
+  left 10%
+  right 10%
+  .collection_view
+    width 100%
+  .close
+    font-size 12px
+    font-weight normal
+    margin-right 20px
+  h4
+    padding-left 12px
+  .simple_comment_view
+    padding-left 12px
+  .btn-block
+    padding 0 5px
+
+.AUTHOR_EMPH_NAME
+  > .single-item-wrapper
+    .author_name
+      font-weight bold
+
+.AUTHOR_NOT_VERIFIED
+  > .comment_wrapper
+  > .answer_wrapper
+  > .competition_wrapper
+  > .question_view_container
+    .not_verified_marker
+      display inline-block
+  &.majorCommentInChallenge_view
+    .not_verified_marker
+      display inline-block
+
+.AUTHOR_MODERATOR
+  > .comment_wrapper
+  > .answer_wrapper
+  > .competition_wrapper
+  > .question_view_container
+    .moderator_marker
+      display inline-block
+  &.majorCommentInChallenge_view
+    .moderator_marker
+      display inline-block
+
+.AUTHOR_TRUSTED
+  > .comment_wrapper
+  > .answer_wrapper
+  > .competition_wrapper
+  > .question_view_container
+    .trusted_marker
+      display inline-block
+  &.majorCommentInChallenge_view
+    .trusted_marker
+      display inline-block
+
+.comment_view
+.bet_view
+.question_view
+.answer_view
+.challenge_view
+  > .edit_comment
+    display none
+  > .comment_wrapper
+  > .question_view_container
+  > .answer_wrapper
+  > .challenge_container
+    .edit
+      display none
+
+.comment_view
+.question_view
+.answer_view
+.challenge_view
+.bet_view
+  &.CAN_EDIT
+    > .comment_wrapper
+    > .question_view_container
+    > .answer_wrapper
+    > .challenge_container
+      .edit
+        display inline-block
+      .mobile_options_menu .edit
+        display block
+
+.comment_view
+.question_view
+.answer_view
+.challenge_view
+.bet_view
+  &.EDIT
+    > .comment_wrapper
+    > .question_view_container
+    > .answer_wrapper
+    > .challenge_container
+      .edit
+        display none
+    > .edit_comment
+      display block
+
+body > .popover
+  .replied_to_info
+    .options_bar
+    .promote_popup
+    .promoted_note
+    .positive_votes
+    .negative_votes
+    .like_section
+    .user_likes
+    .in-reply-to
+    .profile-points
+    .description_bar
+    .majorCommentInChallenge_view .fund
+    .forf-ctrl
+    .accepting-ctrl
+    .resolve-ctrl
+    .bet-tpts-joined-content
+    .bet-tpts-av-content
+    .bet-joined-users
+    .userBadge_view
+      display none
+    > div
+      background none
+    .like_section_mobile
+      display none !important // !important is used here to override the css style from visible-phone class
+    .text
+      max-height 150px
+      overflow hidden
+
+.bets_view
+  > .comments
+    > .empty_view
+      margin 3em 0em 3em 0em

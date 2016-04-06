@@ -1,0 +1,44 @@
+{{#partial "admin_content"}}
+<div class="tab-pane active installation_instructions" id="tab2">
+
+  <h3>
+    Installation instructions for vBulletin
+    <br/>
+    <small>
+      (The current version of the vbulletin plugin only shows a comments area at the bottom of the forum home page.
+      Future versions of the plugin will support better integration and customization.)
+      <br/>
+      <br/>
+      Tested with vBulletin 4
+    </small>
+  </h3>
+
+  <ol>
+    <li>
+      {{#if admin}}
+        <a href="{{adminSectionUrl "/admin/download/vbplugin"}}"><strong>Download</strong> the vBulletin plugin</a> for your site. Save the file to your computer.
+      {{else}}
+        <a href="/auth/signin?redirect=/admin/install/vbulletin" title="Download the plugin from our server"><strong>Get the plugin</strong></a> directly configured for your site.</em>
+      {{/if}}
+    </li>
+    <li>
+      Go to <em>Plugins & Products -> Manage Products</em> in the admin area dashboard and click <em>Add/Import Product</em>.
+      <div class="clearfix"></div>
+    </li>
+    <li>
+      Under the section <em>Import Product</em>, choose to upload the XML file from your computer and browse for the file you downloaded from our site.
+      Make sure that option <em>Allow Overwrite</em> is checked.
+      Click <em>Import</em>.
+      <div class="clearfix"></div>
+    </li>
+    <li>
+      To further configure the plugin, go to <em>Settings -> Options</em>. Look for the settings group named <em>BurnZone Commenting & Forum Settings</em> in the panel at the right side of the page. Select it and click <em>Edit Settings</em>.
+      <div class="clearfix"></div>
+    </li>
+  </ol>
+
+  <p><strong>Done!</strong> Now your readers can enjoy the BurnZone Commenting experience!</p>
+
+</div>
+{{/partial}}
+{{> marketing/install}}

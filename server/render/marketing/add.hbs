@@ -1,0 +1,63 @@
+{{#partial "title"}} Add site {{/partial}}
+{{#partial "content"}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="panel panel-default signin_box">
+        <div class="panel-heading">
+          <h4 class="tc">Create a site</h4>
+        </div>
+        <div class="panel-body">
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+
+          <form method="post" action="/admin/addsite{{query "redirect"}}" role="form">
+            <div class='form-group'>
+              <div class='controls'>
+                  <label for="inputName" class="control-label">Site name:</label>
+                  <a class="whats_this" rel="tooltip" title="This is the name that you will have to use in your plugin settings page. It must not be already registered and it must contain only alphanumerics characters." data-placement="top">[?]</a>
+                  <input type='text' name="name" id='inputName' {{post "name" "text"}} placeholder='Name' class='form-control input-medium' data-toggle="popover" data-content="This is the name that you will have to use in your plugin settings page. It must not be already registered and it must contain only alphanumerics characters." data-placement="right" />
+              </div>
+            </div>
+
+            <div class='form-group'>
+              <div class='controls'>
+                <label for="inputBaseUrl" class="control-label">Base URL:</label>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    http://
+                  </span> 
+                  <input id="inputUrl" class='form-control input-medium baseurl' name="baseurl" type="text" placeholder="example.com/blog" {{post "baseurl" "text"}} data-toggle="popover" data-content="Use the URL to the root of your pages where you want to install BurnZone." data-placement="right"/>
+                </div>
+              </div>
+            </div>
+
+            <div class='checkbox subdomain_checkbox'>
+                <label title="All subdomains are valid for this site">
+                  <input type="checkbox" class="allsub" name="allsub" {{post "allsub" "checkbox" "1"}} value="1" checked /> Make it work for all subdomains
+                </label>
+                  <a class="whats_this" rel="tooltip" title="You may use the same site on all your subdomains (i.e. subdomain1.example.com and subdomain2.example.com)" data-placement="right">[?]</a>
+            </div>
+
+            <div class='form-group'>
+              <div class='controls'>
+                <button type='submit' class='btn btn-success'>Submit</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+      <div class="help_section">
+        <a href="https://burnzone.desk.com/" target="_blank">Click here if you need any help</a> or feel free to contact us via <a href="mailto:info@theburn-zone.com">info@theburn-zone.com</a> !
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+{{/partial}}
+{{> marketing/layout}}

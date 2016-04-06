@@ -1,0 +1,28 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="conversait_area" data-conversait-app-type="{{app_type}}"></div>
+  <script type="text/javascript">
+    var conversait_uri = "{{{conv_uri}}}";
+    var conversait_sitename = "{{siteName}}";
+    var conversait_title = "{{conv_title}}";
+    var conversait_id = "{{conv_id}}";
+    (function() {
+      var conversait = document.createElement("script");
+      conversait.type = "text/javascript";
+      conversait.async = true;
+      conversait.src = "{{{host}}}/web/js/embed.js";
+      (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(conversait);
+    })();
+  </script>
+</body>
+</html>

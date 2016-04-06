@@ -1,0 +1,252 @@
+{{#partial "title"}} Profile {{/partial}}
+{{#partial "content"}}
+
+
+<div class="container profile-page">
+  <div class="row">
+    <div class="col-md-12">
+          {{messages_boots}}
+
+          <h2 class="tc">User info</h2>
+          {{#ifeq user.type 'sso'}}
+            <div class="alert alert-warning tc">
+              You are logged in with SSO from {{user.site}}. You can change more information if you create a full BurnZone account.
+            </div>
+            <br/>
+          {{/ifeq}}
+          {{#ifeq user.type 'imported'}}
+            <div class="alert alert-warning tc">
+              Your account has been imported. You can't change any information here. Please create a full BurnZone account.
+            </div>
+            <br/>
+          {{/ifeq}}
+
+          {{#if user.verified}}
+            <div class="alert alert-success tc">
+              Your email has been verified.
+            </div>
+          {{else}}
+            <div class="alert alert-warning tc">
+              {{#if user.email}}
+                <p>Your email address has not been verified.</p>
+                <form method="post" action="/profile/verify" role="form">
+                  <small>You've waited for too long and didn't get the verification email?</small><button type="submit" class="btn btn-link"><small>send it again</small></button>
+                </form>
+              {{else}}
+                <p>Add an email address in order to fully activate your account.</p>
+              {{/if}}
+            </div>
+          {{/if}}
+          {{#ifnot error}}
+            {{#ifnot user.completed}}
+              {{#ifeq user.type "own"}}
+                <div class="alert alert-warning tc">
+                  Please provide a password for your account.
+                </div>
+              {{/ifeq}}
+            {{/ifnot}}
+          {{/ifnot}}
+
+          <form autocomplete="off" method="post" action="/profile" role="form">
+            <div class="col-md-5">
+              <div class='form-group'>
+                <h3 class="tc">Basic Info</h3>
+                <label for="inputName" class="control-label">Name:</label>
+                <input id="inputName" name="name" class="changeName form-control" type="text" placeholder="name" value="{{user.name}}" {{enabled own}} />
+              </div>
+
+              <div class='form-group'>
+                <label class="control-label" for="inputEmail">Email:</label>
+                <input id="inputEmail" name="email" class="changeEmail form-control" type="text" placeholder="email" value="{{user.email}}" {{enabled own}} data-content="Must be a valid address. We'll send an email to this address to verify it and fully activate your account." data-placement="right" autocomplete="off" />
+              </div>
+
+              {{#ifeq user.type "own"}}
+                {{#if user.completed}}
+                  <p>If you don't want to change your password leave these unchanged.</p>
+
+                  <div class='form-group'>
+                    <label for="inputPassword" class="control-label">Current password:</label>
+                    <input id="inputPassword" name="passwd" class="changePassword form-control" type="password" value="      " autocomplete="off" />
+                  </div>
+                {{else}}
+                  <p>You have to create a password in order to complete your account.</p>
+                {{/if}}
+                <div class='form-group'>
+                  <label for="inputNewPassword">New password:</label>
+                  <input id="inputNewPassword" name="new_passwd" class="changePassword form-control" type="password" {{#if user.completed}}value="      "{{/if}} autocomplete="off" />
+                </div>
+              {{/ifeq}}
+
+              {{#ifeq user.type 'own'}}
+                <h3 class="tc">Avatar</h3>
+
+                <div class="radio">
+                  <label for="inputfbimage">
+                    {{#if user.logins.facebook}}
+                      <input id="inputfbimage" class="imagetypeoption" type="radio" name="imagetype" value="facebook" {{#ifeq user.imagetype "facebook"}}checked="checked"{{/ifeq}} />
+                    {{else}}
+                      <input id="inputfbimage" class="imagetypeoption" type="radio" name="imagetype" value="facebook" disabled {{#ifeq user.imagetype "facebook"}}checked="checked"{{/ifeq}} />
+                    {{/if}}
+                    Facebook
+                  </label>
+                </div>
+                <div class="radio">
+                  <label for="inputdsqimage">
+                    {{#if user.logins.disqus}}
+                      <input id="inputdsqimage" class="imagetypeoption" type="radio" name="imagetype" value="disqus" {{#ifeq user.imagetype "disqus"}}checked="checked"{{/ifeq}} />
+                    {{else}}
+                      <input id="inputdsqimage" class="imagetypeoption" type="radio" name="imagetype" value="disqus" disabled {{#ifeq user.imagetype "disqus"}}checked="checked"{{/ifeq}} />
+                    {{/if}}
+                    Disqus
+                  </label>
+                </div>
+                <div class="radio">
+                  <label for="inputGravImage">
+                    <input id="inputGravImage" class="imagetypeoption" type="radio" name="imagetype" value="gravatar" {{#ifeq user.imageType "gravatar"}}checked="checked"{{/ifeq}} />
+                    <a href="http://gravatar.com">Gravatar</a>
+                  </label>
+                  If you don't have a <a href="http://gravatar.com">Gravatar</a> account, you must register using this account email address and upload your custom avatar.
+                </div>
+
+                Social services images (Facebook, Disqus) are available when you connect social accounts to your account (see the <em>Logins</em> section on this page).
+              {{/ifeq}}
+
+              <h3 class="tc"><a name="extra"></a>Extra<br><small>(Ignited users only)</small></h3>
+
+                <div class='form-group'>
+                  <label class="control-label" for="inputSignature">Signature:</label>
+                  <a class="whats_this" rel="tooltip" title="This customized signature will be shown at the bottom of your posts. It can be any expression, quote or whatever text you'd like to have under your posts." data-placement="right">[?]</a>
+                  <input id="inputSignature" name="signature" class="form-control" type="text" placeholder="custom signature" value="{{user.signature}}" data-content="Custom signature to include at the bottom of all your posts." data-placement="right" autocomplete="off" />
+                </div>
+
+              {{#if benefits}}
+                <h3 class="tc">You have extra benefits on</h3>
+                <ul>
+                {{#each benefits}}
+                  <li>
+                    <div>
+                      <strong>{{siteName}}</strong>, {{expiration}} days left
+                    </div>
+                  </li>
+                {{/each}}
+                </ul>
+              {{/if}}
+
+              {{#if funds_to_me}}
+                <h3 class="tc">Your Ignited Comments</h3>
+                <ul>
+                {{#each funds_to_me}}
+                  <li>
+                    <div>
+                      by <strong>{{source.name}}</strong> on <a href="{{commentUrl}}">{{siteName}}</a>
+                    </div>
+                    <div>
+                      <small>{{date}}</small>
+                    </div>
+                  </li>
+                {{/each}}
+                </ul>
+              {{/if}}
+
+              {{#if funds_from_me}}
+
+                <h3 class="tc">You Ignited</h3>
+                <ul>
+                {{#each funds_from_me}}
+                  <li>
+                    <div>
+                      <strong>{{user.name}}</strong> on <a href="{{commentUrl}}">{{siteName}}</a>
+                    </div>
+                    <div>
+                      <small>{{date}}</small>
+                    </div>
+                  </li>
+                {{/each}}
+                </ul>
+              {{/if}}
+
+            </div>
+
+            <div class="col-md-6 col-md-offset-1">
+              <div class='form-group tc'>
+                <label class="control-label" for="inputLanguage">
+                  <h3>Language</h3>
+                </label>
+                <select id="inputLanguage" name="language" class="language form-control">
+                  {{#each languages}}
+                    <option value="{{id}}"{{#ifeq id ../user.language}} selected{{/ifeq}}>{{name}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+              <h3 class="tc">Notification options</h3>
+
+              <div class='checkbox'>
+                <label>
+                  <input type="checkbox" id="subscrRef" {{#if user.subscribe.name_references}}checked="checked"{{/if}} name="subscribe[]" value="name_references" /> Notify me when someone mentions my name in a comment
+                </label>
+              </div>
+              <div class='checkbox'>
+                <label>
+                  <input type="checkbox" id="subscrIgnite" {{#if user.subscribe.ignited}}checked="checked"{{/if}} name="subscribe[]" value="ignited" /> Notify me when someone ignites my comments
+                </label>
+              </div>
+              <div class='checkbox'>
+                <label>
+                  <input type="checkbox" id="subscrOwn" {{#if user.subscribe.own_activity}}checked="checked"{{/if}} name="subscribe[]" value="own_activity" /> Subscribe to activity that matters to me*
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="subscrAutoConv" {{#if user.subscribe.auto_to_conv}}checked="checked"{{/if}} name="subscribe[]" value="auto_to_conv" /> Automatically subscribe me to conversations that I comment or challenge on
+                </label>
+              </div>
+<div class="checkbox">
+                <label>
+                  <input type="checkbox" id="subscrMarketing" {{#if user.subscribe.marketing}}checked="checked"{{/if}} name="subscribe[]" value="marketing" /> Send me information about new BurnZone features
+                </label>
+              </div>
+
+              <em class="sidenote"> *replies, challenges, likes and votes related to my comments</em>
+
+              <h3 class="tc">Miscelaneous</h3>
+
+              <div class='checkbox'>
+                <label>
+                  <input type="checkbox" id="instantShowNew" {{#if user.comments.instant_show_new}}checked="checked"{{/if}} name="comments[]" value="instant_show_new" /> Show new comments instantly, without notification*
+                </label>
+              </div>
+
+              <em class="sidenote"> *use with care, it might change the page while you are reading a comment</em>
+
+              {{#ifeq user.type "own"}}
+                {{#if user.verified}}
+                  <h3 class="tc">Logins</h3>
+                  <div id="logins"></div>
+
+                  <h3 class="tc">Merge accounts</h3>
+                  <div id="merge"></div>
+                {{/if}}
+              {{/ifeq}}
+            </div>
+            <div class="col-md-12 tc">
+              <button type='submit' class='btn btn-success btn-lg btn-change-settings'>
+                <i class="fa fa-check"></i>
+                Change
+              </button>
+            </div>
+
+          </form>
+    </div>
+  </div>
+</div>
+{{#ifeq user.type "own"}}
+  {{#if user.verified}}
+    <script type="text/javascript">
+      Burnzone.user = {{{json user}}}
+      Burnzone.onstart = 'loadProfileApp';
+    </script>
+  {{/if}}
+{{/ifeq}}
+{{/partial}}
+{{> marketing/layout}}

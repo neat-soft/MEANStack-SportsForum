@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><a href="/zeus/logs/fatal">Fatal (server crash)</a></li>
+      <li><a href="/zeus/logs/embederror">Embed errors</a></li>
+      <li><a href="/zeus/logs/all">All</a></li>
+    </ul>
+  </div>
+</div>
+
+{{#block "logscontent"}}
+
+{{/block}}
+
+{{/partial}}
+
+{{> zeus/layout}}

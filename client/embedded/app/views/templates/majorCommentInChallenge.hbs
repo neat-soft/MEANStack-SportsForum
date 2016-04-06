@@ -1,0 +1,70 @@
+<div>
+  <div class="tc description_bar">
+    {{> funded_note}}
+  </div>
+  <div class="like_section hidden-phone">
+
+    <h4 class="user_likes" data-rv-text="model.no_votes"></h4>
+    <div class="positive_votes cfgstyle pull-left">
+      {{!-- <i class="icon-chevron-up vote_up comment_action" title="{{translate "title_vote_up"}}"></i> --}}
+      <span class="bz-icon comment_action vote_up" title="{{translate "title_vote_up"}}">
+        <i class="icon-chevron-up"></i>
+      </span>
+    </div>
+
+    <div class="negative_votes cfgstyle pull-left">
+      {{!-- <i class="icon-chevron-down vote_down comment_action" title="{{translate "title_vote_down"}}"></i> --}}
+      <span class="bz-icon comment_action vote_down" title="{{translate "title_vote_down"}}">
+        <i class="icon-chevron-down"></i>
+      </span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="like_section_mobile visible-phone">
+
+    <h4 class="user_likes" data-rv-text="model.no_votes"></h4>
+    <div class="positive_votes cfgstyle pull-left">
+      {{!-- <i class="icon-chevron-up vote_up comment_action" title="{{translate "title_vote_up"}}"></i> --}}
+      <span class="bz-icon comment_action vote_up" title="{{translate "title_vote_up"}}">
+        <i class="icon-chevron-up"></i>
+      </span>
+    </div>
+
+    <div class="negative_votes cfgstyle pull-left">
+      {{!-- <i class="icon-chevron-down vote_down comment_action" title="{{translate "title_vote_down"}}"></i> --}}
+      <span class="bz-icon comment_action vote_down" title="{{translate "title_vote_down"}}">
+        <i class="icon-chevron-down"></i>
+      </span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="left_box pull-left">
+
+    <a href="#brzn/users/{{model.attributes.author.id}}"><div class="author_image_container"></div></a>
+
+  </div>
+
+  {{!-- <i class="icon-trophy best_marker" title="{{translate "challenge_winner"}}"></i> --}}
+  <a class="user-profile-link" href="#brzn/users/{{model.attributes.author.id}}" data-uid="{{model.attributes.author.id}}">
+    <span class="author_name"></span>
+  </a>
+
+  {{> user_markers}}
+  <small class="time"></small>
+  <small class="challenge_side_statement">
+    {{#if options.challenged}}
+        {{translate "said"}}
+    {{else}}
+        {{translate "challenged"}}
+    {{/if}}
+  </small>
+
+  <div class="text"></div>
+  <div class="signature"></div>
+  <a class="toggle_oembed btn btn-link">{{translate 'show_embedded_items'}}</a>
+  <a href="#" class="btn-link comment_action stripe-button fund" title="{{translate "fund_comment_info"}}">
+    {{translate "fund_comment"}}
+  </a>
+</div>

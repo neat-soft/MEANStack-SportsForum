@@ -1,0 +1,159 @@
+{{#partial "admin_content"}}
+
+<h3>Premium</h3>
+
+  <form class='form-horizontal' role="form" action="{{adminSectionUrl "/admin/premium"}}" method="post">
+    <fieldset{{#ifnot has_active_sub}} disabled="disabled"{{/ifnot}}>
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputPrivateForums">Private forums</label>
+      <div class='col-sm-6'>
+        <input type='checkbox' {{#if has_active_sub}}checked disabled{{/if}} id='inputPrivateForums' class='input-medium' name="" value="1"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Possibility to create private forums." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputBet">Yolos</label>
+      <div class='col-sm-6'>
+        <input type='checkbox' {{#if has_active_sub}}checked disabled{{/if}} id='inputBet' class='input-medium' name="" value="1"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Users can create yolos." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="inputCustomBranding">Subtle Branding</label>
+      <div class='col-sm-6'>
+        <input type='checkbox' {{checked premium.options.no_branding}} id='inputCustomBranding' class='input-medium' name="premium[options][no_branding]" value="1"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Remove BurnZone branding from the commenting area." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="linkColor">Links color</label>
+      <div class='col-sm-6'>
+        <input type="text" id="linkColor" placeholder="link color tint" class="form-control pick-color" name="premium[options][color][link]" value="{{premium.options.color.link}}" />
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Custom color for links." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="realtimeColor">Realtime color</label>
+      <div class='col-sm-6'>
+        <input type="text" id="realtimeColor" placeholder="realtime comment outline color" class="form-control pick-color" name="premium[options][color][realtime]" value="{{premium.options.color.realtime}}" />
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Custom color for realtime comment and forum threads highlight." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="upvoteColor">Upvote color</label>
+      <div class='col-sm-6'>
+        <input type="text" id="upvoteColor" placeholder="upvote button color" class="form-control pick-color" name="premium[options][color][upvote]" value="{{premium.options.color.upvote}}" />
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Custom color for the upvote button." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="downvoteColor">Downvote color</label>
+      <div class='col-sm-6'>
+        <input type="text" id="downvoteColor" placeholder="downvote button color" class="form-control pick-color" name="premium[options][color][downvote]" value="{{premium.options.color.downvote}}" />
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Custom color for the downvote button." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="customMailName">Email name</label>
+      <div class='col-sm-6'>
+        <input type='text' id='customMailName' placeholder='name' class='form-control' name="premium[options][mail_from]" value="{{premium.options.mail_from}}"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Custom sender name in BurnZone related e-mails." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2" for="customMailAddr">Email address</label>
+      <div class='col-sm-6'>
+        <input type='text' id='customMailAddr' placeholder='you@yoursite' class='form-control' name="premium[options][mail_addr]" value="{{premium.options.mail_addr}}"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Custom email address to be used in BurnZone related e-mails." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    <div class='form-group display_none'>
+      <label class="control-label col-sm-2" for="customReplyAddr">Reply address</label>
+      <div class='col-sm-6'>
+        <input type='text' id='customReplyAddr' placeholder='noreply@yoursite' class='form-control' name="premium[options][reply_addr]" value="{{premium.options.reply_addr}}"/>
+      </div>
+      <div class="col-sm-4">
+        <a class="whats_this" rel="tooltip" title="Your custom reply address for BurnZone e-mails." data-placement="right">[?]</a>
+      </div>
+    </div>
+
+    {{#if has_active_sub}}
+    <div class='form-group'>
+      <div class="col-sm-2"></div>
+      <div class='col-sm-10'>
+        <button type='submit' class='btn btn-success btn-save'><i class="fa fa-save"></i> Save</button>
+      </div>
+    </div>
+    {{/if}}
+    </fieldset>
+  </form>
+
+{{#ifnot has_active_sub}}
+  <form action="{{adminSectionUrl "/admin/premium/subscribe"}}" method="POST">
+    <div>
+      <div class="col-sm-2"></div>
+      <div class='col-sm-10'>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-email="{{email}}"
+          data-key="{{pk}}"
+          data-image="/web/img/burnzone_icon.png"
+          data-panel-label="Subscribe for \{{amount}}/month"
+          data-label="Apply for Premium Subscription"
+          data-name="BurnZone"
+          data-description="Premium Subscription"
+          data-amount="2000">
+        </script>
+      </div>
+    </div>
+  </form>
+  <hr>
+{{else}}
+  <hr>
+  <h4>
+    {{#if sub_is_trial}}
+      You have {{sub_trial_days}} days left of your "Premium" trial period.
+    {{else}}
+      You are subscribed for BurnZone Premium.<br>
+      {{#if sub_expires}}
+        Subscription ends: {{sub_expiration}}.<br>
+      {{else}}
+        <a class="btn btn-danger" href="/admin/premium/cancel">
+            Cancel subscription
+        </a>
+      {{/if}}
+    {{/if}}
+{{/ifnot}}
+
+</h4>
+
+{{/partial}}
+
+{{> marketing/admin}}

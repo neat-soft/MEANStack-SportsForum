@@ -1,0 +1,7 @@
+--compilers coffee:coffee-script,iced:iced-coffee-script
+--globals expect,_,sinon
+--recursive
+--reporter dot
+--timeout 5000
+--bail
+-c

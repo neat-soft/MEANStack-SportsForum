@@ -1,0 +1,68 @@
+{{#partial "admin_content"}}
+<div class="tab-pane active installation_instructions" id="tab2">
+
+  <h3>Installation instructions for TypePad:</h3>
+
+
+    <ol>
+      <li>
+        <img src="{{resource "/img/m/tp_tut/step1.png"}}" title="Go to Design - Content" alt="Go to Design - Content" class="pull-right"/>
+        From your dashboard page, go to <em>Design</em> &mdash; <em>Content</em> (the "Content" button can be found on the left sidebar)
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tp_tut/step2.png"}}" title="In Modules, choose to embed your own HTML" alt="In Modules, choose to embed your own HTML" class="pull-right"/>
+        In <em>Modules</em>, click <em>Embed your own HTML</em> &mdash; <em>Add this module</em>. 
+        <br/><a class="toggle_advanced_note">(Can't find "Content" or "Embed your own HTML"?)</a>
+        <div class="advanced_note">
+          In case you can't find "Content" or "Embed your own HTML", try one of the following:
+          <ul>
+            <li>
+              If you have TweetPad or Chroma Themes go to Design &mdash; Custom Sidebar and add the code in Step 4.
+            </li>
+            <li>
+              If you have Advanced Templates, the BurnZone code should be placed in the "Individual Archives Template" in "Design" &mdash; "Templates".
+            </li>
+            <li>
+              In case of mixed media layouts, you may use a Notes TypeList for adding the code. In <em>Library</em> &mdash; <em>TypeLists</em>, create a Notes TypeList. Now you should add one item to that TypeList and then paste the BurnZone code in the Note field. In the end, you just have to go to <em>Design</em> &mdash; <em>Content</em> and add the TypeList to your site.
+            </li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tp_tut/step3.png"}}" title="In the label area type BurnZone Commenting" alt="In the label area type BurnZone Commenting" class="pull-right"/>
+        In the label area type "BurnZone Commenting".
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        {{#if admin}}
+          Paste the following code into the HTML area and save:
+        {{else}}
+          Paste the following code into the HTML area. Set the value of the variable <code>conversait_sitename</code> to the name of the site that you have registered in BurnZone and save.
+        {{/if}}
+        <textarea class="script form-control" wrap="off" placeholder="Script goes here" rows="5" readonly>{{{script}}}</textarea>
+      </li>
+
+      <li>
+        Click "Save Changes" at the bottom of the page.
+      </li>
+
+      <li>
+        <!-- <img src="{{resource "/img/m/tumblr_tut/step3.png"}}" title="Click Customize" alt="Click Customize" class="pull-right"/> -->
+        Click on <em>Custom CSS</em> in the left sidebar and paste the following:
+        <!-- <div class="clearfix"></div> -->
+        <textarea class="script form-control" id="tp_css_textarea" wrap="off" placeholder="Script goes here" rows="2" readonly>#all-comments { display: none !important; }
+.comments-open { display: none !important; }</textarea>
+      </li>
+
+      <li>
+        Save your changes and you should be ready to go!
+      </li>
+    </ol>
+</div>
+<script type="text/javascript">
+  Burnzone.onstart = "showAdvancedTypepad";
+</script>
+{{/partial}}
+{{> marketing/install}}

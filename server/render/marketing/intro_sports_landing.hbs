@@ -1,0 +1,20 @@
+{{#partial "title"}} BurnZone Sports Intro {{/partial}}
+{{#partial "content"}}
+
+{{> marketing/commenting-demo-layout}}
+
+<div class="video-intro">
+  <div class="video-wrapper">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <div id="player"></div>
+  </div>
+</div>
+
+<script src="http://www.youtube.com/player_api"></script>
+<script type="text/javascript">
+  Burnzone.onstart = 'introSportsVideo';
+</script>
+
+{{/partial}}
+  
+{{> marketing/layout}}

@@ -1,0 +1,41 @@
+<div class="competition_wrapper">
+  <div class="competition_title">
+    <h4><a href="#brzn/competitions/{{model.attributes._id}}">{{model.attributes.title}}</a></h4>
+  </div>
+
+  <div class="competition_status">
+    {{#if model.attributes.active}}
+      <strong>{{translate "competition_active_until"}}: </strong> {{end_text}}
+    {{else}}
+      {{#if ended}}
+        <div class="competition_ended">
+          <strong>{{translate "competition_ended_on"}}: </strong> {{end_text}}
+        </div>
+      {{else}}
+        <div class="competition_starts">
+          <strong>{{translate "competition_starts_on"}}: </strong> {{start_text}}
+        </div>
+      {{/if}}
+    {{/if}}
+  </div>
+
+  {{#if ended}}
+  <div class="competition_winner">
+    <strong class="pull-left">{{translate "competition_winner"}}: </strong>
+    <div class="winner"></div>
+    <div class="clear"></div>
+  </div>
+  {{/if}}
+
+  <div class="competition_rules">
+    <strong>
+      <a target="_blank" href="{{model.attributes.rules_url}}">{{translate "competition_rules"}}</a>
+    </strong>
+  </div>
+
+  <div class="competition_prize">
+    <strong>{{translate "competition_prize"}}: </strong>
+    <a href="{{model.attributes.prize_url}}">{{model.attributes.prize}}</a>
+  </div>
+
+</div>

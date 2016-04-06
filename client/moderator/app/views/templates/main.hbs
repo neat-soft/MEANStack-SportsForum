@@ -1,0 +1,26 @@
+<div>
+  <ul class="nav nav-tabs" id="navigation">
+    <li><a href="#comments" class="no-border">{{translate "pending_comments"}}</a></li>
+    {{#if model.attributes.premium}}
+      <li><a href="#unresolved_bets" class="no-border">{{translate "unresolved_bets"}}</a></li>
+    {{/if}}
+    <li><a href="#allcomments">{{translate "allcomments"}}</a></li>
+    <li><a href="#profiles">{{translate "user_profiles"}}</a></li>
+    <li><a href="#subscribers">{{translate "subscribers"}}</a></li>
+    <li><a href="#competitions">{{translate "competitions"}}</a></li>
+    <li class="pull-right">
+      <div id="subscription_view" class="subscription_view"></div>
+    </li>
+  </ul>
+  <div id="content" class="tab-content">
+    <div class="tab-pane fade in" id="allcomments"></div>
+    <div class="tab-pane fade in" id="comments"></div>
+    {{#if model.attributes.premium}}
+      <div class="tab-pane fade in" id="unresolved_bets"></div>
+    {{/if}}
+    <div class="tab-pane fade in" id="challenges"></div>
+    <div class="tab-pane fade in" id="profiles"></div>
+    <div class="tab-pane fade in" id="subscribers"></div>
+    <div class="tab-pane fade in" id="competitions"></div>
+  </div>
+</div>

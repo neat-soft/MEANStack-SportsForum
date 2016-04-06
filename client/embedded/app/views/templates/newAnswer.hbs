@@ -1,0 +1,27 @@
+<textarea rows="1" class="input_comment" placeholder="{{#if options.question}}{{translate "write_question"}}{{else}}{{translate "write_answer"}}{{/if}}">
+</textarea>
+
+<small class="format_note hidden-phone pull-left">
+  <i class="icon-align-right"></i>
+  <a href="https://burnzone.desk.com/customer/portal/articles/1144157-how-do-i-format-my-comment-" title="{{translate "format_text"}}" target="_blank">{{translate "format_text"}}</a>
+</small>
+
+<div class="submit_controls">
+  {{#ifnot loggedIn}}
+    <div class="login_options clearfix">
+
+      <div class="create_user_note">{{translate "create_user"}}</div>
+      <input class="anon_name span12" type="text" placeholder="{{translate "anon_name"}}" />
+      <input class="anon_email span12" type="text" placeholder="{{translate "anon_email"}}" />
+
+      <div class="fakeFBLogin_view"></div>
+    </div>
+
+    <button class="pull-right btn disabled login_to_comment btn-embed">{{translate "login_to_comment"}}</button>
+  {{/ifnot}}
+
+  <button class="btn submit pull-right">{{translate "submit"}}</button>
+  <button class="btn cancel pull-right">{{translate "cancel"}}</button>
+</div>
+
+<div class="clearfix"></div>

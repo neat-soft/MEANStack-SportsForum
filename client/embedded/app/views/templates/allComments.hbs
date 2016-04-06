@@ -1,0 +1,17 @@
+{{#ifor appIsArticle app.currentContext}}
+  <div>
+    <span class="view_separate_page">
+      <i class="icon-mobile-phone"></i>
+      <a target="_blank" class="pull-left" href="{{{app.integration.baseUrl}}}/intern?s={{model.attributes.siteName}}&conv={{model.id}}&a=ARTICLE">{{translate "view_separate_page"}}</a>
+    </span>
+  </div>
+{{/ifor}}
+<div class="competitionAnnounce_view"></div>
+<div class="pull-right leaderboard CHECK-HEIGHT"></div>
+<button class="pull-right ldb-show"><span>+</span></button>
+{{> conversation_header}}
+<div class="promoted_comments_view"></div>
+<div class="comments_view"></div>
+<div class="control_bar">
+  {{> load_more}}
+</div>

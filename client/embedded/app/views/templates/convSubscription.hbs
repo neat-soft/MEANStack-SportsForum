@@ -1,0 +1,20 @@
+<label class="checkbox">
+  {{translate "subscribe_articles"}}
+  <input type="checkbox" class="subscribe_conv" value="SUBSCRIBE_CONV" />
+</label>
+
+<div class="subscribe-form">
+  <form class="form-inline conversation-header-submenu CHECK-HEIGHT">
+    {{#if appIsForum}}
+    <div class="inside-form-container">
+    {{/if}}
+      <input type="text" class="subscribe_email_conv input-medium" placeholder="youremail@domain.com" />
+      <button class="btn btn-small btn-block">
+        <i class="icon-ok"></i>
+        {{translate "subscribe"}}
+      </button>
+    {{#if appIsForum}}
+    </div>
+    {{/if}}
+  </form>
+</div>

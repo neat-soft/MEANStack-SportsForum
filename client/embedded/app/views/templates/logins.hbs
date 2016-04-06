@@ -1,0 +1,20 @@
+<h3>{{translate "sign_in"}}</h3>
+
+{{#if app.logins.own}}
+  <a href="{{{app.logins.own.loginUrl}}}" data-login-provider="burnzone" class="login-link own"><img class="login_image" src="{{resource app.logins.own.logo}}" title="{{translate "login_with"}} Burnzone" /></a>
+{{/if}}
+
+{{#each app.logins.thirdParty}}
+  <a href="{{{this.elem.loginUrl}}}" data-login-provider="{{this.key}}" class="login-link {{this.key}}"><img class="login_image" src="{{resource this.elem.logo}}" title="{{translate "login_with"}} {{this.key}}" /></a>
+{{/each}}
+
+{{#if app.logins.sso}}
+  <div>
+    {{translate "or_login_with"}}&nbsp;<strong>{{app.context.attributes.siteName}}</strong>
+    <a href="{{{app.logins.sso.loginUrl}}}" data-login-provider="sso" class="login-link sso">
+      <img class="login_image" src="{{app.logins.sso.logo}}" />
+    </a>
+  </div>
+{{/if}}
+
+<div>{{translate "social_icon_login"}}</div>

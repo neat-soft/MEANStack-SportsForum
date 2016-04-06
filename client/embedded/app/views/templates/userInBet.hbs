@@ -1,0 +1,12 @@
+<span class='user_image_container'></span>
+<span class='user_name'></span>
+{{#ifeq model.attributes.status 'accepted'}}
+  {{#if model.attributes.risked_points}}
+    ({{ model.attributes.risked_points}})
+  {{/if}}
+{{/ifeq}}
+<i class="icon-ok"></i>
+<i class="icon-question"></i>
+<i class="icon-ban-circle"></i>
+<span class='won-points'>{{translate "bet_won_pts" value=model.attributes.won_points}}</span>
+<span class='lost-points'>{{translate "bet_lost_pts" value=model.attributes.lost_points}}</span>

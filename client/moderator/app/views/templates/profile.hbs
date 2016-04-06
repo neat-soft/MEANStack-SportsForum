@@ -1,0 +1,28 @@
+{{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+  <div class="user_view"></div>
+
+  <div class="points_no pull-left">
+    <span class="lblpoints">{{translate "points"}}:</span>
+    <span class="points" data-rv-text="model.points"></span>
+  </div>
+
+  <div class="profile_action pull-left">
+      <select>
+        <option value="0">{{translate "profile_auto_approve"}}</option>
+        <option value="1">{{translate "profile_banned"}}</option>
+        <option value="2">{{translate "profile_held"}}</option>
+      </select>
+  </div>
+
+  <div class="pull-right">
+    <label title="{{translate 'title_set_moderator'}}"><input type="checkbox" class="make_mod" />{{translate 'profile_moderator'}}</label>
+  </div>
+  {{#if option_private}}
+    <div class="pull-right">
+      <label title="{{translate 'title_set_private_access'}}"><input type="checkbox" class="private_access" />{{translate 'profile_private_access'}}</label>
+    </div>
+  {{/if}}
+
+  <div class="clear"></div>

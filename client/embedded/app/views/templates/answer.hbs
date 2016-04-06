@@ -1,0 +1,40 @@
+{{#if deleted}}
+  <div class="answer_wrapper single-item-wrapper">
+    <div class="pull-left left_box">
+      <div class="author_image_container"></div>
+    </div>
+    {{> top_note_bar}}
+    <div class="deleted_info">
+      <em>{{translate "answer_deleted"}}</em>
+    </div>
+    <div class="options_bar">
+      <span class="comment_action_group"></span>
+    </div>
+  </div>
+  <div class="answers_view"></div>
+{{else}}
+  <div class="answer_wrapper single-item-wrapper">
+    {{> mod_menu}}
+    <div class="tc description_bar">
+      {{> funded_note}}
+      {{> promoted_title}}
+    </div>
+    <div class="main_answer_view">
+      {{> left_box}}
+      {{> top_note_bar}}
+      <div class="text"></div>
+      <div class="signature"></div>
+      {{> options_bar}}
+      {{> promote_popup}}
+    </div>
+  </div>
+  {{#if app.asModerator}}
+    <div>
+      <button class="delete btn btn-danger">{{translate "delete"}}</button>
+    </div>
+  {{/if}}
+  {{> edit_comment}}
+  <div class="newComment_view"></div>
+  <div class="newChallenge_view"></div>
+  <div class="comments_view"></div>
+{{/if}}

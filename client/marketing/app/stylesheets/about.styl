@@ -1,0 +1,114 @@
+@import "variables"
+
+#about
+  .intro
+    text-align center
+    font-size 1.6em
+    line-height 1.5em
+    color #777
+  .thumbnail
+    img
+      width 100%
+  .features
+    border 1px solid gray
+    border-radius 5px
+    color #333
+    margin-bottom 15px
+    margin-right 0px
+    float left
+    width 100%
+    text-align center
+    ul
+      list-style none
+      padding-left 0px
+      li
+        padding 10px
+        border-bottom 1px solid bootstrapLightGray
+  .section-info
+    h3
+      background-color bootstrapLightGray
+      border-radius 5px 5px 0px 0px
+      font-size 20px
+      padding 20px
+      line-height 15px
+      color bzBlue
+      font-weight bold
+      margin-top 0px
+      border-top 4px solid bzBlue
+
+.additional_section
+  text-align center
+  margin-top 10px
+  img
+    width 50px
+  a:hover
+    text-decoration none
+  .content_cta
+    display block
+    
+.thumb-info-type
+  background-color bzBlue
+  border-radius 2px
+  display inline-block
+  float left
+  font-size 12px
+  font-weight 400
+  letter-spacing 0px
+  margin 8px -2px -15px
+  padding 2px 9px
+  text-transform none
+  
+/* Thumb Info */
+.thumb-info
+  display block
+  overflow hidden
+  position relative
+  text-decoration none
+  max-width 100%
+
+.thumb-info .thumb-info-inner
+  -webkit-transition all 0.3s
+  -moz-transition all 0.3s
+  transition all 0.3s
+  display block
+  white-space nowrap
+
+.thumb-info .thumb-info-title
+  -webkit-transition all 0.3s
+  -moz-transition all 0.3s
+  transition all 0.3s
+  background rgba(36, 27, 28, 0.8)
+  bottom 10%
+  color #FFF
+  font-size 18px
+  font-weight 700
+  left 0
+  letter-spacing -1px
+  padding 9px 11px 9px
+  position absolute
+  text-shadow 1px 1px 1px rgba(0, 0, 0, 0.2)
+  text-transform uppercase
+  z-index 1
+
+.thumb-info img
+  -webkit-transition all 0.2s linear
+  -moz-transition all 0.2s linear
+  transition all 0.2s linear
+  border-radius 3px
+  position relative
+
+/* Thumb Info Caption */
+.thumb-info-caption
+  padding 10px 0
+
+.thumb-info-caption p
+  font-size 0.9em
+  line-height 20px
+  margin 0 0 8px
+  padding 10px
+
+/* Responsive */
+@media(max-width: 991px)
+  .thumb-info .thumb-info-title
+    font-size 14px
+

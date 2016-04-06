@@ -1,0 +1,15 @@
+<h1>
+    Unresolved Yolo pending
+</h1>
+<h3>There is an unresolved Yolo pending at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

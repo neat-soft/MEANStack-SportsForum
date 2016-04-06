@@ -1,0 +1,1 @@
+db.sessions.remove({session:{$regex:"\\\"passport\\\":{}"}});

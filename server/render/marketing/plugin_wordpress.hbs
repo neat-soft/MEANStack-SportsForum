@@ -1,0 +1,40 @@
+{{#partial "admin_content"}}
+<div class="tab-pane active installation_instructions" id="tab2">
+
+  <h3>Installation instructions for Wordpress</h3>
+
+  <ol>
+    <li>
+      {{#if admin}}
+        <a href="{{adminSectionUrl "/admin/download/wpplugin"}}"><strong>Download</strong> the Wordpress plugin</a> for your site.
+      {{else}}
+        <a href="/auth/signin?redirect=/admin/install/wp" title="Download the plugin from our server"><strong>Get the plugin</strong></a> directly configured for your site. Then in your WordPress dashboard, go to <em>Plugins -> Add New</em>
+      {{/if}}
+    </li>
+    <li>
+      <img src="{{resource "/img/m/wp_tut/step2.png"}}" title="Add new plugin" alt="Add new plugin" class="pull-right"/>
+      Go to <em>Plugins</em> in your WordPress dashboard and click <em>Add New</em>.
+      <div class="clearfix"></div>
+    </li>
+    <li>
+      <img src="{{resource "/img/m/wp_tut/step3.png"}}" title="Upload the plugin and install it" alt="Upload the plugin and install it" class="pull-right"/>
+      Select the <em>Upload</em> option and browse for the file you downloaded from our site.
+      <div class="clearfix"></div>
+    </li>
+    <li>
+      <img src="{{resource "/img/m/wp_tut/step4.png"}}" title="Activate the plugin" alt="Activate the plugin" class="pull-right"/>
+      Go to <em>Plugins -> Installed Plugins</em> in your WordPress dashboard and click <em>Activate</em> for BurnZone Commenting.
+      <div class="clearfix"></div>
+    </li>
+    <li>
+      <img src="{{resource "/img/m/wp_tut/step5.png"}}" title="Configure the plugin" alt="Activate the plugin" class="pull-right"/>
+      Go to <em>Plugins -> BurnZone Settings</em> and configure the plugin as you want.
+      <div class="clearfix"></div>
+    </li>
+  </ol>
+
+  <p><strong>Done!</strong> Now your readers can enjoy the BurnZone Commenting experience!</p>
+
+</div>
+{{/partial}}
+{{> marketing/install}}

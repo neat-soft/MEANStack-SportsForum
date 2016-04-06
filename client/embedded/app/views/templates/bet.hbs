@@ -1,0 +1,103 @@
+{{#if deleted}}
+  <div class="comment_wrapper single-item-wrapper">
+    <div class="left_box pull-left">
+      <div class="author_image_container"></div>
+    </div>
+    {{> top_note_bar}}
+    <div class="deleted_info">
+      <em>{{translate "bet_deleted"}}</em>
+    </div>
+    <div class="options_bar">
+      <span class="comment_action_group left"></span>
+    </div>
+  </div>
+  {{#ifeq options.mode 'full'}}
+    <div class="comments_view"></div>
+  {{/ifeq}}
+{{else}}
+  <div class="comment_wrapper single-item-wrapper">
+    {{> mod_menu }}
+    <div class="tc description_bar">
+      {{> funded_note}}
+      {{#ifeq options.mode 'full'}}
+        {{> promoted_title}}
+      {{/ifeq}}
+      {{> bet_note}}
+    </div>
+    <div class="main_comment_view">
+      {{> left_box}}
+      {{> top_note_bar}}
+      <div class="text"></div>
+      <div class="signature"></div>
+      <div class="bet-author pull-left">
+        <div class='bet-joined-users pull-left'></div>
+        <span class="bet-tpts-joined-content inherit-border-color">
+          {{translate 'bet_points_risked'}} <span class='bet-tpts-joined'></span>
+          {{translate 'bet_view_odds_label'}}
+          {{translate 'bet_point_ratio_joined'}} <span class='bet-ratio-joined'>{{model.attributes.bet_ratio_joined}}</span>
+          {{translate 'bet_point_ratio_accepted'}} <span class='bet-ratio-accepted'>{{model.attributes.bet_ratio_accepted}}</span>
+        </span>
+        <div class="versus clear">
+          <div class="vs-text">{{translate "vs"}}</div>
+        </div>
+      </div>
+      <div class="bet-users clear pull-left">
+        <div class='bet-accepted-users clear'></div>
+        <div class='bet-pending-users clear'></div>
+        <div class='bet-declined-users clear'></div>
+      </div>
+      <div class="bet-tpts-av-content clear pull-left inherit-border-color">
+        <span class='bet-tpts-av-label'></span> <span class='bet-tpts-av'></span>
+      </div>
+      {{#if betting_enabled}}
+        <div class='accepting-ctrl pull-left'>
+          <div class="pull-left">
+            <span>{{translate 'bet_points_accepted'}}</span>
+            <input class='bet-points-accepted'/>
+          </div>
+          <div class="pull-left">
+            <button class='bet-accept btn-embed'>{{translate 'bet_accept'}}</button>
+            <button class='bet-decline btn-embed'>{{translate 'bet_decline'}}</button>
+          </div>
+          <div class='bet-points-info clear'>
+            <span class='bet-min-pts-accept-content'>
+              {{translate 'bet_accept_min_pts'}} <span class='bet-min-pts-accept'>{{app.options.minBetPts}}</span>
+            </span>
+            <span class='bet-max-pts-accept-content'>
+              {{translate 'bet_accept_max_pts'}} <span class='bet-max-pts-accept'></span>
+            </span>
+            <span class='bet-win-pts-accept-content'>
+              {{translate 'bet_win_pts'}} <span class='bet-win-pts-accept'></span>
+            </span>
+          </div>
+        </div>
+        <div class='forf-ctrl clear pull-left'>
+          <button class='bet-forfeit btn-embed'>{{translate 'bet_forfeit'}}</button>
+          <button class='bet-claim btn-embed'>{{translate 'bet_claim'}}</button>
+        </div>
+        {{#ifeq model.attributes.type 'BET'}}
+          <div class="btn-group resolve-ctrl clear pull-left">
+            <button type="button" class="btn btn-default dropdown-toggle btn-embed" data-toggle="dropdown" aria-expanded="false">
+              {{translate 'resolve_bet_side'}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li><a href="#" class="resolve-joined">{{translate "resolve_joined"}}</a></li>
+              <li><a href="#" class="resolve-accepted">{{translate "resolve_accepted"}}</a></li>
+              <li><a href="#" class="resolve-tie">{{translate "resolve_tie"}}</a></li>
+            </ul>
+          </div>
+        {{/ifeq}}
+      {{/if}}
+      {{> options_bar}}
+      {{#ifeq options.mode 'full'}}
+        {{> promote_popup}}
+      {{/ifeq}}
+    </div>
+  </div>
+  {{#ifeq options.mode 'full'}}
+    {{> edit_comment}}
+    <div class="newComment_view"></div>
+    <div class="newChallenge_view"></div>
+    <div class="comments_view"></div>
+  {{/ifeq}}
+{{/if}}

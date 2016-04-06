@@ -1,0 +1,5 @@
+{{ if (comment.forum) { }}
+    [{{= siteName }}] Pending Forum Topic (moderator): {{= conversationTitle }}
+{{ } else { }}
+    [{{= siteName }}] Pending Comment (moderator) at "{{= conversationTitle }}"
+{{ } }}

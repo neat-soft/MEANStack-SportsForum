@@ -1,0 +1,12 @@
+<html>
+<head></head>
+<body>
+<script>
+  document.domain = "{{{domain}}}";
+  if (window.opener && !window.opener.closed) {
+    window.opener.app.reload();
+  }
+  window.open('','_self','');
+  window.close();
+</script>
+</body>

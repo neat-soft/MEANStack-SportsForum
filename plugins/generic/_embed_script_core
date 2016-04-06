@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  (function() {
+    var conversait = document.createElement("script");
+    conversait.type = "text/javascript";
+    conversait.async = true;
+    conversait.src = "{{{host}}}/web/js/embed.js";
+    (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(conversait);
+  })();
+</script>

@@ -1,0 +1,25 @@
+{{#partial "admin_content"}}
+
+<div class="tab-pane active installation_instructions" id="tab2">
+
+  <h3>Installation instructions for custom sites</h3>
+
+  {{#if admin}}
+
+    <p>You only have to paste the following code into the page where you want to use BurnZone Commenting. That's all, folks!</p>
+    <textarea class="script form-control" wrap="off" placeholder="Script goes here" rows="5" readonly>{{{script}}}</textarea>
+
+  {{else}}
+
+    <p>Paste the following code into the page where you want to use BurnZone Commenting.</p>
+    <textarea class="script form-control" wrap="off" placeholder="Script goes here" rows="5" readonly>{{{script}}}</textarea>
+
+    <p>Set the value of <code>conversait_sitename</code> to the name of the site that you have registered in Burnzone</p>
+
+  {{/if}}
+
+</div>
+
+
+{{/partial}}
+{{> marketing/install}}

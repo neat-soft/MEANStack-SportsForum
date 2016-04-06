@@ -1,0 +1,7 @@
+{{ if job.voteChanges.up <= 0 && job.voteChanges.down != 0 { }}
+  {{ likedown = voteChanges.down > 0 }}
+  [{{= siteName }}] You were {{ if (likedown) { }} down-voted {{ } else { }} retracted a down-vote {{ } }} in a challenge
+{{ { else } }}
+  {{ likeup = voteChanges.up > 0 }}
+  [{{= siteName }}] You were {{ if (likeup) { }} voted {{ } else { }} retracted a vote {{ } }} in a challenge
+{{ } }}

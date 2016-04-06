@@ -1,0 +1,39 @@
+<div class='export'>
+  {{translate "profiles_total"}}
+  <span class='profiles-count' data-rv-text='model.no_profiles'></span>
+  {{#if model.attributes.premium}}
+    <a class='btn btn-default' href='{{siteUrl}}/profiles/export?format=csv'>
+      <i class="fa fa-arrow-up"></i>
+      {{translate 'export_to_csv'}}
+    </a>
+  {{/if}}
+</div>
+<br/>
+<div class="row control-bar">
+  <div class="col-sm-4">
+    <div class="btn-group refresh-btn-group">
+      <button class="btn refresh btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+    </div>
+    <div class="btn-group">
+      <button class="reset-profiles btn btn-danger" title="{{translate "title_reset_leaderboard"}}"><i class="fa fa-repeat"></i> {{translate "reset_leaderboard"}}</button>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="btn-group pull-right">
+      <form class="search-profiles">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Filter users...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="loading_screen">
+  <i class="fa fa-spinner fa-spin"></i>
+</div>
+<div class="profiles"></div>

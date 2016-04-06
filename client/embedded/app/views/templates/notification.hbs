@@ -1,0 +1,13 @@
+{{#if type}}
+  <div class="notification alert alert-{{type}}">
+{{else}}
+  <div class="notification alert alert-info">
+{{/if}}
+<div class="alert-icon pull-left">
+  {{#notificon type}}{{/notificon}}
+</div>
+<div class="alert-body">
+  {{#if heading}}<strong>{{heading}}</strong>{{/if}}{{{text}}}
+</div>
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>

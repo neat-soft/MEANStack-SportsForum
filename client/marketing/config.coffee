@@ -1,0 +1,59 @@
+exports.config =
+  # See http://brunch.readthedocs.org/en/latest/config.html for documentation.
+  files:
+    javascripts:
+      joinTo:
+        'javascripts/site.js': /^app/
+        'javascripts/site-vendor.js': /^vendor/
+        'test/javascripts/test.js': /^test(\/|\\)(?!vendor)/
+        'test/javascripts/test-vendor.js': /^test(\/|\\)(?=vendor)/
+      order:
+        # Files in `vendor` directories are compiled before other files
+        # even if they aren't specified in order.before.
+        before: [
+          'vendor/scripts/jquery-1.8.2.js',
+          'vendor/scripts/console-helper.js',
+          'vendor/scripts/underscore.js',
+          'vendor/scripts/backbone.js',
+          'vendor/scripts/rivets.js',
+          'vendor/scripts/bootstrap.js'
+          'vendor/scripts/moment.js'
+          'vendor/scripts/moment-timezone.js'
+          'vendor/scripts/owl.carousel.js'
+          'vendor/scripts/theme.js'
+          'vendor/scripts/theme.init.js'
+          'vendor/scripts/daterangepicker.js'
+        ]
+
+    stylesheets:
+      joinTo:
+        'stylesheets/site.css': /^(app|vendor)/
+        'test/stylesheets/test.css': /^test/
+      order:
+        before: ['app/stylesheets/bootstrap/bootstrap.less']
+        after: ['vendor/styles/helpers.css']
+
+    templates:
+      joinTo: 'javascripts/site.js'
+
+  conventions:
+    ignored: (path)->
+      # ignore bootstrap files that are included from bootstrap.less
+      if path.match(/^app(\/|\\)stylesheets(\/|\\)bootstrap/)
+        return !path.match(/^app(\/|\\)stylesheets(\/|\\)bootstrap(\/|\\)bootstrap\.less/)
+      else if path.match(/^app(\/|\\)stylesheets/)
+        return path.match(/^app(\/|\\)stylesheets(\/|\\)_/)
+      else
+        return false
+
+#   modules:
+#     wrapper: (path, data)->
+#         """
+# (function() {
+#   'use strict';
+#   #{data}
+# }).call(this);
+#         """
+#     # definition: false
+
+  sourceMaps: false

@@ -1,0 +1,34 @@
+<div>
+
+  <div class="like_section hidden-phone">
+
+    <h4 class="user_likes" data-rv-text="model.no_votes"></h4>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="like_section_mobile visible-phone">
+    <h4 class="user_likes" data-rv-text="model.no_votes"></h4>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="left_box pull-left">
+    <div class="author_image_container"></div>
+  </div>
+
+  {{!-- <i class="icon-trophy best_marker" title="{{translate "challenge_winner"}}"></i> --}}
+  <span class="author_name"></span>
+
+  {{> user_markers}}
+  <small class="time"></small>
+  <small class="challenge_side_statement">
+    {{#if options.challenged}}
+        {{translate "said"}}
+    {{else}}
+        {{translate "challenged"}}
+    {{/if}}
+  </small>
+
+  <div class="text"></div>
+  <div class="signature"></div>
+  <a class="toggle_oembed btn btn-link">{{translate 'show_embedded_items'}}</a>
+</div>

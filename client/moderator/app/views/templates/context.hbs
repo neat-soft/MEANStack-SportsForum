@@ -1,0 +1,71 @@
+<div class="comment_wrapper">
+  <div class="user_view"></div>
+	<div class="text clear"></div>
+  <footer>
+    <div class="control_buttons pull-right">
+      {{#ifnot model.attributes.approved}}
+        <div class="btn-group">
+          <button class="approve btn btn-success btn-xs">{{!-- <i class="fa fa-check"></i> --}} {{translate "approve"}}</button>
+          <button class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right" role="menu">
+            <li><a href="#" class="approve">{{translate "approve"}}</a></li>
+            <li><a href="#" class="approve-autoapproval">{{translate "approveAutoNext"}}</a></li>
+          </ul>
+        </div>
+      {{/ifnot}}
+      {{#if model.attributes.spam}}
+        <button class="setnotspam btn btn-xs">{{!-- <i class="fa fa-check-square-o"></i> --}} {{translate "set_not_spam"}}</button>
+      {{else}}
+        <button class="setspam btn btn-danger btn-xs">{{!-- <i class="fa fa-ban"></i> --}} {{translate "set_spam"}}</button>
+      {{/if}}
+      {{#if model.attributes.no_flags}}
+        <button class="clearflags btn btn-success btn-xs">{{!-- <i class="fa fa-check"></i> --}} {{translate "clear_flags"}}</button>
+      {{/if}}
+      {{#ifnot model.attributes.deleted}}
+        <button class="delete btn btn-danger btn-xs">{{!-- <i class="fa fa-trash-o"></i> --}} {{translate "delete"}}</button>
+      {{/ifnot}}
+    </div>
+  	<div class="approved">
+  	  <span class="yesorno pull-left">{{translate "approved"}}: 
+  	  	{{#if model.attributes.approved}}
+  	  		<span class="yes">{{translate "yes"}}</span>
+  	  	{{else}}
+  	  	  <span class="no">{{translate "no"}}</span>
+  	  	{{/if}}
+  	  </span>
+      <span class="yesorno pull-left">{{translate "spam"}}: 
+        {{#if model.attributes.spam}}
+          <span class="yes">{{translate "yes"}}</span>
+        {{else}}
+          <span class="no">{{translate "no"}}</span>
+        {{/if}}
+      </span>
+      <span class="yesorno pull-left">{{translate "flags"}}: 
+        {{#if model.attributes.no_flags}}
+          <span class="no">{{model.attributes.no_flags}}</span>
+        {{else}}
+          <span class="yes">0</span>
+        {{/if}}
+      </span>
+      <span class="yesorno pull-left">{{translate "deleted"}}: 
+        {{#if model.attributes.deleted}}
+          <span class="yes">{{translate "yes"}}</span>
+        {{else}}
+          <span class="no">{{translate "no"}}</span>
+        {{/if}}
+      </span>
+      {{#if conv_url}}
+        <span class="visit_conversation">
+          <a href="{{conv_url}}" target="_blank">
+            {{!-- <i class="fa fa-share"></i> --}}{{translate "visit_conversation"}}
+          </a>
+        </span>
+      {{/if}}
+    </div>
+
+  </footer>
+  <div class="clearfix"></div>
+</div>
+

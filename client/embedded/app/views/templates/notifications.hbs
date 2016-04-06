@@ -1,0 +1,26 @@
+<div class="row-fluid">
+  <div class="notifications">
+    <div class="notifications-list"></div>
+    <div class="go-to-bubble tc inherit-back-color has-custom-margin" data-margin="0 auto 0 0">
+
+    </div>
+    <div class="more-new-comments alert-new-comments tc">
+      <span class="instant-show-new">
+        <label>
+          <input type="checkbox"> Show new comments instantly, without notification
+        </label>
+      </span>
+      {{! this widget is moved outside the iframe but classes are lost
+      during the process; in order to preserve the styling, we copy the styles
+      computed in the iframe; everything works except for percentages of
+      width/height, because the computed style includes only the result in pixels.
+      We use this custom attribute to pass information about the desired percentage.}}
+      <span class="have-new-comments has-custom-width" data-width-percent="70%">
+        <strong> </strong>
+      </span>
+    </div>
+    {{#if app.debug}}
+      <div class="debug_view"></div>
+    {{/if}}
+  </div>
+</div>

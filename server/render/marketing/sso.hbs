@@ -1,0 +1,40 @@
+{{#partial "admin_content"}}
+
+{{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<h3>SSO configuration</h3><hr/>
+
+<form class="form-horizontal" action="{{adminSectionUrl "/admin/sso"}}" method="post" role="form">
+  <div class="form-group hide-in-frame">
+    <label class="control-label col-md-2" for="secretkey">Secret key</label>
+    <div class="col-md-5">
+      <textarea id="secretkey" class="form-control sso uneditable-input" placeholder="Script goes here" rows="5" cols="50">{{site.sso.secret}}</textarea>
+    </div>
+    <div class="col-md-5">
+      <a class="whats_this" rel="tooltip" title="Configure your plugin to use this key if you want to use SSO." data-placement="right">[?]</a>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="enabled">Enabled</label>
+    <div class="col-md-3">
+      <input type="checkbox" id="enabled" name="sso.enabled" {{checked site.sso.enabled}} value="1" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="enabled">Users are verified</label>
+    <div class="col-md-3">
+      <input type="checkbox" id="enabled" name="sso.users_verified" {{checked site.sso.users_verified}} value="1" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </div>
+</form>
+
+{{/partial}}
+{{> marketing/admin}}

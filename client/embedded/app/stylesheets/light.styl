@@ -1,0 +1,326 @@
+//Styling the light BZ theme. A theme is light (transparent background, dark text colors) when owner's site text color is dark.
+
+body.light
+  color lightMainColor
+  // setting the semi-transparent background color
+  .comments_view
+    .conversation-header
+      background rgba(0,0,0,0.07)
+  .bet_view.BET_STATUS_RESOLVING_PTS > .single-item-wrapper
+  .bet_view.BET_STATUS_RESOLVED_PTS > .single-item-wrapper
+  .bet_view.BET_STATUS_RESOLVED > .single-item-wrapper
+  .question_view_container
+  .challenge_container
+    background rgba(0,0,0,0.07)
+  .conversation-header
+    .context_filter_container
+      border separator
+  .top_users
+    border lightBannerIcon
+    background rgba(0,0,0,0.03)
+    &:hover
+      border-color mainColor
+  .ldb-show:after
+    border-right-color midGray
+  .ldb-show
+  .ldb-hide
+  .ldb-top
+    background midGray
+  .trust-stats
+  .inside-form-container
+    background rgba(0,0,0,0.04)
+  /* .go-to-bubble */
+  .alert-new-comments
+    background rgba(0,0,0,0.5)
+  .bz-scroll-to-top
+    background rgba(0,0,0,0.25)
+    &:hover
+      background rgba(0,0,0,0.5)
+  .currentUser_view.HAS_UNREAD_NOTIFICATIONS
+    .user_notif
+      .no_notif_unread
+        color white
+        background-color red
+  .currentUser_view
+    .user_notif
+      .no_notif_unread
+        color black
+        background-color transparent
+        border-color lightGray
+  .mod-menu ul
+    li:hover
+      background-color lightBtnHover
+  .submit
+  .cancel
+  .more
+  .btn-embed
+    color lightMainColor
+    &:hover
+      background-color lightBtnHover
+  // .login_to_comment
+  //   background-color lightBtnHover
+  .conversation-header-submenu
+    button
+      background lightBannerBg
+  #contexts
+    .conversation-header
+      .banner
+        background-color transparent
+  .share.open
+  .share
+    .share-fb
+      i:hover
+        color #3B5998
+    .share-tw
+      i:hover
+        color #5EA9DD
+    .share-mail
+      i:hover
+        color #FCC717
+  .newChallenge_text_challenge
+  .newComment_text_reply
+  .newComment_text
+    background-color darkGray
+    color white
+  .daterangepicker .ranges li
+    color lightLdbBg2
+  .daterangepicker .ranges li.active
+    background-color gray
+    color white
+    border-color gray
+  .daterangepicker .ranges li:hover
+    background-color gray
+    color white
+    border-color gray
+  .daterangepicker td.active
+    background-color gray
+    background-image -moz-linear-gradient(center top , lightGray, gray)
+  #comments
+    .leaderboard
+      background-color transparent
+    .newChallenge_view
+    .newcomment_textarea_container
+      border separator
+  .highlight_comment
+    border separator
+  .promote_comment
+  .mark_as_private
+  .submit_bet
+    div
+      border separator
+  .banner label
+    color gray
+  .userLeader_view
+  .main_challenge_view
+  .top_note_bar
+    .author_name
+    .profile-points
+      color darkGray
+  .banner
+  .banner a
+  .customSelectInner:after
+    color mainColor
+  .time
+  .table_head
+  .comment_action_group
+  .banner .selectize-input .item
+  .create_thread
+  .create-comment
+  .contexts_view .text
+  .filtering_options
+  .btn-filter
+  .filtering_options .btn-bet-filter
+  .discoveryWidget_view .text
+  .discoveryWidget_view .link-text
+  .discoveryWidget_view .topic-title div:first-of-type
+    color lightLdbBg2
+  .contexts_view
+    tr:nth-child(even)
+      background rgba(0,0,0,0.07)
+  .banner i
+  .banner .share:hover i
+  .comment_action_group:hover
+  .customSelectInner:after
+    color lightMainColor
+  .no_notif_unread
+    background-color lightGray
+    color lightMainColor
+  .share:hover
+    i
+      color linkHover
+  .header .share:hover
+    .icon-share
+      color inherit
+  .no_comments
+    .comment_number
+      background-color darkGray
+      color white
+    .comment_number:before
+      border-right-color darkGray
+  .like_section_mobile
+  .like_section
+    .bz-icon
+      color lightMainColor
+    .positive_votes
+    .negative_votes
+      i
+        color white
+      &:hover
+        .user_likes
+          color lightMainColor
+    .positive_votes
+      i
+        background-color green
+    .negative_votes
+      i
+        background inhibited
+  .versus
+    .vs-text
+      background inhibited
+  .challenge_container
+    .versus
+      .border
+        background-color lightGray
+    .best_marker
+      border-left none
+      color orange
+
+  .add_burnzone
+    .footer_burnzone
+    i
+      color orange
+
+  .autosizejs + .dropdown-menu
+    li:hover
+    .active
+      a
+        background inhibited
+  .userNotification_view
+    a
+      color mainColor
+  .leaderboard
+    // h5
+    //   background lightLdbBg
+    background-color white
+    .note
+      &:hover
+        color mainColor
+  .go-to-bubble
+  .alert-new-comments
+    color white
+  .fundedComments_view
+  .user_view
+    background white
+    box-shadow 0 0 7px 1px inhibited
+  .thread-title
+    .text
+      &:hover
+        color mainColor
+  .table_head
+    border-color lighterGray
+  .badge_view
+    background white
+    box-shadow 0 0 7px 1px inhibited
+  .subscription
+    &.open
+      .dropdown-menu
+        .dropdown-menu-container
+          background-color white
+  .show_actions
+  .promote_points_needed
+  .add_burnzone_short a
+  .add_burnzone a
+  .question_points_offered_note
+  .like_section .user_likes
+  .challenged_note
+  .format_note
+  .format_note a
+  .majorCommentInChallenge_view .challenge_side_statement
+  .answer_view .answer_wrapper .answered
+  .best_marker
+  .userNotification_view .notif_note
+  .leaderboard .note
+  .footer .subscription
+  .header .share
+  .forum_view .started-on
+  #header-login-link
+  .articleModerator_view
+  .view_separate_page
+  .view_separate_page a
+  .user_view .points
+    color inhibited
+  .challenged_note
+  .comment_wrapper
+  .answer_wrapper
+  .newComment_view
+  .challenge_container .options_bar
+  .answer_wrapper .answered
+  .best_marker
+  .control_bar
+  .header .subscription
+  .question_view.REPLYING > .newComment_view
+  .comment_view.REPLYING > .newComment_view
+  .bet_view.REPLYING > .newComment_view
+  .answer_view.REPLYING > .newComment_view
+  .challenge_view.REPLYING > .newComment_view
+  .comment_view.CHALLENGING > .newChallenge_view
+  .question_view.CHALLENGING > .newChallenge_view
+  .answer_view.CHALLENGING > .newChallenge_view
+  .currentUser_view.HAS_UNREAD_NOTIFICATIONS .user_notif .popover
+  .user_notif .popover-content
+  .competition-announce
+  .forum_tags_user .selectize-input
+    border-color lightBrdColor
+  .contexts_view > div:nth-child(2n)
+    background rgba(0,0,0,0.03)
+  .forum_tags_user .selectize-input
+    border-color browngray
+  .selectize-dropdown
+  .popover
+    background white
+  .selectize-input
+    &.input-active
+    &.input-active:hover
+    .selectize-control.multi 
+    &.focus
+      background white
+  .comment_view
+  .bet_view
+  .question_view
+  .challenge_view
+    .options_bar
+      .no-border
+        border none
+  .submit_options
+    background-color lightGray2
+  .contextSummary_view
+    .no_new_comments
+      color lightNotice
+  .contextSummary_view.HAS_NEW_COMMENTS
+    border-color lightNotice
+  .main_comment_view .top_note_bar
+    a
+      text-decoration none
+  .learn_more_popover
+  .fund.comment_action
+  .fund.comment_action_group
+  .funded_note
+    color orange
+  .challenger .majorCommentInChallenge_view.FUNDED
+  .challenged .majorCommentInChallenge_view.FUNDED
+  .promoted_view.FUNDED > .single-item-wrapper
+  .answer_view.FUNDED > .single-item-wrapper
+  .question_view.FUNDED > .single-item-wrapper
+  .comment_view.FUNDED > .single-item-wrapper
+  .bet_view.FUNDED > .single-item-wrapper
+    border-color orange
+  .thread-title
+    .label.label-flat
+      border-color lightLdbBg2
+      color lightLdbBg2
+  .userInBet.DECLINED
+    color darkGray
+  .newComment_view .bet-target
+    background white
+  .profile-points
+    border-color gray

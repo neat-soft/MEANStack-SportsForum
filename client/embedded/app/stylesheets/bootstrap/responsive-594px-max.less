@@ -1,0 +1,785 @@
+//
+// (custom) Responsive: Landscape phone to desktop/tablet
+// --------------------------------------------------
+
+@media (max-width: 594px) {
+
+  // Padding to set content in a bit
+  body {
+    //padding-left: 20px;
+    //padding-right: 20px;
+  }
+  // Negative indent the now static "fixed" navbar
+  .navbar-fixed-top,
+  .navbar-fixed-bottom,
+  .navbar-static-top {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  // Remove padding on container given explicit padding set on body
+  .container-fluid {
+    padding: 0;
+  }
+
+  // TYPOGRAPHY
+  // ----------
+  // Reset horizontal dl
+  .dl-horizontal {
+    dt {
+      float: none;
+      clear: none;
+      width: auto;
+      text-align: left;
+    }
+    dd {
+      margin-left: 0;
+    }
+  }
+
+  // GRID & CONTAINERS
+  // -----------------
+  // Remove width from containers
+  .container {
+    width: auto;
+  }
+  // Fluid rows
+  .row-fluid {
+    width: 100%;
+  }
+  // Undo negative margin on rows and thumbnails
+  .row,
+  .thumbnails {
+    margin-left: 0;
+  }
+  .thumbnails > li {
+    float: none;
+    margin-left: 0; // Reset the default margin for all li elements when no .span* classes are present
+  }
+  // Make all grid-sized elements block level again
+  [class*="span"],
+  .uneditable-input[class*="span"], // Makes uneditable inputs full-width when using grid sizing
+  .row-fluid [class*="span"] {
+/*    float: none;*/
+    display: block;
+/*    width: 100%;*/
+    margin-left: 0;
+    .box-sizing(border-box);
+  }
+  .challenge_container .span4{
+    width: 46%;
+  }
+  .span9,
+  .row-fluid .span9 {
+    width: 100%;
+    .box-sizing(border-box);
+  }
+  .row-fluid [class*="offset"]:first-child {
+		margin-left: 0;
+	}
+
+  // FORM FIELDS
+  // -----------
+  // Make span* classes full width
+  .input-large,
+  .input-xlarge,
+  .input-xxlarge,
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    .input-block-level();
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input,
+  .input-append input,
+  .input-prepend input[class*="span"],
+  .input-append input[class*="span"] {
+    display: inline-block; // redeclare so they don't wrap to new lines
+    width: auto;
+  }
+  .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 0;
+  }
+
+  // Modals
+  .modal {
+    position: fixed;
+    top:   20px;
+    left:  20px;
+    right: 20px;
+    width: auto;
+    margin: 0;
+    &.fade  { top: -100px; }
+    &.fade.in { top: 20px; }
+  }
+
+}
+
+@media (max-width: 509px) {
+  .challenge_container{
+    .span5.challenged,
+    .span5.challenger{
+      width: 100%;
+    }
+    .span2.versus{
+      width: 100%;
+      margin-bottom: 5%;
+      .border{
+        display: none;
+      }
+    }
+      .main_challenge_view {
+        .challenger {
+          margin-left: 0px;
+      }
+    }
+  }
+
+  .forum_view {
+    .conversation-header {
+      height: auto;
+      .banner {
+        .create_thread {
+          margin-bottom: 5px;
+          width: 100%;
+          float: none;
+        }
+        .newContext_view {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          float: none;
+          .submit_controls {
+            margin-bottom: 5px;
+            .submit_options.dropdown-menu {
+              z-index: 2;
+            }
+          }
+        }
+        .context_filter_container {
+          margin-bottom: 5px;
+          display: block;
+          .selectize-input {
+            text-align: center;
+          }
+        }
+        .activity-rating {
+          width: calc(~'100% - 186px');
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 510px) {
+  .banner .context_filter_container .tag_item_label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70px;
+  }
+}
+
+@media (max-width: 270px) {
+  .context_view {
+    .newComment_view.BET_TYPE_TARGETED_OPEN,
+    .newComment_view.BET_TYPE_TARGETED_CLOSED,
+    .newComment_view.BET_TYPE_OPEN {
+      .newcomment_textarea_container {
+        .bet-type {
+          width: 125px;
+          padding: 0px;
+          margin-left: 0px;
+        }
+        .users {
+          .bet-target {
+            min-width: 152px;
+            margin-left: 0px;
+          }
+        }
+        .bet-end-date {
+          width: 107px;
+          margin-left: 0px;
+        }
+        .bet-starting-forf-date .bet-start-forf-date {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 315px) {
+  .forum_view {
+    .conversation-header {
+      .filtering_options {
+        .activity-rating {
+          display: block;
+          width: calc(~'100%');
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+  .bet_view {
+    .accepting-ctrl {
+      div:first-of-type {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+
+@media (min-width: 700px) {
+  .small_text {
+    display: none;
+  }
+}
+
+@media (max-width: 699px) {
+  .large_text {
+    display:none;
+  }
+  .head-comments {
+    .full-columns {
+      .sort_direction {
+        top: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .topic-commenters {
+    .commenters > span {
+      span:nth-of-type(2) {
+        display: none;
+      }
+      span:nth-of-type(3) {
+        display: none;
+      }
+    }
+  }
+  .table_head {
+    .head-commenters {
+      .small_text {
+        padding-left: 5px;
+      }
+    }
+    .head-comments {
+      .sort_direction {
+        top: 5px;
+      }
+    }
+  }
+}
+
+@media (min-width: 651px) and (max-width: 900px) {
+  .contexts_view {
+    .topic-commenters {
+      width: 12%;
+      .commenters > span {
+        span:nth-of-type(3) {
+          display: none;
+        }
+      }
+    }
+    .topic-tags {
+      width: 10%;
+    }
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .contexts_view {
+    .topic-commenters {
+      width: 12%;
+    }
+    .topic-tags {
+      width: 10%;
+    }
+  }
+}
+
+@media (min-width: 700px) and (max-width: 827px) {
+  .head-latest-activity {
+    .full-columns {
+      width: 50px;
+    }
+  }
+}
+
+@media (min-width: 601px) {
+  #contexts {
+    .leaderboard {
+      background-color: transparent;
+    }
+  }
+  .ldb-show {
+    display: none;
+  }
+  .add_burnzone_short {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  /* The following two blocks are a fix for mobile Safari issue:
+  prevent the textareas and inputs from auto zooming when focused */
+  .ios {
+    .content_forum {
+      .newContext_view {
+        .selectize-control .selectize-input input,
+        input,
+        .xtextarea {
+          font-size: 16px;
+        }
+      }
+    }
+    .context_view {
+      .newComment_view .xtextarea,
+      input {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .head-latest-activity {
+    position: relative;
+    .column-sorter {
+      .customSelect {
+        .customSelectInner {
+          .sort_direction {
+            position: absolute;
+            top: 4px;
+            right: -30px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer img.logo {
+    width: 75px;
+  }
+
+  .footer .burnzone-logo {
+    float: none;
+  }
+
+  .footer {
+    .burnzone-powered {
+      line-height: 33px;
+    }
+    .burnzone-logo {
+      float: none;
+    }
+    img.logo {
+      width: 75px;
+    }
+  }
+
+  .head-comments {
+    width: 10px;
+  }
+
+  .column-sorter {
+    .customSelect {
+      .customSelectInner {
+        .sort_direction {
+          right: -7px;
+        }
+      }
+    }
+  }
+
+  .center-align-burnzone {
+    display: none;
+  }
+
+  #contexts {
+    .leaderboard {
+      position: absolute;
+      .leaderboard_view {
+        display: none;
+      }
+    }
+    .ldb-show {
+      position: relative;
+      margin-left: 25px;
+    }
+  }
+
+  #comments
+    .leaderboard_view {
+      display: none;
+    }
+}
+
+@media (max-width: 500px) {
+  .comments_view {
+    .conversation-header {
+      height: 105px;
+      .banner {
+        .show-funded-comments {
+          display: block;
+          text-align: left;
+        }
+        .share-container {
+          display: block;
+          margin: 5px 0 0 0;
+          text-align: left;
+          .share.open {
+            .dropdown-menu {
+              min-width: 85px;
+              .share-fb {
+                margin-left: 6px;
+              }
+            }
+          }
+        }
+        .sortComments_view {
+          margin: 5px 0 0 0;
+          padding: 0px;
+          text-align: left;
+        }
+        .subscription-container {
+          margin: 5px 0 0 0;
+          float: left;
+        }
+        .banner_options {
+          position: absolute;
+          left: 0px;
+          top: 24px;
+        }
+      }
+    }
+  }
+  .newcomment_textarea_container {
+    .submit_dropdown_group {
+      display: inline;
+    }
+    .submit_group {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .subscription.open {
+    .dropdown-menu {
+      left: -50px
+    }
+  }
+  .newcomment_textarea_container {
+    .submit_dropdown_group {
+      display: none;
+    }
+    .submit_group {
+      display: inline;
+    }
+  }
+}
+
+@media (min-width: 400px) and (max-width: 480px) {
+  .context_view {
+    .newComment_view {
+      [class*="span"],
+      .row-fluid [class*="span"] {
+        float: left;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  // Make all grid-sized elements block level again
+  [class*="span"],
+  .uneditable-input[class*="span"], // Makes uneditable inputs full-width when using grid sizing
+  .row-fluid [class*="span"] {
+    float: none;
+    width: 100%;
+  }
+  .challenge_container
+    .versus-div{
+    display: none;
+  }
+
+  .contextSummary_view {
+    .topic-commenters img {
+      min-height: 25px;
+      min-width: 25px;
+    }
+  }
+
+  .challenge_container
+    .span4{
+    width: 100%;
+  }
+
+  // Smooth out the collapsing/expanding nav
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+  }
+
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: @baseLineHeight;
+  }
+
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+
+  // Remove the horizontal form styles
+  .form-horizontal {
+    .control-label {
+      float: none;
+      width: auto;
+      padding-top: 0;
+      text-align: left;
+    }
+    // Move over all input controls and content
+    .controls {
+      margin-left: 0;
+    }
+    // Move the options list down to align with labels
+    .control-list {
+      padding-top: 0; // has to be padding because margin collaspes
+    }
+    // Move over buttons in .form-actions to align with .controls
+    .form-actions {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  // Medias
+  // Reset float and spacing to stack
+  .media .pull-left,
+  .media .pull-right  {
+    float: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+  // Remove side margins since we stack instead of indent
+  .media-object {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  // Modals
+  .modal {
+    top:   10px;
+    left:  10px;
+    right: 10px;
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
+
+  // Carousel
+  .carousel-caption {
+    position: static;
+  }
+
+  // CUSTOM
+  .dropdown-menu li > a{
+    font-size: 16px;
+  }
+
+  .challenged{
+    margin-bottom: 5%;
+  }
+
+  .majorCommentInChallenge_view > .text {
+    min-height: 55px;
+  }
+
+  .majorCommentInChallenge_view > .text:after{
+    clear:both;
+  }
+
+  .create_user_container{
+    .anon_name,
+    .anon_email,
+    .anon_pass
+    .login_to_comment{
+      width: 100%;
+    }
+    button.btn.login_to_comment{
+      margin: 0 auto 10px;
+    }
+  }
+
+  .comment_view .comment_wrapper,
+  .bet_view .comment_wrapper,
+  .comments_view .question_view,
+  .challenge_view .challenge_container{
+    overflow: hidden;
+  }
+
+  .left_box .like_section{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .newComment_view{ 
+    .newcomment_textarea_container{
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .main_challenge_view {
+    .options_bar {
+      clear: both;
+    }
+  }
+  .newComment_view {
+    margin-left: 5px;
+    .span2 {
+      min-width: 150px;
+      max-width: 150px;
+    }
+  }
+  .articleModerator_view {
+    input {
+      margin: 0px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .comments_view {
+    .banner {
+      .no_comments {
+        margin-bottom: 10px;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  .forum_view {
+    .ldb-show {
+      margin-left: 20px;
+    }
+    .head-title,
+    .thread-title {
+      padding-right: 8px;
+    }
+  }
+  .currentUser_view {
+    .user_options {
+      li a {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .context_view .newComment_view .newcomment_textarea_container .xtextarea {
+    padding-left: 4px;
+  }
+  .comments_view .question_view.CHALLENGING > .newChallenge_view,
+  .comments_view .answer_view.CHALLENGING > .newChallenge_view,
+  .comments_view .comment_view.CHALLENGING > .newChallenge_view {
+    margin: 0px;
+  }
+
+  .comments_view {
+    .comment-level-2 .newComment_view {
+      margin-left: -25px;
+    }
+    .comment-level-3 .newComment_view {
+      margin-left: -50px;
+    }
+  }
+
+  .context_view {
+    .newComment_view.BET_TYPE_TARGETED_OPEN,
+    .newComment_view.BET_TYPE_TARGETED_CLOSED,
+    .newComment_view.BET_TYPE_OPEN {
+      .bet-type {
+        width: 150px;
+      }
+      .bet-type-info,
+      .bet_users {
+        float: left;
+        width: auto;
+        margin-right: 3px;
+      }
+      .bet-points-user span,
+      .bet-starting-forf-date span,
+      .bet-points label {
+        font-size: 12px;
+      }
+      .bet-points {
+        .bet-ratio-content {
+          display: block;
+          margin-top: 10px;
+          margin-left: 0px;
+        }
+      }
+    }
+    .bet_view .accepting-ctrl {
+      margin-top: 10px;
+    }
+  }
+
+  .header {
+    .currentUser_view {
+      .user_notif {
+        .popover-content {
+          position: fixed;
+          left: 0;
+          min-width: 95%;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .comments-no-div{
+    display: none;
+  }
+
+  .comment_action_group.left ul li i{
+    margin-right: 5px;
+  }
+
+  .user-info .vote_section i{
+    font-size: 25px;
+  }
+
+  .comment_view.USER_FLAGGED > .options_bar > .flagged
+  .bet_view.USER_FLAGGED > .options_bar > .flagged
+  .answer_view.USER_FLAGGED > .options_bar > .flagged
+  {
+    margin-left: 60px;
+    float:none;
+  }
+}
+
+@media (max-width: 375px) {
+  .user_view {
+    .no_comments,
+    .no_challenges {
+      display: block;
+    }
+    .show-bets {
+      height: 60px;
+    }
+  }
+}

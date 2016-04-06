@@ -1,0 +1,38 @@
+<div class="pull-right">
+  <div class="user_notif" id="headerNotifications">
+    <div class="popover bottom">
+      <div class="popover-title" id="user_notif_accent">
+        <span class="no_notif_unread"></span>
+      </div>
+      <div class="popover-content notifications-list"></div>
+    </div>
+  </div>
+
+  <div class="dropdown flat-dropdown">
+
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="author_image_container"></span>
+      <span data-rv-text="model.name" class="author_name link cfgstyle"></span>
+      <i class="icon-caret-down type-selector"></i>
+    </a>
+
+    <ul class="dropdown-menu user_options">
+      <li class="drop-author-name"><a href="#brzn/users/{{model.id}}"><i class="icon-user"></i>{{translate "my_profile"}}</a></li>
+      <li class="drop-author-name"><a href="{{{app.options.baseUrl}}}/profile" target="_blank"><i class="icon-wrench"></i>{{translate "settings"}}</a></li>
+      <li class="drop-author-name"><a href="#brzn/competitions"><i class="icon-list-ol"></i>{{translate "competitions"}}</a></li>
+      <li class="divider"></li>
+      <li>
+        {{#if ssologin}}
+          <a href="{{{app.logins.sso.logoutUrl}}}#conversait_area" target="_parent" class="logout"><i class="icon-signout"></i>{{translate "logout"}}</a>
+        {{else}}
+          {{#if app.logins.own.logoutUrl}}
+            <a href="{{{app.logins.own.logoutUrl}}}#conversait_area" target="_parent" class="logout"><i class="icon-signout"></i>{{translate "logout"}}</a>
+          {{/if}}
+        {{/if}}
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+

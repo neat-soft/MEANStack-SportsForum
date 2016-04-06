@@ -1,0 +1,10 @@
+{{ if (comment.forum) { }}
+  {{= (comment.author || comment.guest).name }} wrote a new forum topic at {{= url }}, waiting for approval
+  {{= comment.forum.text }}
+{{ } else { }}
+  {{= (comment.author || comment.guest).name }} wrote a new comment at {{= url }}, waiting for approval
+{{ } }}
+
+{{= comment.text }}
+{{ include mod_subscription_footer_text }}
+{{ include burnzonefooter_text }}

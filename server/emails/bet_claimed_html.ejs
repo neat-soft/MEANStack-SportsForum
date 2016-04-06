@@ -1,0 +1,20 @@
+<h1>
+    {{= by.name}} has claimed a Yolo
+</h1>
+<h3>{{= by.name }} has claimed a Yolo you're involved in at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+{{ if (show_action_msg) { }}
+  <p>
+    Please confirm that you have lost the Yolo or indicate that you have won the Yolo and it will be resolved by a moderator.
+  </p>
+{{ } }}
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

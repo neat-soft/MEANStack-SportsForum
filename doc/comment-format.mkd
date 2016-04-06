@@ -1,0 +1,62 @@
+# The import/export format for BurnZone comments
+
+The file format for comments is a stream of serialized JSON objects. The stream
+format can be efficiently read/written by import/export tools, with minimal
+memory usage.
+
+The stream begins with a JSON representation of the article containing the
+comments.
+The article object is followed by any number of comment objects (JSON)
+
+# The article object
+
+```
+id: string
+title; string
+uri: string
+```
+
+The `id` field for the article must uniquely identify the article on the site;
+it can be anything.
+
+# The comment objects
+
+```
+id: string
+parent_id: string
+date_gmt: string
+user_id: string
+author: string
+author_email: string
+approved: string
+content: string
+```
+
+The `id` field for the comments must uniquely identify the comment in the
+article; it can be anything.
+
+The `parent_id` (optional) field must match an already defined `id` in the
+previous comments for the current article and indicates that the current comment
+is a reply to the comment identified by `parent_id`. If the `parent_id` field is
+missing or has the value `null`, `'0'` the comment is considered a top
+level comment.
+
+The `user_id` (optional) field signals that the comment's author is a registered
+user; it can have any value; if it's missing or has the value `null`, `0`, `'0'`
+the comment is considered to have been made by a guest user.
+
+If the `approved` field has any of the values `null`, `'0'`, the
+comment is marked as waiting for approval. Any other value signals that the
+comment is already approved.
+
+# Stream example
+```
+{id: '1', uri: 'http://example.com/sample-article', title: 'The Sample Article'}
+{id: '1', parent_id: null, date_gmt: '2014-07-23 17:23:31', user_id: null, author: 'John Doe', author_email: 'jdoe@example.com', approved: '0', content: 'This comment support markdown'
+{id: '2', parent_id: '1', date_gmt: '2014-07-23 17:26:22', user_id: '1', author: 'Jane Doe', author_email: 'jane@example.com', approved: '1', content: 'Reply to previous comment'
+{id: '3', parent_id: null, date_gmt: '2014-07-23 12:12:11', user_id: null, author: 'Jimmy Doe', author_email: 'jimmy@example.com', approved: '1', content: 'Another top level comment'
+{id: '2', uri: 'http://example.com/another-article', title: 'The Other Article'}
+{id: '1', parent_id: null, date_gmt: '2014-07-23 17:23:31', user_id: null, author: 'John Doe', author_email: 'jdoe@example.com', approved: '0', content: 'This comment support markdown'
+{id: '2', parent_id: null, date_gmt: '2014-07-23 17:26:22', user_id: '1', author: 'Jane Doe', author_email: 'jane@example.com', approved: '1', content: 'Reply to previous comment'
+...
+```

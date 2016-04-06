@@ -1,0 +1,53 @@
+/embed?u=http%3A%2F%2F23.21.197.198%2F%3Fp%3D13195&s=testwp&id=13195&xdm_e=http%3A%2F%2F23.21.197.198&xdm_c=default6888&xdm_p=1 think=2.0
+  /api/sites/testwp/leaders
+  /api/sites/testwp/subscriptions?_=1377682081660
+  /api/sites/testwp/subscriptions?context=51bf59d64e42b80300000001&_=1377682081662
+  /api/sites/testwp/loginsso method=POST
+  /api/sites/testwp/contexts/51bf59d64e42b80300000001/allactivities?sort=time&dir=1
+  /api/users/51bf66d64e42b80300000008
+  /api/users/51630548ab40dd0300000001
+  /api/users/5141fafbc93e3b0300000006
+  /api/users/5162e8de7de9a00300000001
+  /api/users/51633f95ab40dd0300000012
+  /api/users/521cb46d09f4e1030000001f
+  /api/users/51630725ab40dd0300000007
+  /api/users/51bf84b44e42b8030000002c
+  /api/users/51c43228f258e50300000001
+  /api/users/5162fcba7de9a0030000002c
+  /api/users/513ef4f4bf94750300000019
+  /api/users/51ccd66e2bda920300000028
+/api/sites/testwp/contexts/51bf59d64e42b80300000001/allactivities?sort=time&dir=1&from=51e02c4e6898130300000018 think=2.0
+  /api/users/513ef58bbf9475030000001c
+  /api/users/5170c3e62df4a90300000001
+/api/sites/testwp/contexts/51bf59d64e42b80300000001/allactivities?sort=time&dir=1&from=51c2211ccf3544030000000c think=2.0
+/auth/signup?popup=true think=1.0
+/auth/signin?popup=true think=3.0
+/auth/signin?popup=true method=POST contents="email=mihnea@nagemus.com&npasswd=test"
+  /web/auth/popup_auth_ok.html
+/embed?u=http%3A%2F%2F23.21.197.198%2F%3Fp%3D13195&s=testwp&id=13195&xdm_e=http%3A%2F%2F23.21.197.198&xdm_c=default9825&xdm_p=1 think=2.0
+  /api/sites/testwp/leaders
+  /api/sites/testwp/subscriptions?_=1377682115123
+  /api/sites/testwp/subscriptions?context=51bf59d64e42b80300000001&_=1377682115124
+  /api/sites/testwp/loginsso method=POST
+  /api/users/51c43228f258e50300000001/notifications/countunread
+  /api/sites/testwp/contexts/51bf59d64e42b80300000001/allactivities?sort=time&dir=1
+  /api/users/51bf66d64e42b80300000008
+  /api/users/51630548ab40dd0300000001
+  /api/users/5141fafbc93e3b0300000006
+  /api/users/5162e8de7de9a00300000001
+  /api/users/51633f95ab40dd0300000012
+  /api/users/521cb46d09f4e1030000001f
+  /api/users/51630725ab40dd0300000007
+  /api/users/51bf84b44e42b8030000002c
+  /api/users/5162fcba7de9a0030000002c
+  /api/users/513ef4f4bf94750300000019
+  /api/users/51ccd66e2bda920300000028
+/api/sites/testwp/contexts/51bf59d64e42b80300000001/allactivities?sort=time&dir=1 think=2.0
+/api/sites/testwp/contexts/51bf59d64e42b80300000001/comments method=POST contents="text=dfh+fsg+hfg+hfh&parent=51bf59d64e42b80300000001&question=false&parentIsConversation=true"
+/api/sites/testwp/activities/51bf69374e42b8030000001d/likes method=PUT contents="comment=51bf69374e42b8030000001d&up=true"
+/api/sites/testwp/activities/51c1d8ecf0953f0300000001/votes method=PUT contents="challenge=51c1d8ecf0953f0300000001&up=true&side=challenged"
+/api/sites/testwp/activities/51c1cb96c1d0860300000009/likes method=PUT contents="comment=51c1cb96c1d0860300000009&up=true"
+/api/sites/testwp/activities/51e02c3c6898130300000010/likes method=PUT contents="comment=51e02c3c6898130300000010&up=true"
+/api/sites/testwp/contexts/51bf59d64e42b80300000001/allactivities?sort=time&dir=1&from=51e02c4e6898130300000018
+  /api/users/513ef58bbf9475030000001c
+  /api/users/5170c3e62df4a90300000001

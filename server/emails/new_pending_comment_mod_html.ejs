@@ -1,0 +1,27 @@
+<h1>
+    {{ if (comment.forum) { }}
+        New Pending Forum Topic
+    {{ } else { }}
+        New Pending Comment
+    {{ } }}
+</h1>
+<h3>
+    {{ if (comment.forum) { }}
+        {{= (comment.author || comment.guest).name }} wrote a new forum topic, <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a> waiting for approval
+    {{ } else { }}
+        {{= (comment.author || comment.guest).name }} wrote a new comment at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a>, waiting for approval
+    {{ } }}
+</h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+    <br>
+    <% include mod_subscription_footer_html %>
+</p>
+                                            

@@ -1,0 +1,421 @@
+//Stylesheet for users (styles for elements like avatar, user dropdown, user profile etc)
+
+.author_image
+  width 50px
+  max-height 50px
+
+.author_image_container
+  width 40px
+  max-height 40px
+  margin 0 5px 5px 0
+  position relative
+
+.currentUser_view
+  margin-top 5px
+  .user_options
+    li a
+      padding-left 10px
+  .author_name
+    /*max-width 20px*/
+    white-space nowrap
+    overflow hidden
+  .type-selector
+    font-size 12px
+    padding-bottom 2px
+  .author_image_container
+    display inline-block
+    width 20px
+    max-height 20px
+    margin-right 0px
+    .author_image
+      border-radius 4px
+      width 20px
+      height 20px
+  .dropdown
+    display inline
+    .dropdown-menu
+      min-width 130px
+      z-index 1011
+      left auto
+      right 0
+      i
+        font-size 15px
+        margin-right 5px
+        margin-left 10px
+        vertical-align middle
+  a:hover
+    text-decoration none
+    i
+      text-decoration none
+  .user_notif
+    display inline-block
+    .popover
+      display inline-block
+      width auto
+      position relative
+      border none
+      border-radius 0
+      left auto
+      right 0
+      font-size 10px
+      box-shadow none
+      background none
+    .arrow
+      left auto
+      right 50px
+      border-bottom-color orange
+    .popover-title
+      background none
+      border none
+      padding 3px 5px
+      border-radius 0
+      text-align center
+      display block
+      cursor pointer
+      .no_notif_unread
+        font-weight bold
+        padding 0px 5px
+        border-radius 35%
+        position relative
+        font-size 12px
+        border 2px solid
+    .popover-content
+      position absolute
+      right 0
+      padding 3px 5px
+      color white
+      background-color white
+      border-radius 6px 0 6px 6px
+      border-style solid
+      border-width 1px
+      min-width 330px
+      max-height 250px
+      overflow-y scroll
+      overflow-x hidden
+      z-index 1010
+      i
+        font-size inherit
+        color mainColor
+      .control_bar
+        padding 5px 0
+        margin-top 5px
+        .more
+        .loading
+          margin-right 10px
+          width 100%
+
+.currentUser_view
+  .user_notif
+    .popover
+      /*display none*/
+    .popover-title
+      color browngray
+    .popover-content
+      display none
+
+.currentUser_view.HAS_UNREAD_NOTIFICATIONS
+  .popover
+    display inline-block
+  .popover-title
+    color orange
+
+.currentUser_view.SHOW_UNREAD_NOTIFICATIONS
+  .user_notif
+    .popover-content
+      display inline-block
+
+.currentUser_view
+  .userNotifications_view
+    fetchMore()
+    .more
+      padding 2px 4px
+
+  .userNotifications_view.HAS_MORE
+    fetchMoreHas()
+
+  .userNotifications_view.HAS_MORE.LOADING_MORE
+    fetchMoreLoading()
+
+  .userNotifications_view.HAS_MORE.LOADING
+    fetchMoreLoading()
+
+.userNotifications_view
+  .collection_view
+    width 100%
+
+// user notifications list
+.userNotification_view
+  padding 2px 2px 0
+  font-size 12px
+  font-weight bold
+  height 30px
+  background-color lightGray2
+  position relative 
+  color mainColor
+  a
+    color mainColor
+  &:hover
+    cursor pointer
+  .notif_note
+    color inhibited
+  td
+    padding 0 2px
+  .author_image_container
+    vertical-align middle
+    margin 0
+
+.userNotification_view.READ
+  font-weight inherit
+  background-color inherit
+
+.userNotification_view:hover
+  background-color blockHover
+
+.userLeader_view.this_is_you
+  background rgba(255, 165, 0, 0.05)
+  border 1px solid rgba(255, 165, 0, 0.2)
+  padding 2px
+  overflow hidden
+
+.badge_view
+  position fixed
+  z-index 1111
+  margin 30px auto 0 auto
+  padding 20px 0
+  width 30%
+  left 10%
+  right 10%
+  .close
+    font-size 12px
+    font-weight normal
+    margin-right 20px
+
+.badge_rank
+  color orange
+
+div.author_image
+  position relative
+  width 50px
+  height 50px
+  background-repeat no-repeat
+  background-size contain
+  .badge_box
+    position absolute
+    top -5px
+    right -25px
+    overflow hidden
+    .badge_marker
+      cursor default
+      margin-bottom 1px
+      display block
+
+.user_view
+  position fixed
+  z-index 1111
+  margin 30px auto 0 auto
+  padding 20px 0
+  width 80%
+  left 10%
+  right 10%
+  .conversation-header
+  .trust-stats
+    z-index 1
+    margin 10px 0
+  .points
+    margin-left 90px
+  .total_points
+    text-transform uppercase
+  .comment_history
+  .bets_view
+    margin-left 20px
+    margin-right 20px
+  .comment_history
+  .bets_view .comments.collection_view
+    max-height 300px
+    overflow-y scroll
+    .comment_wrapper
+      padding 0
+  .goto_comment
+    font-size 9px
+    i
+      font-size 9px
+  .time
+    margin-left 0
+  .profile-name
+    display inline-block
+    margin 0 5px 5px 0
+  .author_image_container
+    width 64px
+    min-height 50px
+    max-height 64px
+    margin-left 20px
+  .change-settings
+    display inline-block
+    margin-left 5px
+    a:hover
+      i
+        text-decoration none
+  .collection_view
+    width 100%
+  .close
+    font-size 12px
+    font-weight normal
+    margin-right 20px
+  .nav-tabs.comment-list
+    clear both
+  .nav-tabs > li > a
+    line-height 20px
+  .bets_view
+    .author_image_container
+      margin 0px
+    .options_bar
+      .fund
+        display none
+    .control_bar
+      button
+        &:nth-of-type(1)
+          margin-left 0px
+          width 100%
+        &:nth-of-type(2)
+          display none
+
+.liked_up .like_up
+.liked_down .like_down
+.voted_up .vote_up
+.voted_down .vote_down
+  opacity 0.4
+
+.promoted_view
+.comment_view
+.bet_view
+.question_view
+.answer_view
+  &.AUTHOR > .single-item-wrapper
+    .liked_up .like_up
+    .liked_down .like_down
+      opacity 1
+
+.ldb-show
+  position relative
+  right 0
+  width 20px
+  height 24px
+  margin-left 10px
+  margin-right 0px
+  border none
+  z-index 1
+  overflow visible
+  span
+    font-size 18px
+    color white
+    line-height 23px
+
+.ldb-show:after
+  content " "
+  position absolute
+  border-top 12px solid transparent
+  border-bottom 12px solid transparent
+  right 100%
+  top 1%
+  border-right 11px solid
+
+.ldb-hide
+  border none
+  float left
+  width 15px
+  max-height 21px
+  i
+    color white
+    line-height 22px
+
+.leaderboard
+  position relative
+  right 0
+  max-width 120px
+  text-align center
+  margin 0 0 5px
+  font-size 10px
+  z-index 1 //not allowing conversation-header's background to be on top
+  .leaderboard_view
+    display inline
+  .userLeader_view
+    margin 15px 5px 0 5px
+    position relative
+    .author_name
+      display block
+    a:hover
+      text-decoration none
+  .author_image
+    margin 0 auto
+    margin-top 5px
+  .ldb-top
+    font-size 12px
+    display block
+    color white
+    padding 1px
+    text-transform uppercase
+    h5
+      font-weight normal
+      vertical-align middle
+      line-height normal //resetting the inherited line height
+      font-size 11px
+      margin 4px 0
+  .type-selector
+    font-size 12px
+  .top_users
+    font-size 9px
+    padding 0px
+    height 25px
+    margin-right 10px
+    margin-left 10px
+    margin-top 10px
+    width 100px
+    line-height 25px
+    border 1px solid
+    border-radius 5px
+    text-transform uppercase
+  .total_points
+    text-transform uppercase
+  .rank
+    text-transform uppercase
+  .leaderboard_selection
+    cursor pointer
+    width 120px !important
+    height 30px !important
+    .customSelectInner
+      width 120px !important
+      &:after
+        font-family "FontAwesome"
+        font-size 20px
+        vertical-align middle
+        margin-left 5px
+        content "\f107"
+  .scroll
+    a
+      font-weight bold
+      font-size 25px
+      text-decoration none
+      &.go_up
+        margin-right -20px
+  .note
+    padding 0 5px
+
+#user
+  .activity
+    clear both
+    margin-top 25px
+  .comment_wrapper
+    padding 5px 0
+  .text
+    min-height 0
+    p
+      margin-bottom 0
+  .goto_comment
+    font-size 9px
+    &:hover
+      text-decoration none
+    .time
+      margin-left 0
+  .author_image
+    width 64px
+    max-height 64px

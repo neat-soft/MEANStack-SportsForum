@@ -1,0 +1,7 @@
+{{ if(can_reply) { }}
+  <% include reply_instr_html %>
+{{ } else if(can_moderate) { }}
+  <% include moderate_instr_html %>
+{{ } else { }}
+  This email was sent automatically, please DO NOT REPLY!
+{{ } }}

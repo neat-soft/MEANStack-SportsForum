@@ -1,0 +1,22 @@
+<div class='filtering_options hidden-phone'>
+  <a href='#brzn/yolo/all' class='btn btn-filter all' data-filter='all'>{{translate 'bets_filter_all'}}</a>
+  <a href='#brzn/yolo/open' class='btn btn-filter open' data-filter='open'>{{translate 'bets_filter_open'}}</a>
+  <a href='#brzn/yolo/closed' class='btn btn-filter closed' data-filter='closed'>{{translate 'bets_filter_closed'}}</a>
+  <a href='#brzn/yolo/pending' class='btn btn-filter pending' data-filter='pending'>{{translate 'bets_filter_ended'}}</a>
+  <a href='#brzn/yolo/resolved' class='btn btn-filter resolved' data-filter='resolved'>{{translate 'bets_filter_resolved'}}</a>
+</div>
+<div class='filtering_options dropdown visible-phone'>
+  <button class="btn btn-embed dropdown-toggle btn-bet-filter" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+  <ul class="dropdown-menu CHECK-HEIGHT" aria-labelledby="dropdownMenu">
+    <li><a href='#brzn/yolo/all' class='btn btn-filter all' data-filter='all'>{{translate 'bets_filter_all'}}</a></li>
+    <li><a href='#brzn/yolo/open' class='btn btn-filter open' data-filter='open'>{{translate 'bets_filter_open'}}</a></li>
+    <li><a href='#brzn/yolo/closed' class='btn btn-filter closed' data-filter='closed'>{{translate 'bets_filter_closed'}}</a></li>
+    <li><a href='#brzn/yolo/pending' class='btn btn-filter pending' data-filter='pending'>{{translate 'bets_filter_ended'}}</a></li>
+    <li><a href='#brzn/yolo/resolved' class='btn btn-filter resolved' data-filter='resolved'>{{translate 'bets_filter_resolved'}}</a></li>
+  </ul>
+</div>
+
+<div class='comments'></div>
+<div class="control_bar">
+  {{> load_more}}
+</div>

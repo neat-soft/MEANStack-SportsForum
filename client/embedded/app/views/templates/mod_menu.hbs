@@ -1,0 +1,18 @@
+<div class="mod-menu moderator-control btn-group pull-right flat-dropdown">
+
+  <button class="btn-clean dropdown-toggle mod-menu-toggle" data-toggle="dropdown">
+    {{!-- <i class="icon-chevron-down"></i> --}}
+    <i class="icon-legal"></i>
+  </button>
+
+  <ul class="dropdown-menu pull-left">
+    <li><a href="#" class="demote moderator-control" title="{{translate "demote_title"}}">{{translate "demote"}}</a></li>
+    <li><a href="#" class="delete moderator-control">{{translate "delete"}}</a></li>
+    {{#ifnot type_challenge}}
+      {{#ifnot type_promoted}}
+        <li><a href="#" class="delete-points moderator-control">{{translate "delete_with_points"}}</a></li>
+      {{/ifnot}}
+    {{/ifnot}}
+  </ul>
+
+</div>

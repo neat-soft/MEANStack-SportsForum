@@ -1,0 +1,104 @@
+# Rationale
+
+We use feature branches for development
+http://nvie.com/posts/a-successful-git-branching-model/ .
+
+We have problems when merging back into `dev`, as well as when forking from
+`dev` when `dev` is not merged into `master`.
+
+Currently, we commit fixed or small features on `dev`. At a later time, they
+are merged into `master`. But sometimes we merge feature branches into `dev`
+too soon (most often because we think they are ready but then we realize they
+are not). If at that time, `dev` contained at least one commit that should
+have been merged into `master`, we can't merge it anymore because `dev` now
+contains a feature that is not finished. `dev` becomes a chaotic branch where
+we throw in code without being able to easily roll back (which might delay a
+necessary deployment).
+
+Solution:
+
+# Branch everything, everything is based on `master`
+
+All feature branches are forked from `master`. Feature branches are named
+using the following format: `feature/<short descriptive name>`. The short
+descriptive name is typically at most 15 characters long.
+
+Bugfixes are done in special branches forked from `master`. Each bugfix is
+done on its own separate branch. The number of commits does not matter. Bugfix
+branches are named using the following format: `fix/<short descriptive name>`.
+The short descriptive name is typically at most 15 characters long.
+
+Feature and bugfix branches are merged into master directly when they are
+ready for deployment. All merges are done with the option `--no-ff`.
+
+Do not worry about the high number of branches. We will delete bugfix branches
+as soon as we merge them into `master`.
+
+## How to delete merged branches
+
+```
+git branch -d test
+git push origin :test
+```
+
+# Staging (or: What about dev?)
+
+Staging is always running the `dev` branch. All feature/bugfix branches are
+merged periodically into `dev` for testing. Development will continue on the
+separate branches until they are ready for deployment, at which point we're
+merging them into `master`.
+
+No individual commits will ever go into `dev`. Repeat: DO NOT COMMIT ON DEV
+ANYMORE.
+
+Feature and fix branches must always be published to dev for testing on
+staging (typically after the job is finished or there are some intermediate
+results we wish to make visible).
+
+## How to publish on dev
+
+```
+git checkout dev
+git pull --rebase origin dev
+git merge --no-ff <yourbranch>
+git push origin dev
+```
+
+There may be conflicts. If there are conflicts, fix them and then continue the
+merge (see below)
+
+# How to fix conflicts
+
+If during the merge there are conflicts, the recommended method is to fix them
+using a 3-way diff tool (such as kdiff3 for example).
+
+So:
+
+```
+git merge --no-ff <yourbranch>
+# -> conflicts
+git mergetool # this will launch a diff tool on your system
+# solve the conflicts
+git commit # notice the lack of any arguments. If there is a merge in
+# progress, git will automatically set a merge message for us.
+git push origin dev
+```
+
+## diff tools
+
+```
+git mergetool --tool-help
+```
+
+This will show the tools recognized by git.
+
+# Summary
+
+* Always fork feature branches from `master`. Always merge them back into
+`master` when they are ready. But merge into `dev` periodically so that we can
+test on staging.
+* Create branches for bugfixes, from `master`. Do not commit on `dev`.
+
+# Clarifications
+
+If you have questions, email the team and we'll discuss the problem.

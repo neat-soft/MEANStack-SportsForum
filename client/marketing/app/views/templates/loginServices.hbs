@@ -1,0 +1,18 @@
+<div class="row">
+  {{#each_in_array 'facebook' 'google' 'twitter' 'disqus'}}
+    <div class="col-xs-4">
+        <strong>{{capitalize this}}</strong>
+      <div class="checkbox">
+        <label>
+          {{#ifprop ../model.attributes.logins this}}
+            <input type="checkbox" checked="true" id="connect_{{this}}" class="connect_account" data-login-provider="{{this}}" />
+            Connected
+          {{else}}
+            <input type="checkbox" id="connect_{{this}}" class="connect_account" data-login-provider="{{this}}" />
+            Click to attach
+          {{/ifprop}}
+        </label>
+      </div>
+    </div>
+  {{/each_in_array}}
+</div>

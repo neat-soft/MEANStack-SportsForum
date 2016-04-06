@@ -1,0 +1,51 @@
+{{#partial "admin_content"}}
+<div class="tab-pane active installation_instructions" id="tab2">
+
+  <h3>Installation instructions for Tumblr:</h3>
+
+
+    <ol>
+      <li>
+        <img src="{{resource "/img/m/tumblr_tut/step1.png"}}" title="Click the account button" alt="Click the account button" class="pull-right"/>
+        On the dashboard page, click the account button from the top
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tumblr_tut/step2.png"}}" title="Choose the website" alt="Choose the website" class="pull-right"/>
+        Choose the website where you want the plugin installed from the right sidebar
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tumblr_tut/step3.png"}}" title="Click Edit appearance" alt="Click Edit appearance" class="pull-right"/>
+        On the new page, click the <em>Edit appearance</em> button
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tumblr_tut/step4.png"}}" title="Click Edit theme" alt="Click Edit theme" class="pull-right"/>
+        Once you are on the customization page, click <em>Edit theme</em>
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tumblr_tut/step5.png"}}" title="Click Edit HTML" alt="Click Edit HTML" class="pull-right"/>
+        Once you are on the edit theme page, click <em>Edit HTML</em>
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <img src="{{resource "/img/m/tumblr_tut/step6.png"}}" title="Paste the modified code here" alt="Paste the modified code here" class="pull-right"/>
+        Now you will have to place the code below at the bottom of the post template. Paste it just above the closing <em>&lt;/div&gt;</em> and <em>{/block:PermalinkPage}</em> tags that end posts. (on most themes, this happens just before <em>{block:Pagination}</em> starts).
+        <div class="clearfix"></div>
+        <textarea class="script form-control" wrap="off" placeholder="Script goes here" rows="5" readonly>{{{script}}}</textarea>
+      </li>
+
+  {{#if admin}}
+    </ol>
+  {{else}}
+      <li>Set the value of <code>conversait_sitename</code> to the name of the site that you have registered in Burnzone</li>
+    </ol>
+      
+  {{/if}}
+
+</div>
+
+{{/partial}}
+{{> marketing/install}}

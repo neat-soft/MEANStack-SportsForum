@@ -1,0 +1,5 @@
+{{ if (conv.type == "ARTICLE") { }}
+  [{{= siteName }}] New article
+{{ } else { }}
+  [{{= siteName }}] New forum topic
+{{ } }}{{ if(conversationTitle) { }} "{{= conversationTitle }}" {{ } }}

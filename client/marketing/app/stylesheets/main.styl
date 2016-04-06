@@ -1,0 +1,465 @@
+@import "variables"
+@import "burnzone-fonts"
+
+header
+  padding-top 53px
+  nav
+    margin-bottom 0
+    background bzBlue
+  img
+    width 150px
+
+  /* Signin menu */
+  .menu-signin ul.dropdown-menu
+    right 0px
+    left auto
+    min-width 280px
+    top 35px
+    li
+      padding-left 25px
+    .signin-menu-content
+      .signin-form
+        margin-top 15px
+    .signin-menu-sub-title
+      font-weight bold
+    .form-group
+      margin-top 10px
+      .control-label
+        font-weight normal
+    .sign-up-info
+      position relative
+      top 10px
+      font-size 13px
+      color #777
+      a
+        color black
+        font-size 0.9em
+        font-weight normal
+        text-transform none
+
+body
+  font-family 'Open Sans',sans-serif
+  line-height 1.7em
+
+h1, h2, h3, h4, h5, h6
+  font-family 'Open Sans',sans-serif
+  font-weight 100
+h1
+  font-size 40px
+h2
+  font-size 36px
+  margin-bottom 40px
+h4
+  font-size 18px
+  
+.clear
+  clear both
+
+.btn-responsive-nav
+  display none
+  background-color white
+  
+.semi-bold
+  font-weight 600
+
+/* #Footer */
+#footer
+  font-size 0.9em
+  margin-top 50px
+
+#footer h1, #footer h2, #footer h3, #footer h4, #footer a
+  color white
+
+#footer h4
+  font-size 1.8em
+  font-weight 200
+
+#footer .footer-ribbon
+  background orange
+  position absolute
+  margin -45px 0 0 14px
+  padding 10px 20px 6px 20px
+
+#footer .footer-ribbon:before
+  border-right 10px solid bzBlue
+  border-top 16px solid transparent
+  content ""
+  display block
+  height 0
+  left -10px
+  position absolute
+  top 0
+  width 7px
+
+#footer .footer-ribbon a
+  color white
+  font-size 1.6em
+
+#footer .footer-copyright
+  background-color bzBlue
+  padding 30px 0 10px
+  min-height 80px
+  a
+    text-decoration none
+
+#footer .footer-copyright
+  .social
+    a
+      margin-left 7px
+      font-size 14px
+
+#footer .footer-copyright nav
+  float right
+
+#footer .footer-copyright nav ul
+  list-style none
+  margin 0
+  padding 0
+
+#footer .footer-copyright nav ul li
+  border-left 1px solid white
+  display inline-block
+  line-height 12px
+  margin 0
+  padding 0 8px
+
+#footer .footer-copyright nav ul li:first-child
+  border medium none
+  padding-left 0
+
+#footer .footer-copyright p
+  color white
+  margin 0
+  padding 0
+
+.header_nav
+  float right
+  margin-top 15px
+  >ul
+    display inline-block
+    padding-left 20px
+    li
+      display inline-block
+      a
+        color white
+        margin-right 20px
+        text-transform uppercase
+        font-weight 600
+        text-decoration none
+  .get_bz
+    font-weight 900
+  .btn.get_bz
+    background-color orange
+    padding 5px 7px
+  .btn.get_bz:hover
+    color white
+  .sign_in
+    margin-right 0
+  .user_dropdown //overriding bootstrap styles with our custom styles
+    a
+      cursor pointer
+    button
+      background none
+      border none
+      border-left 1px solid white
+      color white
+      font-weight 300
+      border-radius 0
+      padding 0 0 0 20px
+      &:active
+        background none
+        border none
+        border-left 1px solid white
+        box-shadow none
+    &.open
+      .dropdown-toggle
+      .btn-default
+        box-shadow none
+        background none
+        border none
+        border-left 1px solid white
+        color white
+    li a
+      font-weight 400
+      text-transform none
+    .dropdown-menu
+      i
+        margin-right 10px
+
+#error_page
+  font-size xx-large
+  text-align center
+  margin 100px 0
+
+.whats_this:hover
+  text-decoration none
+
+#about
+#home
+#features
+  h1,h2,h3
+    text-align center
+  section
+    padding 30px 0
+    &:nth-of-type(2n+1)
+      background backgroundGray
+
+#terms
+#privacy
+  h2
+    text-align center
+
+#privacy
+  img
+    margin 10px 0
+    
+.content_cta
+  background bzBlue
+  color white
+  transition all 0.2s linear 0s
+  font-weight bold
+  border-radius 3px
+  padding 12px 10px
+  &:hover
+    color white
+    background bzBlueHover
+  &.orange
+    background orange
+    &:hover
+      background darkerOrange
+
+.public_plugins
+  .help_section
+    border-top 1px solid bootstrapLightGray
+    margin 10px 0
+    padding-top 10px
+
+.subscription_verified{
+  margin-top 50px;
+}
+
+.btn-change-settings
+  margin-top 50px
+
+.display_none
+  display none
+
+.col-md-10
+  .whats_this
+    margin-left 10px
+
+#avatar_list
+  .avatar-container
+    padding 0
+    img
+      max-width 30px
+      max-height 30px
+
+.profile-page
+  h3
+    margin-bottom 25px
+
+.tags_view
+  .tag_view
+    .tagname-holder
+      vertical-align top
+      display inline-block
+      position relative
+      > a
+        position absolute
+        top 0.5em
+        right 10px
+        display none
+    .tagname-holder.has-feedback
+      > a
+        display inline-block
+    .img-container
+      width 30px
+      display inline-block
+      img
+        min-width 30px
+        min-height 30px
+        max-width 30px
+        max-height 30px
+    > input
+      width auto
+      display inline-block
+  .subtags
+    margin-left 40px
+
+// OLD IE (IE7, IE8)
+.old-ie
+  #competition
+  #analytics
+  #main_features
+    background-color backgroundGray
+    
+/* Toggles */
+.toggle
+  margin 10px 0 0
+  position relative
+  clear both
+  > label
+    -webkit-transition all 0.15s ease-out
+    -moz-transition all 0.15s ease-out
+    transition all 0.15s ease-out
+    background #F4F4F4
+    border-left 3px solid bzBlue
+    border-radius 5px
+    color bzBlue
+    display block
+    font-size 1.1em
+    min-height 20px
+    padding 12px 20px 12px 10px
+    position relative
+    cursor pointer
+    font-weight 400
+    i.fa-minus
+      display none
+    i.fa-plus
+      display inline
+    i
+      font-size 0.7em
+      margin-right 8px
+      position relative
+      top -1px
+  > p.preview-active
+    height auto
+    white-space normal
+
+  > label:-moz-selection
+    background none
+  > label:selection
+    background none
+  > label:before
+      border 6px solid transparent
+      border-left-color inherit
+      content ''
+      margin-top -6px
+      position absolute
+      right 4px
+      top 50%
+  > label + p
+    display block
+    overflow hidden
+    padding-left 30px
+    text-overflow ellipsis
+    white-space nowrap
+    height 0px
+
+  &.active
+    i.fa-minus
+      display inline
+    i.fa-plus
+      display none
+    > label
+      background bzBlue
+      border-color bzBlue
+      color white
+    > label:before
+      border 6px solid transparent
+      border-top-color #FFF
+      margin-top -3px
+      right 10px
+    > p
+      white-space normal
+
+/* Responsive */
+@media (min-width: 765px) and (max-width: 991px)
+  header
+    .container
+      width 100% !important
+      nav.header_nav ul li a
+        margin-right 12px
+
+@media(max-width: 995px)
+  header
+    padding-top 50px
+    .logo_img
+      width 95px
+      position relative
+      top 10px
+
+@media(max-width: 765px)
+  header
+    .header_nav.collapse
+      display none !important
+    .navbar
+      .menu-signin
+        i.fa-angle-down
+          display none
+      .container > .navbar-header
+        margin-right auto
+        margin-left auto
+      .logo_img
+        top 6px
+      .menu-signin
+        ul.dropdown-menu
+          clear both
+          left 0px
+          position static
+          background rgb(52, 73, 94) none repeat scroll 0% 0%
+          color white
+          box-shadow none
+          border 0px none
+          display block
+          li
+            box-shadow none
+          span.sign-up-info
+            a
+              color white
+      .btn-responsive-nav
+        margin-top 8px
+        display inline
+        float right
+      .header_nav
+        border-top 1px solid transparent
+        box-shadow 0px 1px 0px rgba(255, 255, 255, 0.1) inset
+        padding-left 0px
+        padding-right 0px
+        clear both
+        float left
+        width 100%
+        margin-left 2px
+        .demo_dropdown
+          padding 5px 0
+        .user_dropdown
+          border-top 1px solid transparent
+          box-shadow 0px 1px 0px rgba(255, 255, 255, 0.1) inset
+          width 100%
+          padding 5px 0px
+          .btn
+            font-weight 700
+            border none
+            padding-left 0px
+          ul.dropdown-menu
+            position relative
+            box-shadow none
+            background-color transparent
+            border none
+            clear both
+            float left
+            a
+              color white
+            a:hover
+              background-color transparent
+        .user_dropdown.open
+          .btn
+            border none
+        >ul
+          width 100%
+          padding-left 0px
+          margin-bottom 0px
+          li
+            display block
+            border-top 1px solid transparent
+            box-shadow 0px 1px 0px rgba(255, 255, 255, 0.1) inset
+            padding 5px 0
+            clear both
+            a
+              display block
+              text-decoration none
+            .get_bz
+              text-align left
+              padding-left 0px
+              background-color transparent

@@ -1,0 +1,18 @@
+{{#partial "logscontent"}}
+<p>Total: {{total}}</p>
+<ul>
+{{#each data}}
+  <div>{{json this}}</div>
+  <hr/>
+{{/each}}
+</ul>
+
+<div class="pager">
+  <ul>
+    <li><a href="{{link req.path f=firstinpage l=lastinpage prev=1}}">&larr; Prev</a></li>
+    <li><a href="{{link req.path f=lastinpage l=lastinpage}}">Next &rarr;</a></li>
+  </ul>
+</div>
+{{/partial}}
+
+{{> zeus/logs}}

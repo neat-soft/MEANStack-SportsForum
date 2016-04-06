@@ -1,0 +1,15 @@
+<h1>
+    Comment Ignited
+</h1>
+<h3>{{= by.name }} ignited your comment at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a> and bought you <a href="{{= host }}/profile#extra">extra features</a>.</h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <br>
+    <% include burnzonefooter_html %>
+</p>

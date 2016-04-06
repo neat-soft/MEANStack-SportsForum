@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="burnzone" active="1">
+	<title><![CDATA[BurnZone Commenting & Forum]]></title>
+	<description>Real time chat at the bottom of the forum page</description>
+	<version>0.2.0</version>
+	<url>http://theburn-zone.com</url>
+	<versioncheckurl />
+	<dependencies>
+	</dependencies>
+	<codes>
+	</codes>
+	<templates>
+	</templates>
+	<stylevardfns>
+	</stylevardfns>
+	<stylevars>
+	</stylevars>
+	<plugins>
+		<plugin active="1" executionorder="5">
+			<title>Core</title>
+			<hookname>process_templates_complete</hookname>
+                        <phpcode><![CDATA[
+$brzn_site_name = $vbulletin->options['burnzone_sitename'];
+$brzn_current_url = $vbulletin->url;
+$brzn_conv_id = null;
+if ($threadinfo['threadid']) {
+  $brzn_conv_id = 'thread_' . $threadinfo['threadid'];
+} elseif ($foruminfo['forumid']) {
+  $brzn_conv_id = 'forum_' . $foruminfo['forumid'];
+}
+$brzn_core_script = "
+<script type='text/javascript'>
+    var conversait_sitename = '$brzn_site_name';
+";
+if (isset($brzn_conv_id)) {
+  $brzn_core_script = $brzn_core_script . "var conversait_id = '$brzn_conv_id';";
+}
+$brzn_core_script = $brzn_core_script . "</script>";
+$header = $header . $brzn_core_script;
+$brzn_embed_script = "
+<script type='text/javascript'>
+    (function() {
+      var conversait = document.createElement('script'); 
+      conversait.type = 'text/javascript'; 
+      conversait.async = true;
+      conversait.src = '{{{host}}}/web/js/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(conversait);
+    })();
+</script>";
+$footer = $footer . $brzn_embed_script;
+]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="6">
+			<title>SSO</title>
+			<hookname>process_templates_complete</hookname>
+                        <phpcode><![CDATA[
+$brzn_sso_secret_key = $vbulletin->options['burnzone_ssokey'];
+$brzn_sso_logo = $vbulletin->options['burnzone_ssologo'];
+$brzn_site_url = $vbulletin->options["bburl"];
+$brzn_current_url = $vbulletin->url;
+if ($vbulletin->userinfo) {
+  $brzn_logout_hash = $vbulletin->userinfo['logouthash'];
+  $brzn_sso_data = array(
+    'id' => $vbulletin->userinfo['userid'],
+    'name' => $vbulletin->userinfo['username'],
+    'email' => $vbulletin->userinfo['email']
+  );
+}
+else {
+  $brzn_sso_data = array();
+}
+
+$brzn_sso_message = base64_encode(json_encode($brzn_sso_data));
+$brzn_sso_timestamp = time();
+$brzn_sso_hmac = hash_hmac('sha1', "$brzn_sso_message $brzn_sso_timestamp", $brzn_sso_secret_key);
+$brzn_sso_data = "$brzn_sso_message $brzn_sso_hmac $brzn_sso_timestamp";
+$brzn_sso_logout_url = "$brzn_site_url/login.php?do=logout&logouthash=$logout_hash" . "&redirect=" . urlencode($brzn_current_url);
+$brzn_sso_script = "
+<script type='text/javascript'>
+    var conversait_sso = '$brzn_sso_data';
+    var conversait_sso_options = {
+      logoutUrl: '$brzn_sso_logout_url',
+      logo: '$brzn_sso_logo'
+    };
+</script>";
+$header = $header . $brzn_sso_script;
+]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title>Comments on the forum home page</title>
+			<hookname>forumhome_start</hookname>
+                        <phpcode><![CDATA[
+$forum_home_url = $vbulletin->options["bburl"] . '/forum.php';
+$brzn_embed_forum_home_script = "
+  <div id='conversait_area'></div>
+  <script type='text/javascript'>
+    var conversait_uri = '$forum_home_url';
+  </script>
+";
+
+$template_hook['forumhome_below_forums'] = $brzn_embed_forum_home_script . $template_hook['forumhome_below_forums'];
+]]></phpcode>
+		</plugin>
+		<plugin active="1" executionorder="5">
+			<title>Adds support for redirect after logout</title>
+			<hookname>logout_process</hookname>
+                        <phpcode><![CDATA[
+if (isset($_REQUEST['redirect'])) {
+  $vbulletin->url = $_REQUEST['redirect'];
+}
+]]></phpcode>
+		</plugin>
+	</plugins>
+	<phrases>
+		<phrasetype name="vBulletin Settings" fieldname="vbsettings">
+			<phrase name="setting_burnzone_sitename_desc" date="1436786838" username="admin" version="0.1"><![CDATA[The name of the site which you register on BurnZone]]></phrase>
+			<phrase name="setting_burnzone_sitename_title" date="1436786838" username="admin" version="0.1"><![CDATA[Site name]]></phrase>
+			<phrase name="setting_burnzone_ssokey_desc" date="1436786946" username="admin" version="0.1"><![CDATA[Your unique Single Sign-On key]]></phrase>
+			<phrase name="setting_burnzone_ssokey_title" date="1436786946" username="admin" version="0.1"><![CDATA[SSO Key]]></phrase>
+			<phrase name="setting_burnzone_ssologo_desc" date="1436787021" username="admin" version="0.1"><![CDATA[The url of the image to show in the login panel of Burnzone Commenting for the option to login with the credentials for your site]]></phrase>
+			<phrase name="setting_burnzone_ssologo_title" date="1436787021" username="admin" version="0.1"><![CDATA[SSO Logo]]></phrase>
+			<phrase name="settinggroup_burnzone" date="1436786838" username="admin" version="0.1"><![CDATA[BurnZone Commenting & Forum Settings]]></phrase>
+		</phrasetype>
+	</phrases>
+	<options>
+		<settinggroup name="burnzone" displayorder="6700">
+			<setting varname="burnzone_sitename" displayorder="10">
+				<datatype>free</datatype>
+				<defaultvalue>{{{sitename}}}</defaultvalue>
+			</setting>
+			<setting varname="burnzone_ssokey" displayorder="20">
+				<datatype>free</datatype>
+				<defaultvalue>{{{ssokey}}}</defaultvalue>
+			</setting>
+			<setting varname="burnzone_ssologo" displayorder="30">
+				<datatype>free</datatype>
+			</setting>
+		</settinggroup>
+	</options>
+	<helptopics>
+	</helptopics>
+	<cronentries>
+	</cronentries>
+	<faqentries>
+	</faqentries>
+</product>

@@ -1,0 +1,17 @@
+<h1>
+        New Yolo
+</h1>
+<h3>{{= (comment.author || comment.guest).name }} started a new Yolo at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include subscription_footer_with_token_html %>
+    <br>
+    <% include burnzonefooter_html %>
+</p>
+                                            

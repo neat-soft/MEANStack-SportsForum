@@ -1,0 +1,385 @@
+//Styling the forum view (topics, topics list)
+
+.forum_view
+  #contexts
+    .contexts_view
+      overflow hidden
+      .no_comments
+        font-size 10px
+        margin-right 10px
+    .header
+      .subscription
+        border-right none
+        margin-top 20px
+    .comment_wrapper
+      .options_bar
+        width 100%
+      .commenters
+        span
+          margin-right 5px
+        img
+          width 20px
+          height 20px
+    .left_box
+      text-align center
+      margin-right 0
+      font-size 25px
+      line-height 50px
+      height 25px
+    .tags
+      display inline-block
+    table
+      border-collapse collapse
+
+  .header
+    .subscription
+      border-right none
+
+  .contextSummary_view
+    overflow hidden
+
+  .conversation-header
+    .submit_controls
+      .submit_options_button
+      .submit
+        height 28px
+      label.mark_as_private
+        float none
+      .submit_options
+        min-width 148px
+    .subscription
+      margin-left 0
+      display inline-block
+      form
+        margin-bottom 1px
+    .filtering_options
+      #filter-date
+        cursor pointer
+        span
+          display inline-block
+          width 10em
+    .view_separate_page
+      margin-top 5px
+      margin-bottom 0px
+
+  .filtering_options
+    .btn-filter
+      font-size 14px
+      line-height 20px
+      padding-right 20px
+      padding-left 20px
+      margin-right 5px
+      background-image none
+      background-color transparent
+      border-radius 3px
+
+  .table_head
+    .sort_direction
+      display none
+      i
+        font-size 13px
+    .thread-column.sortable
+      &
+      & span
+      & select
+        cursor pointer
+
+.forum_view.SORT_ACTIVITY_RATING.SORT_DOWN
+  .filtering_options
+    .btn-filter.activity-rating
+      box-shadow inset 0 0 0 3px
+
+.forum_view.SORT_LATEST_ACTIVITY.SORT_UP
+  .table_head
+    .head-latest-activity
+      .sort_direction.up
+        display inline-block
+.forum_view.SORT_LATEST_ACTIVITY.SORT_DOWN
+  .table_head
+    .head-latest-activity
+      .sort_direction.down
+        display inline-block
+.forum_view.SORT_COMMENTS.SORT_UP
+  .table_head
+    .head-comments
+      .sort_direction.up
+        display inline-block
+.forum_view.SORT_COMMENTS.SORT_DOWN
+  .table_head
+    .head-comments
+      .sort_direction.down
+        display inline-block
+
+.forum_view
+  .table_head
+    .head-activity-rating
+      display none
+
+.contextSummary_view
+  .no_new_comments
+    display none
+
+.contextSummary_view.HAS_NEW_COMMENTS
+  border-top-width 3px
+  border-top-style solid
+  .no_new_comments
+    display inline-block
+
+.tag
+  border 1px solid
+  text-decoration none
+  margin-bottom 5px
+
+.label
+  background-color white
+
+.head-title
+  text-align left
+  padding 0 25px 5px 10px
+  a
+    text-decoration none
+    color inherit
+    cursor default
+  i
+    color orange
+    margin-left 10px
+
+.thread-title
+  width 63%
+  padding 10px 25px 10px 10px
+  max-width 1px
+  div
+    white-space nowrap
+    display inline
+  h4
+    display inline-block
+    margin 0px
+    vertical-align middle
+    max-width 90%
+    font-weight normal
+  a
+    text-decoration none
+    font-weight normal
+    vertical-align middle
+  .label.label-flat
+    border 1px solid
+
+.head-categories
+  text-align left
+  padding-bottom 5px
+
+.topic-tags
+  padding 10px 0 10px 0
+  width 14%
+
+.head-commenters
+  text-align center
+  padding-bottom 5px
+  i
+    font-size 20px
+
+.topic-commenters
+  padding 10px 0 10px 10px
+  width 8%
+  .author_image
+    border-radius 4px
+    width 25px
+    height 25px
+
+.head-comments
+  text-align left
+  padding 0 15px 5px 10px
+  position relative
+  i
+    font-size 20px
+  .sort_direction
+    position absolute
+    right 0
+    top 0
+
+.topic-actions
+  text-align center
+  width 4%
+  padding 10px 0 10px 10px
+
+.head-latest-activity
+  text-align center
+  padding-bottom 5px
+  i
+    font-size 20px
+
+.started-on
+  padding 10px 0 10px 0
+  width 8%
+  min-width 23px
+  text-align center
+
+.moderator-control-forum
+  padding-right 10px
+  .dropdown-menu
+    min-width 110px
+
+.articleModerator_view
+  margin 0 10px
+
+.table_head
+  text-transform uppercase
+  border-bottom 1px solid
+
+blinker_animation()
+  -webkit-animation-name blinker
+  -webkit-animation-duration 1s
+  -webkit-animation-timing-function linear
+  -webkit-animation-iteration-count infinite
+  
+  -moz-animation-name blinker
+  -moz-animation-duration 1s
+  -moz-animation-timing-function linear
+  -moz-animation-iteration-count infinite
+  
+  animation-name blinker
+  animation-duration 1s
+  animation-timing-function linear
+  animation-iteration-count infinite
+  color orange
+
+.head-categories:hover ~ .head-latest-activity
+.head-categories:hover ~ .head-comments
+.head-title:hover ~ .head-latest-activity
+.head-title:hover ~ .head-comments
+.head-commenters:hover ~ .head-latest-activity
+.head-commenters:hover ~ .head-comments
+  blinker_animation()
+
+@-moz-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1.0; }
+}
+@keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1.0; }
+}
+
+.newContext_view
+  margin-top 15px
+  margin-bottom 20px
+  float left
+  width 100%
+  &.QUESTION_CHECKED
+    .description_bar
+      margin 4px 5px 0 5px
+    .xtextarea
+      padding-left 30px
+    i
+      font-size 14px
+  .newcomment_textarea_container
+    margin-left 0
+    width 100%
+    .xtextarea
+      border 1px solid browngray
+      border-bottom none
+  .input_forum_title_container
+    position relative
+  .input_forum_title
+    width 100%
+    height auto
+    font-size 14px
+    box-sizing border-box
+    padding-right 40px
+  .input_forum_title_counter
+    cursor help
+    color inhibited
+    position absolute
+    right 10px
+    top 8px
+  .selectize-dropdown
+    min-width 100px
+    overflow-x auto
+  .selectize-control
+    .selectize-input
+      border-radius 0
+      border-width 1px
+      input
+        font-size 14px
+  .cancel
+    display inline-block
+    margin-right 5px
+
+.goto-article
+  i
+    vertical-align middle
+    margin-left 5px
+  &:hover
+    i
+      text-decoration none
+
+.back-to-forums:hover
+  i
+    text-decoration none
+
+.no_conversations
+  margin-top 10px
+
+.forum_view
+  .current_context
+    display none
+
+.forum_view.IN_CONTEXT
+  .contexts
+    display none
+  .current_context
+    display inline-block
+
+.selectize-control
+  .selectize-input
+    .tag_image
+    .tag_parent_image
+      max-width 16px
+      max-height 16px
+      margin-right 5px
+    .tag_image_container
+      width 16px
+      min-height 16px
+      margin-right 5px
+    .item
+      font-size 14px
+  .tag_group
+    font-weight bold
+  .tag_image_container
+    width 32px
+    min-height 32px
+    margin-right 5px
+  .tag_parent_image
+  .tag_image
+    max-width 32px
+    max-height 32px
+    width auto
+    height auto
+    vertical-align middle
+  .tag_desc
+    font-size smaller
+    font-style italic
+  .tag_content
+    font-weight normal
+  .tag_item
+  .tag_group
+  .tag_desc
+    span
+      margin-left 10px
+  .option
+    padding-top 0.5em
+    padding-bottom 0.5em
+
+.forum_tags_user
+  .selectize-input
+    border-width 1px
+    border-style solid
+    input
+      min-width 150px

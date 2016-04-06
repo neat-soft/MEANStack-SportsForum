@@ -1,0 +1,19 @@
+{{ if job.voteChanges.up <= 0 && job.voteChanges.down != 0 { }}
+  {{ likedown = likeChanges.down > 0 }}
+  {{ if (likedown) { }}
+    Someone down-voted you in a challenge at {{= url }}
+  {{ } else { }}
+    Someone retracted the down-vote on your comment in a challenge at {{= url }}
+  {{ } }}
+{{ } }}
+  {{ likeup = voteChanges.up > 0 }}
+  {{ if (likeup) { }}
+    Someone voted you in a challenge at {{= url }}
+  {{ } else { }}
+    Someone retracted the vote on your comment in a challenge at {{= url }}
+  {{ } }}
+{{ } }}
+{{= challenge.challenger.text }}
+Votes: Up {{= no_votes }}, Down {{= no_votes_down }}
+{{ include subscription_footer_text }}
+{{ include burnzonefooter_text }}

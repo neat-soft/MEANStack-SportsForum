@@ -1,0 +1,16 @@
+<h1>
+    A Yolo has been closed.
+</h1>
+<h3>The following Yolo that you are involved in has been closed at <a href="{{= url }}">{{= siteName }}: {{= conversationTitle }}</a></h3>
+
+<p>
+    {{ if(comment.ptext) { }}
+        {{- comment.ptext }}
+    {{ } else { }}
+        {{= comment.text }}
+    {{ } }}
+</p>
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>
+                                            

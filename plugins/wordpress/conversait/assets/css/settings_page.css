@@ -1,0 +1,31 @@
+#conversait_sso_logo{
+  width: 500px;
+}
+#conversait_sso_key{
+  width: 500px;
+}
+.display_none{
+  display: none;
+}
+#conv-export-comments .button.display_none{
+  display: none;
+}
+.export_finished{
+  color: #008000;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.export_loading{
+  color: inherit;
+  font-style: italic;
+  margin: 5px 0;
+  display: inline-block;
+}
+.export_error{
+  font-weight: bold;
+  color: #FF0000;
+  margin: 5px;
+  display: inline-block;
+}

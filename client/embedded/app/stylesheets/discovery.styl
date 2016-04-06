@@ -1,0 +1,85 @@
+// styling for the discovery widget
+
+.discoveryWidget_view
+  .articles
+  .topics
+    display none
+  &.HAS_FORUM_DISCOVERY
+    .topics
+      display inline-block
+      width 100%
+      float left
+  &.HAS_ARTICLE_DISCOVERY
+    .articles
+      display inline-block
+      width 100%
+      float left
+  &.HAS_FORUM_DISCOVERY.HAS_ARTICLE_DISCOVERY
+    .topics
+    .articles
+      @media(min-width: 480px)
+        width 48.87%
+    .articles
+      @media(min-width: 480px)
+        margin-left 2.25%
+
+  .btn-embed
+    margin 5px 0
+  .header
+    margin-top 10px
+    margin-bottom 5px
+    a
+      margin-top 0px
+  .header .yolos
+  .header .no_contexts
+  > .yolos
+    font-weight bold
+    font-size 14px
+    line-height 1.5em
+  .discoveryContextPreview_view
+    clear both
+    padding 5px 5px 2px 10px
+    border-right 1px solid lightgray
+    border-bottom 1px solid lightgray
+    border-left 1px solid lightgray
+    min-height 40px
+    a
+      text-decoration none
+    &:first-child
+      border-top 1px solid lightgray
+    &:first
+      border-top 1px solid lightgray
+    .topic-author
+      padding-right 10px
+      .author_image
+        width 20px
+        max-height 20px
+    .topic-title
+      h4
+        display inline
+      a
+        font-weight bold
+      padding-right 45px
+      width auto
+      max-width auto
+    .topic-stats
+      padding-top 3px
+      .badge
+        border-radius 0
+        margin-top 3px
+        margin-right 5px
+      .topic-actions
+        width auto
+        padding 0
+        .no_activities
+          font-weight bold
+          padding-right 5px
+      .started-on
+        width auto
+        min-width auto
+        padding 0
+    .comment-summary
+      width 100%
+    .summary-wrapper
+      overflow auto
+      width 100%

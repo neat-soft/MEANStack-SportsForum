@@ -1,0 +1,29 @@
+<head>
+  <title>{{#block "title"}} BurnZone Commenting System{{/block}}</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The BurnZone Commenting System provides a fully customisable 3rd party commenting platform that improves user experience and encourages users to comment." />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="/web/img/m/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="{{resource "/css/site.css"}}"/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,800italic,800,700italic,700' rel='stylesheet' type='text/css'/>
+  {{#ifeq template "marketing/moderator"}}
+    <link rel="stylesheet" type="text/css" href="{{resource "/css/moderator.css"}}"/>
+  {{/ifeq}}
+  {{#ifeq template "marketing/analytics"}}
+    <link rel="stylesheet" type="text/css" href="{{resource "/css/moderator.css"}}"/>
+  {{/ifeq}}
+  {{#if embed}}
+    <link rel="stylesheet" type="text/css" href="{{resource "/css/site-embed.css"}}"/>
+  {{/if}}
+  <!--[if lt IE 9]>
+    <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+    </script>
+  <![endif]-->
+</head>

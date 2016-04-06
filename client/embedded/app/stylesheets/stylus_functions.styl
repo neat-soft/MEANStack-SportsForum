@@ -1,0 +1,90 @@
+//Functions can be defined here to be used in Stylus
+
+@import "nib"
+
+vendor(prop, args...)
+    for vendor in ('-webkit-' '-khtml-' '-moz-' '-ms-' '-o-' '')
+        {vendor}{prop} args
+    
+border-radius()
+    vendor('border-radius', arguments)
+    
+box-shadow()
+    vendor('box-shadow', arguments)
+
+transition()
+    vendor('transition', arguments)
+
+transform()
+    vendor('transform', arguments)
+    
+transform-style()
+    vendor('transform-style', arguments)
+    
+perspective()
+    vendor('perspective', arguments)
+    
+perspective-origin()
+    vendor('perspective-origin', arguments)
+    
+perspective-origin-x()
+    vendor('perspective-origin-x', arguments)
+
+perspective-origin-y()
+    vendor('perspective-origin-y', arguments)
+
+transition()
+    vendor('transition', arguments)
+
+vendor-op(op, args...)
+    if current-property
+        for v in (webkit khtml moz ms o)
+            add-property(current-property[0], s("-%s-%s(%s)", v, op, unquote(join(',',args))))
+        s('%s(%s)', op, unquote(join(',',args)))
+    else
+        error('vendor-op() must be used within a property')
+        
+avgcolor(colors)
+    sumcolor = #000
+    for color in colors
+        sumcolor += color
+    sumcolor / length(colors)
+
+argbhex(color)
+    r = red(color)
+    g = green(color)
+    b = blue(color)
+    vals = 0 1 2 3 4 5 6 7 8 9 a \b c d e f
+    rhex = '%s%s' % (vals[floor(r / 16)] vals[r % 16])
+    ghex = '%s%s' % (vals[floor(g / 16)] vals[g % 16])
+    bhex = '%s%s' % (vals[floor(b / 16)] vals[b % 16])
+    '#%s%s%s%s' % (ff rhex ghex bhex)
+
+vertical-gradient(color1, color2)
+    background-color avgcolor(color1 color2) // Old browsers
+    background -webkit-gradient(linear, left top, left bottom, color-stop(0%,color1), color-stop(100%,color2)) 
+    /* IE < 10 */
+    add-property('-ms-filter', '"progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=%s, EndColorStr=%s)"' % (argbhex(color1) argbhex(color2)))
+    add-property('filter', 'progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=%s, EndColorStr=%s)' % (argbhex(color1) argbhex(color2)))
+    /* Chrome,Safari4+ */
+    background vendor-op(linear-gradient, top, color1 0%, color2 100%)
+
+horizontal-gradient(color1, color2)
+    background-color avgcolor(color1 color2) // Old browsers
+    /* IE < 10 */
+    add-property('-ms-filter', '"progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr=%s, EndColorStr=%s)"' % (argbhex(color1) argbhex(color2)))
+    add-property('filter', 'progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr=%s, EndColorStr=%s)' % (argbhex(color1) argbhex(color2)))
+    background -webkit-gradient(linear, left top, right top, color-stop(0%,color1), color-stop(100%,color2)) /* Chrome,Safari4+ */
+    background vendor-op(linear-gradient, left, color1 0%, color2 100%)
+    
+transform-rotate(deg)
+    transform('rotate(%s)' % deg)
+    r = 0
+    if deg == '90deg'
+        r = 1
+    else if deg == '180deg'
+        r = 2
+    else if deg = '270deg'
+        r = 3
+    add-property('-ms-filter', '"progid:DXImageTransform.Microsoft.BasicImage(rotation=%s)"' % r)
+    add-property('filter', 'progid:DXImageTransform.Microsoft.BasicImage(rotation=%s)' % r)

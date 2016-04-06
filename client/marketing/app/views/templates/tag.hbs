@@ -1,0 +1,24 @@
+{{#if options.level}}
+  <div class="img-container">
+    <img src='#' class='tag_image' data-rv-src='model.imageUrl' />
+  </div>
+  <input type='text' placeholder='Image url for the category' class='tag_image_url input-large form-control' data-rv-value='model.imageUrl' />
+  <div class="tagname-holder">
+    <input type='text' placeholder='Category text' class='tag_text input-large form-control' data-rv-value='model.displayName' />
+    <a data-toggle="tooltip" title="Category name must not be blank or contain the following characters: .:#" data-placement="bottom">
+      <i class="fa fa-warning text-danger"></i>
+    </a>
+  </div>
+  <input type='text' placeholder='Description' class='tag_desc input-large form-control' data-rv-value='model.description' />
+  <button class='delete btn btn-danger btn-sm'><i class="fa fa-trash-o"></i></button>
+{{/if}}
+{{#if canHaveSubTags}}
+  {{#if options.root}}
+    <div class='subtags'></div>
+    <br />
+    <button class='add_subtag btn btn-sm'><i class="fa fa-plus"></i>add new first level category</button>
+  {{else}}
+    <button class='add_subtag btn btn-sm'><i class="fa fa-plus"></i></button>
+    <div class='subtags'></div>
+  {{/if}}
+{{/if}}

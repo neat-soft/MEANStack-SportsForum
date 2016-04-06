@@ -1,0 +1,35 @@
+<b:includable id='main'>
+  <script type='text/javascript'>
+    window.conversait_sitename = "{{{sitename}}}";
+    var posts_script = document.createElement('script');
+    posts_script.type = 'text/javascript';
+    posts_script.async = true;
+    posts_script.src = '{{{host}}}/web/js/blogger-posts.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(posts_script);
+  </script>
+  <style type='text/css'>
+    .comment-link{display:none;}
+  </style>
+  <b:if cond='data:blog.pageType == "item"'>
+    <style type='text/css'>
+      #comments {display: none;}
+    </style>
+    <script type='text/javascript'>
+      (function(){
+        var comment_block = document.getElementById('comments');
+        var parent = comment_block.parentNode;
+        if (parent) {
+          var conv_div = document.createElement('div'); 
+          conv_div.id = 'conversait_area';
+          parent.insertBefore(conv_div, comment_block);
+          window.conversait_sitename = "{{{sitename}}}";
+          var conversait = document.createElement('script');
+          conversait.type = 'text/javascript'; 
+          conversait.async = true;
+          conversait.src = '{{{host}}}/web/js/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(conversait);
+        }
+      })();
+    </script>
+  </b:if>
+</b:includable>

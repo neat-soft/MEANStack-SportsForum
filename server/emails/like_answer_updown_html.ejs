@@ -1,0 +1,41 @@
+<h1>
+    {{ if job.likeChanges.up <= 0 && job.likeChanges.down != 0 { }}
+        {{ likedown = likeChanges.down > 0 }}
+            {{ if (likedown) { }}
+            Someone down-liked your answer
+        {{ } else { }}
+            Someone retracted the down-like for your answer
+        {{ } }}
+    {{ } else { }}
+        {{ likeup = likeChanges.up > 0 }}
+        {{ if (likeup) { }} 
+            Someone liked your answer
+        {{ } else { }}
+            Someone retracted the like for your answer
+        {{ } }}
+    {{ } }}
+</h1>
+<h3>
+    {{ if job.likeChanges.up <= 0 && job.likeChanges.down != 0 { }}
+        {{ likedown = likeChanges.down > 0 }}
+            {{ if (likedown) { }}
+            Someone down-liked your answer
+        {{ } else { }}
+            Someone retracted the down-like for your answer
+        {{ } }}
+    {{ } else { }}
+        {{ likeup = likeChanges.up > 0 }}
+        {{ if (likeup) { }} 
+            Someone liked your answer
+        {{ } else { }}
+            Someone retracted the like for your answer
+        {{ } }}
+    {{ } }}
+    at <a href="{{= url }}">{{= siteName}}: {{= conversationTitle}}</a>
+</h3>
+<p>{{= text }}</p>
+<strong>Likes</strong>: Up {{= no_likes }}, Down {{= no_likes_down }}
+<p class="bodyFooter">
+    <% include burnzonefooter_html %>
+</p>                                                
+                                            

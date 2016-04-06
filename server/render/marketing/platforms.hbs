@@ -1,0 +1,80 @@
+{{#partial "admin_content"}}
+
+<h3>BurnZone Commenting Plugins</h3><hr/>
+
+<p class="lead tc">
+  Use one of our plugins for your content system.
+</p>
+
+<div class="row install-types tc">
+
+  <div class="col-md-4">
+    {{#if admin}}
+      <a href="{{adminSectionUrl "/admin/install/wp"}}">
+    {{else}}
+      <a href="/install/wp">
+    {{/if}}
+      <img src="{{resource "/img/m/wordpress.png"}}"/>
+      <h4>WordPress</h4>
+    </a>
+  </div>
+
+  <div class="col-md-4">
+    {{#if admin}}
+      <a href="{{adminSectionUrl "/admin/install/blogger"}}">
+    {{else}}
+      <a href="/install/blogger">
+    {{/if}}
+      <img src="{{resource "/img/m/blogger.png"}}"/>
+      <h4>Blogger</h4>
+    </a>
+  </div>
+
+  <div class="col-md-4">
+    {{#if admin}}
+      <a href="{{adminSectionUrl "/admin/install/tumblr"}}">
+    {{else}}
+      <a href="/install/tumblr">
+    {{/if}}
+      <img src="{{resource "/img/m/tumblr.png"}}"/>
+      <h4>Tumblr</h4>
+    </a>
+  </div>
+</div>
+<div class="row install-types tc">
+  <div class="col-md-4">
+    {{#if admin}}
+      <a href="{{adminSectionUrl "/admin/install/vbulletin"}}">
+    {{else}}
+      <a href="/install/vbulletin">
+    {{/if}}
+      <img src="{{resource "/img/m/vbulletin.png"}}"/>
+      <h4>vBulletin</h4>
+    </a>
+  </div>
+
+  <div class="col-md-4">
+    {{#if admin}}
+      <a href="{{adminSectionUrl "/admin/install/typepad"}}">
+    {{else}}
+      <a href="/install/typepad">
+    {{/if}}
+      <img src="{{resource "/img/m/typepad.png"}}"/>
+      <h4>TypePad</h4>
+    </a>
+  </div>
+
+  <div class="col-md-4">
+    {{#if admin}}
+      <a href="{{adminSectionUrl "/admin/install/generic"}}">
+    {{else}}
+      <a href="/install/generic">
+    {{/if}}
+        <img src="{{resource "/img/m/code.png"}}"/>
+        <h4>Custom</h4>
+      </a>
+  </div>
+</div>
+{{/partial}}
+
+{{> marketing/install}}

@@ -1,0 +1,16 @@
+{{#partial "title"}} Successfully subscribed! {{/partial}}
+{{#partial "content"}}
+
+<div class="container">
+  <div class="row">
+    <div class="span12 subscription_verified">
+      {{#if context}}
+      <p class="lead">Your subscription to the conversation has been verified. You will now be notified whenever someone comments or challenges in it.</p>
+      {{else}}
+      <p class="lead">Your subscription to new conversations on {{siteName}} has been verified. You will now be notified whenever a new conversation is started.</p>
+      {{/if}}
+    </div>
+  </div>
+</div>
+{{/partial}}
+{{> marketing/layout}}

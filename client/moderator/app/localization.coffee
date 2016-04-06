@@ -1,0 +1,148 @@
+util = require("lib/shared/util")
+
+Handlebars.registerHelper('translate', (item)->
+  return new Handlebars.SafeString(module.exports.translate(item))
+)
+
+rivets.formatters.translate = (value)->
+  return translate(value)
+
+module.exports.terms =
+  "browser_support": "Burnzone is not supported in your browser. Please upgrade your browser to the latest version or change your browser to Mozilla or Chrome."
+  "login_to_comment": "Login to comment"
+  "comments": "Comments"
+  "allcomments": "All comments"
+  "allcontexts": "All forum topics"
+  "challenges": "Challenges"
+  "write_comment": "Enter your comment here"
+  "submit": "Submit"
+  "cancel": "Cancel"
+  "sort_by": "sorted by"
+  "oldest": "Oldest"
+  "newest": "Newest"
+  "points": "Points"
+  "no_points": "{value} Points"
+  "reply": "Reply"
+  "view_challenge": "View challenge"
+  "challenge": "Challenge"
+  "key_point": "Key point"
+  "no_comments": "{value} comment(s)"
+  "challenged_comment_title": "Comment you are challenging..."
+  "summarize_your_pv": "Summarize the point you are challenging..."
+  "enter_your_pv": "Enter your point of view..."
+  "vs": "vs"
+  "my_challenges": "My challenges"
+  "other_challenges": "Other challenges"
+  "enter_fb_uid": "Enter Facebook user id here"
+  "logout": "Logout"
+  "gravatar_profile": "Profile on Gravatar"
+  "days_ago": "{value} day(s) ago"
+  "hours_ago": "{value} hour(s) ago"
+  "minutes_ago": "{value} minute(s) ago"
+  "just_now": "just now"
+  "exact_time": "on {value}"
+  "my_profile": "My profile"
+  "challenge_comment": "Challenge Comment..."
+  "original_comment": "Original Comment..."
+  "or_login_with": "or login with"
+  "title_reset_leaderboard": "Reset the points in the leaderboard"
+  "title_challenge_star": "Your challenge"
+  "title_challenged": "This comment got challenged"
+  "title_reply": "Reply to this comment"
+  "title_view_challenge": "See why this comment got challenged"
+  "title_challenge": "Challenge this comment"
+  "title_challenged_comment_title" : "This is the comment you want to challenge"
+  "title_summarize_your_pv": "Briefly tell us what this is about"
+  "title_enter_your_pv": "Let us know your opinion"
+  "pending_comments": "Pending comments"
+  "pending_contexts": "Pending forum topics"
+  "pending_challenges": "Pending challenges"
+  "competitions": "Competitions"
+  "visit_conversation": "View conversation"
+  "approved": "Approved"
+  "approve": "Approve"
+  "delete": "Delete"
+  "delete_with_points": "Delete &amp; -20pts"
+  "deleted": "Deleted"
+  "forum_topic": "Forum"
+  "no": "NO"
+  "yes": "YES"
+  "flags": "Flags"
+  "clear_flags": "Clear flags"
+  "question": "Question"
+  "profile_auto_approve": "Auto approve content"
+  "profile_banned": "Not allowed to post any content"
+  "profile_held": "All content is held for approval"
+  "profiles_total": "Total"
+  "profile_moderator": "Moderator"
+  "profile_private_access": "Private access"
+  "user_profiles": "User profiles"
+  "save": "Save"
+  "challenged": "challenged"
+  "anonymous_marker": " (anonymous)"
+  "read_more": "(read more)"
+  "read_less": "(read less)"
+  "reset_leaderboard": "Reset Leaderboard"
+  "approveAutoNext": "Approve and mark user for auto approval"
+  "subscribers": "Subscribers"
+  "subscribe_site_comments": "Notify me about each comment posted on this site"
+  "spam": "Spam"
+  "set_spam": "This is spam"
+  "set_not_spam": "Not spam"
+  "competition_active": "Competition is ACTIVE"
+  "competition_ended": "Competition ended"
+  "competition_future": "Not started"
+  "competition_community": "Community name"
+  "competition_start": "Start date"
+  "competition_end": "End date"
+  "competition_period": "Competition Period"
+  "competition_share": "Require social media share"
+  "competition_verified": "Require user verification"
+  "competition_prize": "Prize"
+  "competition_prize_url": "Prize URL"
+  "competition_rules_url": "Rules URL"
+  "competition_badge": "Restrict to badge"
+  "competition_add": "Add"
+  "competition_update": "Update"
+  "competition_title": "Title"
+  "competition_edit": "Edit"
+  "competition_remove": "Remove"
+  "competition_leaderboard": "Leaderboard"
+  "title_add_competition": "Create a new competition"
+  "title_edit_competition": "Change competition"
+  "title_remove_competition": "Delete competition"
+  "title_view_competition_leaderboard": "View competition leaderboard"
+  "title_set_moderator": "Change moderator status"
+  "title_private_access": "Set whether the users is allowed to access private threads"
+  "export_to_csv": "Export to CSV"
+  "bet_winning_side": "Winning side"
+  "undecided": "undecided"
+  "tie": "tie"
+  "accepted": "users who accepted"
+  "joined": "author"
+  "unresolved_bets": "Unresolved Yolos"
+  "resolve_bet_side": "Pick Yolo winner"
+  "resolve_joined": "Author"
+  "resolve_accepted": "Users who accepted"
+  "resolve_tie": "Tie (nobody wins)"
+  "bet_resolved": "Resolved"
+  "yolo": "Yolo"
+
+module.exports.loadTerms = (newTerms)->
+  module.exports.terms = newTerms
+  buildLocalizationHelpers()
+
+module.exports.translate = translate = (term, options)->
+  tr = module.exports.terms[term]
+  if not tr?
+    tr = "*#{term}"
+  return util.formatString(tr, options)
+
+module.exports.buildLocalizationHelpers = buildLocalizationHelpers = ->
+  for own name, func of rivets.formatters
+    if name.indexOf("t_") == 0
+      rivets.formatters[name] = null
+  for own term, value of module.exports.terms
+    do (term) ->
+      rivets.formatters["t_" + term] = (value)->
+        return translate(term, {value: value})

@@ -1,0 +1,283 @@
+@import "variables"
+
+html
+  background bzBlue
+
+#home
+  h2
+    text-align center
+  img
+    border 3px solid lightGray
+  .bz_com_demo_btn
+    margin-right 100px
+  .soon_note
+    font-size small
+    display block
+    text-align center    
+  .small_offer_note
+    font-size small
+    display block
+
+  .banner_section
+    background url('{{{resourcePath}}}/img/m/top_bg.jpg') no-repeat center center
+    -webkit-background-size cover
+    -moz-background-size cover
+    -o-background-size cover
+    background-size cover
+    color white
+    text-align center
+    min-height 483px
+    margin-bottom 0px
+    h1
+      margin 45px 0 30px 0
+    .content_cta
+      padding 8px 12px
+      background orange
+      color white
+      transition all 0.2s linear 0s
+      font-weight bold
+      border-radius 3px
+      &:hover
+        color white
+        background transparent
+        border 1px dashed orange
+    .tagline
+      font-size 24px
+      font-weight bold
+    .links
+      font-weight bold
+      a
+        transition all 0.2s linear 0s
+        color lightGray
+        &:hover
+          text-decoration none
+          color white
+          
+  /* Feature Box */
+  .feature-box
+    clear both
+    h4
+      font-size 1.4em
+      letter-spacing normal
+      line-height 27px
+      margin 0px 0px 14px
+      font-weight 400
+      margin-bottom 0px
+
+  .feature-box .feature-box-icon
+    background #CCC
+    border-radius 35px
+    color bzBlue
+    display inline-block
+    float left
+    height 35px
+    line-height 35px
+    margin-right 10px
+    position relative
+    text-align center
+    top 5px
+    width 35px
+
+  .feature-box .feature-box-info
+    padding-left 50px
+
+  /* Secundary */
+  .feature-box.secundary h4
+    color #0e0e0e
+
+  .feature-box.secundary .feature-box-icon
+    background transparent
+    width 44px
+    height 50px
+
+  .feature-box.secundary .feature-box-icon i.fa
+    font-size 28px
+
+  .feature-box.secundary .feature-box-info
+    padding-left 54px
+
+  /* Icon Featured */
+  .icon-featured
+    border-radius 100%
+    color white
+    font-size 40px
+    line-height 110px
+    margin 25px 0
+    padding 25px
+    display inline-block
+    padding 0
+    width 110px
+    height 110px
+
+  ul.image-list
+    list-style none
+    margin 0
+    padding 0
+
+  ul.image-list .image-item
+    margin-bottom 35px
+    
+  
+  /* Word Rotate */
+  .word-rotate
+    display inline-block;
+    overflow hidden;
+    text-align center;
+    position relative;
+    max-height 22px;
+    line-height 22px;
+
+  .word-rotate .word-rotate-items
+    position relative
+    top 0
+    width 0
+    display inline-block
+
+  .word-rotate .word-rotate-items span
+    display inline-block
+    white-space nowrap
+
+  .word-rotate .word-rotate-items spannot(first-child)
+    display none
+
+  .word-rotate.active .word-rotate-items
+    position relative
+
+  .word-rotate.active .word-rotate-items span
+    display inline-block
+    
+  .word-rotate.word-rotate-revenue
+    margin-bottom 3px
+
+  .inverted
+    background-color orange
+    color white
+    padding 1px 5px 0px 10px
+    margin-right 5px
+
+  h3.word-rotator-title .inverted
+    min-height 25px
+
+  h3.word-rotator-title .word-rotate
+    max-height 28px
+    line-height 29px
+    
+  
+  /* Word Rotate */
+  .word-rotate
+    display inline-block
+    overflow hidden
+    text-align center
+    position relative
+    max-height 22px
+    line-height 22px
+
+  .word-rotate .word-rotate-items
+    position relative
+    top 0
+    width 0
+    display inline-block
+
+  .word-rotate .word-rotate-items span
+    display inline-block
+    white-space nowrap
+
+  .word-rotate .word-rotate-items spannot(first-child)
+    display none
+
+  .word-rotate.active .word-rotate-items
+    position relative
+
+  .word-rotate.active .word-rotate-items span
+    display inline-block
+    
+  .word-rotate.word-rotate-revenue
+    margin-bottom 3px
+
+  .inverted
+    background-color orange
+    color white
+    padding-left 2px
+    padding-right 2px
+    display inline-block
+  h3.word-rotator-title .inverted
+    min-height 25px
+
+  h3.word-rotator-title .word-rotate
+    line-height 24px
+    max-height 24px
+    margin-bottom -2px
+    text-transform uppercase
+    
+  /* fall down effect*/
+  .cl-effect-fd a
+    color #6f8686
+    text-shadow 0 0 1px rgba(111,134,134,0.3)
+    text-decoration none
+  .cl-effect-fd a::before
+    color #fff
+    content attr(data-hover)
+    position absolute
+    opacity 0
+    text-shadow 0 0 1px rgba(255,255,255,0.3)
+    -webkit-transform scale(1.1) translateX(10px) translateY(-10px) rotate(4deg)
+    -moz-transform scale(1.1) translateX(10px) translateY(-10px) rotate(4deg)
+    transform scale(1.1) translateX(10px) translateY(-10px) rotate(4deg)
+    -webkit-transition -webkit-transform 0.3s, opacity 0.3s
+    -moz-transition -moz-transform 0.3s, opacity 0.3s
+    transition transform 0.3s, opacity 0.3s
+    pointer-events none
+
+  .cl-effect-fd a:hover::before,
+  .cl-effect-fd a:focus::before
+    -webkit-transform scale(1) translateX(0px) translateY(0px) rotate(0deg)
+    -moz-transform scale(1) translateX(0px) translateY(0px) rotate(0deg)
+    transform scale(1) translateX(0px) translateY(0px) rotate(0deg)
+    opacity 1
+
+  /* Responsive */
+  @media(max-width:991px)
+    ul.image-list .image-item
+      margin 0 auto 35px
+      max-width 300px
+  @media(min-width: 650px)
+    .links_demo
+      margin-top 50px
+      .bz_com_demo
+        margin-right 30%
+      .bz_forum
+        position relative
+        left -80px
+        
+  @media(max-width: 420px)
+    .banner_section
+      .text-separator
+        display none
+      h1
+        font-size 25px
+      .links a
+        font-size 16px
+        display block
+      .tagline
+        font-size 18px
+      .links_demo
+        .bz_com_demo
+          margin-bottom 10px
+
+  @media(min-width: 421px)
+    .banner_section
+      .links_demo
+        .bz_com_demo
+          margin-bottom 0px
+
+  /* Analytics */
+  #analytics
+    .thumbnail
+      border none
+      margin-bottom none
+  
+  .pricing
+    text-align center
+    a
+      padding 8px 22px
+      font-size 16px

@@ -1,0 +1,65 @@
+{{#if model.attributes.deleted}}
+<td>
+  <td class="left_box pull-left">
+    <!-- icon here -->
+  </td>
+  <td class="pull-right started-on">
+    <small class="time"></small>
+  </td>
+  <td class="deleted_info">
+    <em>
+      <a class='thread-link' href="{{app.integration.url}}#brzn/contexts/{{model.id}}">{{translate "context_deleted"}}</a>
+    </em>
+  </td>
+  <td class="options_bar">
+    <a class="thread-link no_comments" href="{{app.integration.url}}#brzn/contexts/{{model.id}}" data-rv-text="model.no_all_activities"></a>
+    <a class="thread-link no_new_comments" href="{{app.integration.url}}#brzn/contexts/{{model.id}}" data-rv-text="model.no_new_activities | t_no_forum_new_comments"></a>
+    <span class="comment_action_group left"></span>
+  </td>
+</td>
+{{else}}
+  <td class="topic-commenters thread-column">
+    <span class="commenters"></span>
+  </td>
+  <td class="thread-title thread-column">
+    <div>
+      <h4 class="truncate"><a href="{{app.integration.url}}#brzn/contexts/{{model.id}}" class="text thread-link" data-rv-text="model.text"></a></h4>
+      {{#ifeq model.attributes.type "ARTICLE"}}
+        <a href="{{model.attributes.initialUrl}}" title="{{translate "go_to_article"}}" target="_blank" class="comment_action_group middle goto-article"> <i class="icon-external-link"></i></a>
+      {{/ifeq}}
+    </div>
+    {{#if model.attributes.private}}
+      <span class='pull-right label label-flat'>{{translate 'forum_is_private'}}</span>
+    {{/if}}
+  </td>
+  <td class="moderator-control-forum">
+    <div class="mod-menu moderator-control btn-group pull-right flat-dropdown">
+      <button class="btn-clean dropdown-toggle mod-menu-toggle" data-toggle="dropdown">
+        <i class="icon-legal"></i>
+      </button>
+      <div class="dropdown-menu pull-left">
+        <div class='articleModerator_view'></div>
+      </div>
+    </div>
+  </td>
+  <td class="topic-tags thread-column">
+    {{#each model.attributes.tags}}
+      <!-- Dynamic background color, using inline style -->
+      <a href="#" class="tag label label-flat" data-tag='{{this}}' style="border-color: {{color this}}; color: {{color this}}">{{this}}</a>
+    {{/each}}
+  </td>
+  <td class="topic-actions thread-column sortable column-comments">
+    <a class="thread-link no_comments comment_action_group" href="{{app.integration.url}}#brzn/contexts/{{model.id}}" data-rv-text="model.no_all_activities"></a>
+    <a class="thread-link no_new_comments thread-column comment_action_group" href="{{app.integration.url}}#brzn/contexts/{{model.id}}" data-rv-text="model.no_new_activities | t_no_forum_new_comments"></a>
+  </td>
+  <td class="started-on thread-column sortable column-latest-activity">
+    <small class="time" title="{{translate "forum-time"}}"></small>
+  </td>
+
+  {{#if app.asModerator}}
+    <div>
+      <button class="delete btn btn-danger">{{translate "delete"}}</button>
+    </div>
+  {{/if}}
+
+{{/if}}
